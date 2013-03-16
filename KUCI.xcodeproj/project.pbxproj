@@ -130,8 +130,8 @@
 		0851497F167DA65C00D1ED43 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				08F537BB169CDBB200685480 /* CoreMedia.framework */,
 				08363E101690FFDB009BFE33 /* libxml2.dylib */,
+				08F537BB169CDBB200685480 /* CoreMedia.framework */,
 				089C262C1680F1E70058567E /* AVFoundation.framework */,
 				08514980167DA65C00D1ED43 /* UIKit.framework */,
 				08514982167DA65C00D1ED43 /* Foundation.framework */,
@@ -145,23 +145,17 @@
 			children = (
 				0851498F167DA65C00D1ED43 /* AppDelegate.h */,
 				08514990167DA65C00D1ED43 /* AppDelegate.m */,
-				08331EB91691191B00B9796F /* Show.h */,
-				08331EBA1691191B00B9796F /* Show.m */,
-				08514987167DA65C00D1ED43 /* Supporting Files */,
+				08F9EF0016F2F9BD008966C4 /* Classes */,
 				085149B6167E6EEE00D1ED43 /* View Controllers */,
 				085149C0167EBC3800D1ED43 /* XIBs */,
+				08514987167DA65C00D1ED43 /* Supporting Files */,
 			);
-			name = KUCI;
-			path = NavTest;
+			path = KUCI;
 			sourceTree = "<group>";
 		};
 		08514987167DA65C00D1ED43 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				08331EB31691016A00B9796F /* HTMLNode.h */,
-				08331EB41691016A00B9796F /* HTMLNode.m */,
-				08331EB51691016A00B9796F /* HTMLParser.h */,
-				08331EB61691016A00B9796F /* HTMLParser.m */,
 				08514988167DA65C00D1ED43 /* KUCI-Info.plist */,
 				08514989167DA65C00D1ED43 /* InfoPlist.strings */,
 				0851498C167DA65C00D1ED43 /* main.m */,
@@ -215,7 +209,20 @@
 				08349BF5167FA56200490037 /* TabBarBackground@2x.png */,
 			);
 			name = Resources;
-			path = NavTest;
+			path = KUCI;
+			sourceTree = "<group>";
+		};
+		08F9EF0016F2F9BD008966C4 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				08331EB91691191B00B9796F /* Show.h */,
+				08331EBA1691191B00B9796F /* Show.m */,
+				08331EB31691016A00B9796F /* HTMLNode.h */,
+				08331EB41691016A00B9796F /* HTMLNode.m */,
+				08331EB51691016A00B9796F /* HTMLParser.h */,
+				08331EB61691016A00B9796F /* HTMLParser.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

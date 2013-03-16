@@ -388,8 +388,8 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "NavTest/KUCI-Prefix.pch";
-				INFOPLIST_FILE = "NavTest/KUCI-Info.plist";
+				GCC_PREFIX_HEADER = "KUCI/KUCI-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/KUCI/KUCI-Info.plist";
 				PRODUCT_NAME = KUCI;
 				WRAPPER_EXTENSION = app;
 			};
@@ -400,8 +400,8 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "NavTest/KUCI-Prefix.pch";
-				INFOPLIST_FILE = "NavTest/KUCI-Info.plist";
+				GCC_PREFIX_HEADER = "KUCI/KUCI-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/KUCI/KUCI-Info.plist";
 				PRODUCT_NAME = KUCI;
 				WRAPPER_EXTENSION = app;
 			};

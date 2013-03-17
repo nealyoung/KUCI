@@ -35,6 +35,7 @@
     
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar.png"]];
     self.navigationItem.title = @"Schedule";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Today" style:UIBarButtonItemStylePlain target:self action:@selector(scrollToCurrentDay)];
     
     // Fetch and parse the schedule from the KUCI website
     [self parseSchedule];
@@ -109,6 +110,39 @@
             [shows addObject:dayShows];
         }
     }
+}
+
+- (void)scrollToCurrentDay {
+    // Sunday = 1, Saturday = 7
+    NSInteger currentDay = [[[NSCalendar currentCalendar] components:NSWeekdayCalendarUnit fromDate:[NSDate date]] weekday];
+    NSInteger section;
+    
+    // Set section to the appropriate section (Monday = 0, Sunday = 6)
+    switch (currentDay) {
+        case 1:
+            section = 6;
+            break;
+        case 2:
+            section = 0;
+            break;
+        case 3:
+            section = 1;
+            break;
+        case 4:
+            section = 2;
+            break;
+        case 5:
+            section = 3;
+            break;
+        case 6:
+            section = 4;
+            break;
+        case 7:
+            section = 5;
+            break;
+    }
+    
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -27,7 +27,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.tableView.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]];
+    self.tableView.backgroundView = nil;
+    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.navigationItem.title = self.show.title;
     
     self.titleLabel.text = self.show.title;
@@ -104,25 +105,44 @@
         }
     }
     
+    cell.detailTextLabel.textColor = [UIColor darkGrayColor];
     
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 22;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 22)];
+    view.backgroundColor = [UIColor clearColor];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 280, 22)];
+    label.backgroundColor = [UIColor clearColor];
+    
+    label.shadowColor = [UIColor blackColor];
+    label.shadowOffset = CGSizeMake(0, 1);
+    label.textColor = [UIColor whiteColor];
+    label.font = [UIFont boldSystemFontOfSize:14];
+
+    label.text = [tableView.dataSource tableView:tableView titleForHeaderInSection:section];
+    
+    [view addSubview:label];
+    
+    return view;
+}
+
 #pragma mark - UITableViewDelegate
-#define CELL_CONTENT_WIDTH 300
-#define CELL_CONTENT_MARGIN 10
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     // Check if the description section's height is being calculated, if not, return the default row height
     if (indexPath.section == 1) {
         CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2), 20000.0f);
         CGSize size = [self.show.description sizeWithFont:[UIFont systemFontOfSize:17] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
-        CGFloat height = MAX(size.height, 44.0f);
+        CGFloat height = MAX(size.height + (CELL_CONTENT_MARGIN * 2), 44.0f);
         
-        NSLog(@"Height: %f", tableView.rowHeight);
-
-        
-        return height + (CELL_CONTENT_MARGIN * 2);
+        return height;
     } else {
         return tableView.rowHeight;
     }

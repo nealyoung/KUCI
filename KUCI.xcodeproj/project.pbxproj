@@ -36,6 +36,8 @@
 		085149D2167ECDB300D1ED43 /* StreamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 085149D0167ECDB300D1ED43 /* StreamViewController.xib */; };
 		088D717F16F566F7002DF434 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 088D717D16F566F7002DF434 /* background@2x.png */; };
 		088D718016F566F7002DF434 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 088D717E16F566F7002DF434 /* background.png */; };
+		088D718A16F5889A002DF434 /* tableviewbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 088D718916F5889A002DF434 /* tableviewbackground.png */; };
+		088D718C16F5B68E002DF434 /* ShowData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 088D718B16F5B68E002DF434 /* ShowData.plist */; };
 		089C262D1680F1E70058567E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089C262C1680F1E70058567E /* AVFoundation.framework */; };
 		089C26311680FAD60058567E /* schedule.png in Resources */ = {isa = PBXBuildFile; fileRef = 089C262F1680FAD60058567E /* schedule.png */; };
 		089C26321680FAD60058567E /* schedule@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 089C26301680FAD60058567E /* schedule@2x.png */; };
@@ -86,6 +88,8 @@
 		085149D0167ECDB300D1ED43 /* StreamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StreamViewController.xib; sourceTree = "<group>"; };
 		088D717D16F566F7002DF434 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
 		088D717E16F566F7002DF434 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		088D718916F5889A002DF434 /* tableviewbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableviewbackground.png; sourceTree = "<group>"; };
+		088D718B16F5B68E002DF434 /* ShowData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ShowData.plist; sourceTree = "<group>"; };
 		089C262C1680F1E70058567E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		089C262F1680FAD60058567E /* schedule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = schedule.png; sourceTree = "<group>"; };
 		089C26301680FAD60058567E /* schedule@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "schedule@2x.png"; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 		08514987167DA65C00D1ED43 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				088D718B16F5B68E002DF434 /* ShowData.plist */,
 				08514988167DA65C00D1ED43 /* KUCI-Info.plist */,
 				08514989167DA65C00D1ED43 /* InfoPlist.strings */,
 				0851498C167DA65C00D1ED43 /* main.m */,
@@ -197,6 +202,7 @@
 		085149C3167EC3B500D1ED43 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				088D718916F5889A002DF434 /* tableviewbackground.png */,
 				088D717D16F566F7002DF434 /* background@2x.png */,
 				088D717E16F566F7002DF434 /* background.png */,
 				08331EC816917C2E00B9796F /* navbar.png */,
@@ -305,6 +311,8 @@
 				08331EDD1692738100B9796F /* ShowDetailViewController.xib in Resources */,
 				088D717F16F566F7002DF434 /* background@2x.png in Resources */,
 				088D718016F566F7002DF434 /* background.png in Resources */,
+				088D718A16F5889A002DF434 /* tableviewbackground.png in Resources */,
+				088D718C16F5B68E002DF434 /* ShowData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

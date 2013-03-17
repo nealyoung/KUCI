@@ -31,7 +31,7 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.navItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar.png"]];
 
-    NSString *streamUrl = @"http://kuci.org:889";
+    NSString *streamUrl = @"http://streamer.kuci.org:889/";
     NSURL *stream = [NSURL URLWithString:streamUrl];
     
     self.player = [[AVPlayer alloc] initWithURL:stream];
@@ -42,20 +42,6 @@
     [self.player play];
     [self.player pause];
 }
-
-/*
-- (void)addPlayButton {
-    _playButton = [[UIButton alloc] initWithFrame:CGRectMake(55, 120, 210, 210)];
-    [playButton addTarget:self
-                   action:@selector(toggleStream)
-         forControlEvents:UIControlEventTouchUpInside];
-    
-    [playButton setBackgroundImage:[UIImage imageNamed:@"play.png"]
-                          forState:UIControlStateNormal];
-    
-    [self.view addSubview:playButton];
-}
-*/
 
 - (IBAction)toggleStream:(UIButton *)sender {
     if (self.player.rate == 0.0) {

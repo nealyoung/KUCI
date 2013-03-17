@@ -31,6 +31,16 @@
     self.tabController.tabBar.backgroundImage = [UIImage imageNamed:@"TabBarBackground.png"];
     self.tabController.tabBar.selectedImageTintColor = [UIColor whiteColor];
     
+    NSError *sessionError = nil;
+    [[AVAudioSession sharedInstance] setDelegate:self];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&sessionError];
+    
+    UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;
+    AudioSessionSetProperty(kAudioSessionProperty_OverrideAudioRoute, sizeof(audioRouteOverride), &audioRouteOverride);
+    
+    UInt32 doChangeDefaultRoute = 1;
+    AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof(doChangeDefaultRoute), &doChangeDefaultRoute);
+    
     [self.window setRootViewController:self.tabController];
     [self.window makeKeyAndVisible];
 

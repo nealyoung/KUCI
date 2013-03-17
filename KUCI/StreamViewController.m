@@ -34,6 +34,9 @@
     NSString *streamUrl = @"http://streamer.kuci.org:889/";
     NSURL *stream = [NSURL URLWithString:streamUrl];
     
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    
     self.player = [[AVPlayer alloc] initWithURL:stream];
     
     //
@@ -53,6 +56,31 @@
         [sender setBackgroundImage:[UIImage imageNamed:@"play.png"]
                           forState:UIControlStateNormal];
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    
+    [self becomeFirstResponder];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+    
+    [self resignFirstResponder];
+}
+
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event {
+    [self toggleStream:self.playButton];
+
+    if (event.type == UIEventTypeRemoteControl) {
+    }
+}
+
+- (BOOL)canBecomeFirstResponder {
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    self.tableView.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]];
     self.navigationItem.title = self.show.title;
     
     self.titleLabel.text = self.show.title;
@@ -53,22 +53,19 @@
         return @"Info";
     } else if (section == 1) {
         return @"Description";
-    } else if (section == 2) {
-        return @"Web";
     } else {
-        return @"Host";
+        return @"Links";
     }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Info, description, and link sections
     if (section == 0) {
-        return 4;
+        return 3;
     } else if (section == 1) {
         return 1;
-    } else if (section == 2) {
-        return 2;
     } else {
-        return 0;
+        return 2;
     }
 }
 
@@ -91,12 +88,12 @@
         } else if (indexPath.row == 2) {
             cell.textLabel.text = @"Time";
             cell.detailTextLabel.text = self.show.time;
-        } else if (indexPath.row == 3) {
-            cell.textLabel.text = @"Description";
-            cell.detailTextLabel.text = self.show.description;
         }
     } else if (indexPath.section == 1) {
+        cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        cell.textLabel.numberOfLines = 0;
         cell.textLabel.text = self.show.description;
+        cell.textLabel.font = [UIFont systemFontOfSize:17];
     } else if (indexPath.section == 2) {
         if (indexPath.row == 0) {
             cell.textLabel.text = @"Website";
@@ -112,6 +109,24 @@
 }
 
 #pragma mark - UITableViewDelegate
+#define CELL_CONTENT_WIDTH 300
+#define CELL_CONTENT_MARGIN 10
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Check if the description section's height is being calculated, if not, return the default row height
+    if (indexPath.section == 1) {
+        CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2), 20000.0f);
+        CGSize size = [self.show.description sizeWithFont:[UIFont systemFontOfSize:17] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+        CGFloat height = MAX(size.height, 44.0f);
+        
+        NSLog(@"Height: %f", tableView.rowHeight);
+
+        
+        return height + (CELL_CONTENT_MARGIN * 2);
+    } else {
+        return tableView.rowHeight;
+    }
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 

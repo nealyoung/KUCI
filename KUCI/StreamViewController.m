@@ -19,9 +19,7 @@
     
     if (self) {
         // Custom initialization        
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Listen"
-                                                        image:[UIImage imageNamed:@"music.png"]
-                                                          tag:1];
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Listen" image:[UIImage imageNamed:@"music.png"] tag:1];
     }
     
     return self;
@@ -29,27 +27,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-
-    /*
-    [self addPlayButton];
     
-    //
-    // Create a navigation bar
-    //
-    navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    navBar.tintColor = [UIColor blackColor];
-    self.view.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
-    
-    //
-    // Give the navigation bar a title without setting up a navigation controller, and add the bar to the view
-    //
-    UINavigationItem *navItem = [[UINavigationItem alloc] init];
-    navItem.title = @"Listen";
-    [navBar pushNavigationItem:navItem animated:NO];
-    [self.view addSubview:navBar];
-    */
-    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.navItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar.png"]];
 
     NSString *streamUrl = @"http://kuci.org:889";

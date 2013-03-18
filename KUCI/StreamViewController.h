@@ -1,6 +1,6 @@
 //
 //  StreamViewController.h
-//  NavTest
+//  KUCI
 //
 //  Created by Nealon Young on 12/16/12.
 //  Copyright (c) 2012 Nealon Young. All rights reserved.

@@ -1,5 +1,5 @@
 //
-//  RootViewController.m
+//  ScheduleViewController.m
 //  KUCI
 //
 //  Created by Nealon Young on 12/16/12.
@@ -34,7 +34,7 @@
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar.png"]];
     self.navigationItem.title = @"Schedule";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Today" style:UIBarButtonItemStylePlain target:self action:@selector(scrollToCurrentDay)];
-    
+    self.tableView.backgroundColor = [UIColor colorWithRed:0.92 green:0.92 blue:0.92 alpha:1.0];
     // Fetch and parse the schedule from the KUCI website
     [self parseSchedule];
 }
@@ -155,11 +155,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-//////////////////////////////////
-//
-// UITableViewDataSource
-//
-//////////////////////////////////
+#pragma mark - UITableViewDataSource
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [shows count];
 }
@@ -182,13 +179,11 @@
     }
 }
 
-- (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [shows[section] count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *cellIdentifier = @"ShowCell";
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -200,19 +195,23 @@
     Show *show = shows[indexPath.section][indexPath.row];
     
     cell.textLabel.text = show.title;
+    cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", show.time];
+    cell.detailTextLabel.textColor = [UIColor darkGrayColor];
+    cell.detailTextLabel.backgroundColor = [UIColor clearColor];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cellbackground.png"]];
+    cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cellbackgroundselected.png"]];
+    cell.textLabel.highlightedTextColor = [UIColor blackColor];
+    cell.detailTextLabel.highlightedTextColor = [UIColor darkGrayColor];
+    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     
     return cell;
 }
 
-//////////////////////////////////
-//
-// UITableViewDelegate
-//
-//////////////////////////////////
+#pragma mark - UITableViewDelegate
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ShowDetailViewController *showDetail = [[ShowDetailViewController alloc] initWithNibName:@"ShowDetailViewController" bundle:nil];
     showDetail.show = shows[indexPath.section][indexPath.row];

@@ -14,8 +14,7 @@
 
 @implementation ShowDetailViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -23,22 +22,19 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"ShowData" ofType:@"plist"];
+    self.showData = [[NSDictionary alloc] initWithContentsOfFile:path];
+    
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.navigationItem.title = self.show.title;
     
-    self.titleLabel.text = self.show.title;
-    self.hostLabel.text = [NSString stringWithFormat:@"Host: %@", self.show.host];
-    self.timeLabel.text = [NSString stringWithFormat:@"Time: %@", self.show.time];
-    self.descriptionLabel.text = self.show.description;
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -46,7 +42,12 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    // Check if there are any links for the show. If not, don't show the links section.
+    if ([[[self.showData objectForKey:self.show.title] allKeys] count] > 0) {
+        return 3;
+    } else {
+        return 2;
+    }
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -66,7 +67,8 @@
     } else if (section == 1) {
         return 1;
     } else {
-        return 2;
+        // Number of links
+        return [[[self.showData objectForKey:self.show.title] allKeys] count];
     }
 }
 
@@ -96,16 +98,19 @@
         cell.textLabel.text = self.show.description;
         cell.textLabel.font = [UIFont systemFontOfSize:17];
     } else if (indexPath.section == 2) {
-        if (indexPath.row == 0) {
-            cell.textLabel.text = @"Website";
-            cell.detailTextLabel.text = @"tpsreportshow.tumblr.com";
-        } else if (indexPath.row == 1) {
-            cell.textLabel.text = @"Twitter";
-            cell.detailTextLabel.text = @"@tpsreportshow";
+        // Check if there is any online data for the show
+        NSDictionary *socialData = [self.showData objectForKey:self.show.title];
+        
+        if (socialData != nil) {
+            NSArray *keys = [socialData allKeys];
+            
+            cell.textLabel.text = keys[indexPath.row];
+            cell.detailTextLabel.text = [socialData objectForKey:keys[indexPath.row]];
         }
     }
-    
+
     cell.detailTextLabel.textColor = [UIColor darkGrayColor];
+    cell.backgroundColor = [UIColor colorWithRed:0.83 green:0.83 blue:0.83 alpha:1.0];
     
     return cell;
 }
@@ -118,13 +123,13 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 22)];
     view.backgroundColor = [UIColor clearColor];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 280, 22)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(22, 0, 280, 22)];
     label.backgroundColor = [UIColor clearColor];
     
     label.shadowColor = [UIColor blackColor];
-    label.shadowOffset = CGSizeMake(0, 1);
-    label.textColor = [UIColor whiteColor];
-    label.font = [UIFont boldSystemFontOfSize:14];
+    label.shadowOffset = CGSizeMake(1, 1);
+    label.textColor = [UIColor colorWithRed:0.75 green:0.75 blue:0.75 alpha:1.0];
+    label.font = [UIFont boldSystemFontOfSize:15];
 
     label.text = [tableView.dataSource tableView:tableView titleForHeaderInSection:section];
     

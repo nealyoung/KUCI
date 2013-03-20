@@ -1,6 +1,6 @@
 //
 //  main.m
-//  NavTest
+//  KUCI
 //
 //  Created by Nealon Young on 12/15/12.
 //  Copyright (c) 2012 Nealon Young. All rights reserved.

@@ -12,21 +12,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    // Set custom navigation bar background
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationbarbackground.png"] forBarMetrics:UIBarMetricsDefault];
 
+    // Create view controllers for the different tabs
     UIViewController *rootView = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:nil];
     UIViewController *labelTabView = [[StreamViewController alloc] initWithNibName:@"StreamViewController" bundle:nil];
     
     self.tabController = [[UITabBarController alloc] init];
-    self.navController = [[UINavigationController alloc] initWithRootViewController:rootView];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:rootView];
     
     NSMutableArray *tabs = [[NSMutableArray alloc] init];
     
-    [tabs addObject:self.navController];
+    [tabs addObject:navController];
     [tabs addObject:labelTabView];
     
     [self.tabController setViewControllers:tabs animated:NO];
     
-    self.navController.navigationBar.tintColor = [UIColor blackColor];
+    navController.navigationBar.tintColor = [UIColor blackColor];
 
     self.tabController.tabBar.backgroundImage = [UIImage imageNamed:@"TabBarBackground.png"];
     self.tabController.tabBar.selectedImageTintColor = [UIColor whiteColor];

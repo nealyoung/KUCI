@@ -2,6 +2,26 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Non-Profits For Us</key>
+	<dict>
+		<key>Website</key>
+		<string>nonprofitsforus.wordpress.com</string>
+	</dict>
+	<key>Hot Hot Beats</key>
+	<dict>
+		<key>Website</key>
+		<string>creepinsidemyhead.tumblr.com</string>
+	</dict>
+	<key>Banana Stand Jams</key>
+	<dict>
+		<key>Website</key>
+		<string>bananastandjams.tumblr.com</string>
+	</dict>
+	<key>Nirvanic Trance</key>
+	<dict>
+		<key>Website</key>
+		<string>facebook.com/NirvanicTrance</string>
+	</dict>
 	<key>Privacy Piracy</key>
 	<dict>
 		<key>Twitter</key>

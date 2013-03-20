@@ -31,7 +31,14 @@
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.navigationItem.title = self.show.title;
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
+    // Deselect selected row when browser is dismissed
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -92,11 +99,18 @@
             cell.textLabel.text = @"Time";
             cell.detailTextLabel.text = self.show.time;
         }
+        
+        // Disable selection for info cells
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     } else if (indexPath.section == 1) {
         cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
         cell.textLabel.numberOfLines = 0;
+        cell.textLabel.textColor = [UIColor darkGrayColor];
         cell.textLabel.text = self.show.description;
         cell.textLabel.font = [UIFont systemFontOfSize:17];
+        
+        // Disable selection for info cells
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     } else if (indexPath.section == 2) {
         // Check if there is any online data for the show
         NSDictionary *socialData = [self.showData objectForKey:self.show.title];
@@ -107,10 +121,13 @@
             cell.textLabel.text = keys[indexPath.row];
             cell.detailTextLabel.text = [socialData objectForKey:keys[indexPath.row]];
         }
+        
+        // Enable selection for links
+        cell.selectionStyle = UITableViewCellSelectionStyleGray;
     }
-
+    
     cell.detailTextLabel.textColor = [UIColor darkGrayColor];
-    cell.backgroundColor = [UIColor colorWithRed:0.83 green:0.83 blue:0.83 alpha:1.0];
+    cell.backgroundColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
     
     return cell;
 }
@@ -125,12 +142,10 @@
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(22, 0, 280, 22)];
     label.backgroundColor = [UIColor clearColor];
-    
     label.shadowColor = [UIColor blackColor];
     label.shadowOffset = CGSizeMake(1, 1);
-    label.textColor = [UIColor colorWithRed:0.75 green:0.75 blue:0.75 alpha:1.0];
+    label.textColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:0.91];
     label.font = [UIFont boldSystemFontOfSize:15];
-
     label.text = [tableView.dataSource tableView:tableView titleForHeaderInSection:section];
     
     [view addSubview:label];
@@ -154,7 +169,23 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    if (indexPath.section == 2) {
+        NSDictionary *socialData = [self.showData objectForKey:self.show.title];
+        
+        if (socialData != nil) {
+            NSArray *keys = [socialData allKeys];
+            
+            // If the link at this row is a website
+            if ([keys[indexPath.row] isEqualToString:@"Website"]) {
+                NSString *website = [socialData objectForKey:keys[indexPath.row]];
+                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@", website]];
+                SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:url];
+                webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
+                webViewController.availableActions = SVWebViewControllerAvailableActionsOpenInSafari | SVWebViewControllerAvailableActionsOpenInChrome | SVWebViewControllerAvailableActionsCopyLink | SVWebViewControllerAvailableActionsMailLink;
+                [self presentViewController:webViewController animated:YES completion:nil];
+            }
+        }
+    }
 }
 
 @end

@@ -193,8 +193,9 @@
     }
     
     Show *show = shows[indexPath.section][indexPath.row];
-    
+        
     cell.textLabel.text = show.title;
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:17.0];
     cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", show.time];
     cell.detailTextLabel.textColor = [UIColor darkGrayColor];

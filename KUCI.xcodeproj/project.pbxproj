@@ -55,6 +55,7 @@
 		08CDD18F16F7C9780061CDD1 /* SVWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 08CDD18E16F7C9780061CDD1 /* SVWebViewController.bundle */; };
 		08CDD19116F7C9EF0061CDD1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CDD19016F7C9EF0061CDD1 /* MessageUI.framework */; };
 		08D2025616F991D600E43AE4 /* navigationbarbackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08D2025516F991D600E43AE4 /* navigationbarbackground@2x.png */; };
+		08DC9F2916F99D6200BD8E05 /* cellbackgroundnoise@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08DC9F2816F99D6200BD8E05 /* cellbackgroundnoise@2x.png */; };
 		08F537BC169CDBB200685480 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F537BB169CDBB200685480 /* CoreMedia.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +120,7 @@
 		08CDD18E16F7C9780061CDD1 /* SVWebViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVWebViewController.bundle; sourceTree = "<group>"; };
 		08CDD19016F7C9EF0061CDD1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		08D2025516F991D600E43AE4 /* navigationbarbackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationbarbackground@2x.png"; sourceTree = "<group>"; };
+		08DC9F2816F99D6200BD8E05 /* cellbackgroundnoise@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cellbackgroundnoise@2x.png"; sourceTree = "<group>"; };
 		08F537BB169CDBB200685480 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -242,6 +244,7 @@
 			children = (
 				081B59E916F634840070C59C /* Icon@2x.png */,
 				081B59E716F634810070C59C /* Icon.png */,
+				08DC9F2816F99D6200BD8E05 /* cellbackgroundnoise@2x.png */,
 				08A5B49516F70A8B00BC4691 /* cellbackground.png */,
 				085303B616F77F7500D54C1D /* cellbackground@2x.png */,
 				085303C816F78A5D00D54C1D /* cellbackgroundselected.png */,
@@ -363,6 +366,7 @@
 				085303C916F78A5D00D54C1D /* cellbackgroundselected.png in Resources */,
 				08CDD18F16F7C9780061CDD1 /* SVWebViewController.bundle in Resources */,
 				08D2025616F991D600E43AE4 /* navigationbarbackground@2x.png in Resources */,
+				08DC9F2916F99D6200BD8E05 /* cellbackgroundnoise@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

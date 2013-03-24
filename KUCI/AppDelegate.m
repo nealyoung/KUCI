@@ -13,8 +13,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    // Set custom navigation bar background
+    // Set custom navigation bar and toolbar backgrounds
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationbarbackground.png"] forBarMetrics:UIBarMetricsDefault];
+    [[UIToolbar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationbarbackground.png"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
 
     // Create view controllers for the different tabs
     UIViewController *scheduleView = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:nil];

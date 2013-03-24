@@ -20,22 +20,21 @@
     // Create view controllers for the different tabs
     UIViewController *scheduleView = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:nil];
     UIViewController *streamView = [[StreamViewController alloc] initWithNibName:@"StreamViewController" bundle:nil];
-    
-    self.tabController = [[UITabBarController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:scheduleView];
     
-    NSMutableArray *tabs = [[NSMutableArray alloc] init];
+    self.tabController = [[UITabBarController alloc] init];
     
-    [tabs addObject:navController];
-    [tabs addObject:streamView];
+    NSArray *tabs = [[NSArray alloc] initWithObjects:navController, streamView, nil];
     
     [self.tabController setViewControllers:tabs animated:NO];
-    
-    navController.navigationBar.tintColor = [UIColor blackColor];
 
     self.tabController.tabBar.backgroundImage = [UIImage imageNamed:@"TabBarBackground.png"];
     self.tabController.tabBar.selectedImageTintColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
     
+    // For black bar button items
+    navController.navigationBar.tintColor = [UIColor blackColor];
+    
+    // Enable background audio
     NSError *sessionError = nil;
     [[AVAudioSession sharedInstance] setDelegate:self];
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&sessionError];

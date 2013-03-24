@@ -97,7 +97,9 @@
     
     SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:url];
     webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
-    webViewController.availableActions = SVWebViewControllerAvailableActionsOpenInSafari | SVWebViewControllerAvailableActionsOpenInChrome | SVWebViewControllerAvailableActionsCopyLink | SVWebViewControllerAvailableActionsMailLink;
+    
+    // Remove useless actions (cause PayPal session errors)
+    webViewController.availableActions = 0;
     
     [self presentViewController:webViewController animated:YES completion:nil];
 }

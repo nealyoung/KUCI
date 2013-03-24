@@ -90,42 +90,46 @@
     // Disable selection for info cells
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
+    // Link data for the show
+    NSDictionary *socialData = [self.showData objectForKey:self.show.title];
+    
     // 0: Info
     // 1: Description
     // 2: Links
-    if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
-            cell.textLabel.text = @"Title";
-            cell.detailTextLabel.text = self.show.title;
-        } else if (indexPath.row == 1) {
-            cell.textLabel.text = @"Host";
-            cell.detailTextLabel.text = self.show.host;
-        } else if (indexPath.row == 2) {
-            cell.textLabel.text = @"Time";
-            cell.detailTextLabel.text = self.show.time;
-        }        
-    } else if (indexPath.section == 1) {
-        cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        cell.textLabel.numberOfLines = 0;
-        cell.textLabel.textColor = [UIColor darkGrayColor];
-        cell.textLabel.text = self.show.description;
-        cell.textLabel.font = [UIFont systemFontOfSize:17];
-    } else if (indexPath.section == 2) {
-        // Check if there is any link data for the show
-        NSDictionary *socialData = [self.showData objectForKey:self.show.title];
-        
-        if (socialData != nil) {
-            NSArray *keys = [socialData allKeys];
+    switch (indexPath.section) {
+        case 0:
+            if (indexPath.row == 0) {
+                cell.textLabel.text = @"Title";
+                cell.detailTextLabel.text = self.show.title;
+            } else if (indexPath.row == 1) {
+                cell.textLabel.text = @"Host";
+                cell.detailTextLabel.text = self.show.host;
+            } else if (indexPath.row == 2) {
+                cell.textLabel.text = @"Time";
+                cell.detailTextLabel.text = self.show.time;
+            }
+            break;
+        case 1:
+            cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+            cell.textLabel.numberOfLines = 0;
+            cell.textLabel.textColor = [UIColor darkGrayColor];
+            cell.textLabel.text = self.show.description;
+            cell.textLabel.font = [UIFont systemFontOfSize:17];
+            break;
+        case 2:
+            if (socialData != nil) {
+                NSArray *keys = [socialData allKeys];
+                
+                cell.textLabel.text = keys[indexPath.row];
+                cell.detailTextLabel.text = [socialData objectForKey:keys[indexPath.row]];
+            }
             
-            cell.textLabel.text = keys[indexPath.row];
-            cell.detailTextLabel.text = [socialData objectForKey:keys[indexPath.row]];
-        }
-        
-        // Enable selection for links
-        cell.selectionStyle = UITableViewCellSelectionStyleGray;
+            // Enable selection for links
+            cell.selectionStyle = UITableViewCellSelectionStyleGray;
+            break;
     }
     
-    // Make the label backgrounds clear so the cell background image is visible
+    // Make the cell's label backgrounds clear so the cell background image is visible
     cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.detailTextLabel.backgroundColor = [UIColor clearColor];
     

@@ -161,7 +161,7 @@
     webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
     
     // Remove useless actions (cause PayPal session errors)
-    webViewController.availableActions = 0;
+    webViewController.availableActions = SVWebViewControllerAvailableActionsOpenInSafari | SVWebViewControllerAvailableActionsMailLink;
     
     [self presentViewController:webViewController animated:YES completion:nil];
 }
@@ -173,20 +173,28 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if (section == 0) {
-        return @"Monday";
-    } else if (section == 1) {
-        return @"Tuesday";        
-    } else if (section == 2) {
-        return @"Wednesday";        
-    } else if (section == 3) {
-        return @"Thursday";        
-    } else if (section == 4) {
-         return @"Friday";       
-    } else if (section == 5) {
-        return @"Saturday";        
-    } else {
-         return @"Sunday";       
+    switch (section) {
+        case 0:
+            return @"Monday";
+            break;
+        case 1:
+            return @"Tuesday";
+            break;
+        case 2:
+            return @"Wednesday";
+            break;
+        case 3:
+            return @"Thursday";
+            break;
+        case 4:
+            return @"Friday";
+            break;
+        case 5:
+            return @"Saturday";
+            break;
+        default:
+            return @"Sunday";
+            break;
     }
 }
 

@@ -33,7 +33,6 @@
     self.navigationItem.title = self.show.title;
 }
 
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
@@ -89,6 +88,7 @@
     
     // Disable selection for info cells
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"cellbackground.png"]];
     
     // Link data for the show
     NSDictionary *socialData = [self.showData objectForKey:self.show.title];
@@ -115,6 +115,7 @@
             cell.textLabel.textColor = [UIColor darkGrayColor];
             cell.textLabel.text = self.show.description;
             cell.textLabel.font = [UIFont systemFontOfSize:17];
+            cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"descriptioncellbackground.png"]];
             break;
         case 2:
             if (socialData != nil) {
@@ -125,7 +126,7 @@
             }
             
             // Enable selection for links
-            cell.selectionStyle = UITableViewCellSelectionStyleGray;
+            //cell.selectionStyle = UITableViewCellSelectionStyleGray;
             break;
     }
     
@@ -135,7 +136,6 @@
     
     cell.detailTextLabel.textColor = [UIColor darkGrayColor];
     
-    cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"cellbackground.png"]];
     //cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cellbackgroundselected.png"]];
     
     return cell;
@@ -145,7 +145,7 @@
     return 22;
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 22)];
     view.backgroundColor = [UIColor clearColor];
     
@@ -182,24 +182,22 @@
         NSDictionary *socialData = [self.showData objectForKey:self.show.title];
         
         if (socialData != nil) {
-            NSArray *keys = [socialData allKeys];
+            NSArray *keys = [socialData allKeys];            
+            NSURL *url;
             
             // Check the type of the link at the index path
             if ([keys[indexPath.row] isEqualToString:@"Website"]) {
                 NSString *website = [NSString stringWithFormat:@"http://%@", [socialData objectForKey:keys[indexPath.row]]];
-                NSURL *url = [NSURL URLWithString:website];
-                SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:url];
-                webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
-                webViewController.availableActions = SVWebViewControllerAvailableActionsOpenInSafari | SVWebViewControllerAvailableActionsMailLink;
-                [self presentViewController:webViewController animated:YES completion:nil];
+                url = [NSURL URLWithString:website];
             } else if ([keys[indexPath.row] isEqualToString:@"Twitter"]) {
                 NSString *username = [socialData objectForKey:keys[indexPath.row]];
-                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://twitter.com/%@", username]];
-                SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:url];
-                webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
-                webViewController.availableActions = SVWebViewControllerAvailableActionsOpenInSafari | SVWebViewControllerAvailableActionsMailLink;
-                [self presentViewController:webViewController animated:YES completion:nil];
+                url = [NSURL URLWithString:[NSString stringWithFormat:@"http://twitter.com/%@", username]];
             }
+            
+            SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:url];
+            webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
+            webViewController.availableActions = SVWebViewControllerAvailableActionsOpenInSafari | SVWebViewControllerAvailableActionsMailLink;
+            [self presentViewController:webViewController animated:YES completion:nil];
         }
     }
 }

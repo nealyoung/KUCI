@@ -109,7 +109,7 @@
         cell.textLabel.numberOfLines = 0;
         cell.textLabel.textColor = [UIColor darkGrayColor];
         cell.textLabel.text = self.show.description;
-        cell.textLabel.font = [UIFont systemFontOfSize:17];        
+        cell.textLabel.font = [UIFont systemFontOfSize:17];
     } else if (indexPath.section == 2) {
         // Check if there is any link data for the show
         NSDictionary *socialData = [self.showData objectForKey:self.show.title];
@@ -125,8 +125,14 @@
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
     }
     
+    // Make the label backgrounds clear so the cell background image is visible
+    cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.detailTextLabel.backgroundColor = [UIColor clearColor];
+    
     cell.detailTextLabel.textColor = [UIColor darkGrayColor];
-    cell.backgroundColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
+    
+    cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"cellbackground.png"]];
+    //cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cellbackgroundselected.png"]];
     
     return cell;
 }
@@ -174,20 +180,20 @@
         if (socialData != nil) {
             NSArray *keys = [socialData allKeys];
             
-            // If the link at this row is a website
+            // Check the type of the link at the index path
             if ([keys[indexPath.row] isEqualToString:@"Website"]) {
-                NSString *website = [socialData objectForKey:keys[indexPath.row]];
-                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@", website]];
+                NSString *website = [NSString stringWithFormat:@"http://%@", [socialData objectForKey:keys[indexPath.row]]];
+                NSURL *url = [NSURL URLWithString:website];
                 SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:url];
                 webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
-                webViewController.availableActions = SVWebViewControllerAvailableActionsOpenInSafari | SVWebViewControllerAvailableActionsOpenInChrome | SVWebViewControllerAvailableActionsCopyLink | SVWebViewControllerAvailableActionsMailLink;
+                webViewController.availableActions = SVWebViewControllerAvailableActionsOpenInSafari | SVWebViewControllerAvailableActionsMailLink;
                 [self presentViewController:webViewController animated:YES completion:nil];
             } else if ([keys[indexPath.row] isEqualToString:@"Twitter"]) {
                 NSString *username = [socialData objectForKey:keys[indexPath.row]];
                 NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://twitter.com/%@", username]];
                 SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:url];
                 webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
-                webViewController.availableActions = SVWebViewControllerAvailableActionsOpenInSafari | SVWebViewControllerAvailableActionsOpenInChrome | SVWebViewControllerAvailableActionsCopyLink | SVWebViewControllerAvailableActionsMailLink;
+                webViewController.availableActions = SVWebViewControllerAvailableActionsOpenInSafari | SVWebViewControllerAvailableActionsMailLink;
                 [self presentViewController:webViewController animated:YES completion:nil];
             }
         }

@@ -30,6 +30,9 @@
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.navItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar.png"]];
+    
+    UIBarButtonItem *donateButton = [[UIBarButtonItem alloc] initWithTitle:@"Donate" style:UIBarButtonItemStylePlain target:self action:@selector(showDonationPage)];
+    self.navItem.leftBarButtonItem = donateButton;
 
     NSString *streamUrl = @"http://streamer.kuci.org:889/";
     NSURL *stream = [NSURL URLWithString:streamUrl];
@@ -86,6 +89,17 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)showDonationPage {
+    NSString *website = @"http://www.kuci.org/paypal/fund_drive/index.shtml";
+    NSURL *url = [NSURL URLWithString:website];
+    
+    SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:url];
+    webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
+    webViewController.availableActions = SVWebViewControllerAvailableActionsOpenInSafari | SVWebViewControllerAvailableActionsOpenInChrome | SVWebViewControllerAvailableActionsCopyLink | SVWebViewControllerAvailableActionsMailLink;
+    
+    [self presentViewController:webViewController animated:YES completion:nil];
 }
 
 @end

@@ -33,8 +33,14 @@
     
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar.png"]];
     self.navigationItem.title = @"Schedule";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Today" style:UIBarButtonItemStylePlain target:self action:@selector(scrollToCurrentDay)];
+    UIBarButtonItem *donateButton = [[UIBarButtonItem alloc] initWithTitle:@"Donate" style:UIBarButtonItemStylePlain target:self action:@selector(showDonationPage)];
+    self.navigationItem.leftBarButtonItem = donateButton;
+    
+    UIBarButtonItem *todayButton = [[UIBarButtonItem alloc] initWithTitle:@"Today" style:UIBarButtonItemStylePlain target:self action:@selector(scrollToCurrentDay)];
+    self.navigationItem.rightBarButtonItem = todayButton;
+    
     self.tableView.backgroundColor = [UIColor colorWithRed:0.92 green:0.92 blue:0.92 alpha:1.0];
+    
     // Fetch and parse the schedule from the KUCI website
     [self parseSchedule];
 }
@@ -42,9 +48,7 @@
 - (void)parseSchedule {
     NSURL *scheduleURL = [NSURL URLWithString:@"http://kuci.org/schedule.shtml"];
     
-    NSMutableString *scheduleHtml = [NSMutableString stringWithContentsOfURL:scheduleURL
-                                                                    encoding:NSUTF8StringEncoding
-                                                                       error:NULL];
+    NSMutableString *scheduleHtml = [NSMutableString stringWithContentsOfURL:scheduleURL encoding:NSUTF8StringEncoding error:NULL];
     
     if (scheduleHtml) {
         NSRange beginDay = [scheduleHtml rangeOfString:@"<!--- Loop would begin here --->"];
@@ -69,14 +73,8 @@
             }
             
             HTMLNode *scheduleBody = [parser body];
-                        
-            NSArray *scheduleNodes = [scheduleBody findChildrenWithAttribute:@"class"
-                                                                matchingName:@"progschedule"
-                                                                allowPartial:FALSE];
-            
-            NSArray *descriptionNodes = [scheduleBody findChildrenWithAttribute:@"class"
-                                                                   matchingName:@"smallDark"
-                                                                   allowPartial:FALSE];
+            NSArray *scheduleNodes = [scheduleBody findChildrenWithAttribute:@"class" matchingName:@"progschedule" allowPartial:FALSE];
+            NSArray *descriptionNodes = [scheduleBody findChildrenWithAttribute:@"class" matchingName:@"smallDark" allowPartial:FALSE];
             
             NSMutableArray *dayShows = [[NSMutableArray alloc] init];
             
@@ -108,6 +106,18 @@
             [shows addObject:dayShows];
         }
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    // Deselect selected row when detail view controller is popped from the navigation stack
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (void)scrollToCurrentDay {
@@ -143,16 +153,15 @@
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void)showDonationPage {
+    NSString *website = @"http://www.kuci.org/paypal/fund_drive/index.shtml";
+    NSURL *url = [NSURL URLWithString:website];
     
-    // Deselect selected row when detail view controller is popped from the navigation stack
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:url];
+    webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
+    webViewController.availableActions = SVWebViewControllerAvailableActionsOpenInSafari | SVWebViewControllerAvailableActionsOpenInChrome | SVWebViewControllerAvailableActionsCopyLink | SVWebViewControllerAvailableActionsMailLink;
+    
+    [self presentViewController:webViewController animated:YES completion:nil];
 }
 
 #pragma mark - UITableViewDataSource
@@ -206,7 +215,6 @@
     cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cellbackgroundselected.png"]];
     cell.textLabel.highlightedTextColor = [UIColor blackColor];
     cell.detailTextLabel.highlightedTextColor = [UIColor darkGrayColor];
-    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     
     return cell;
 }

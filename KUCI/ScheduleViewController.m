@@ -31,6 +31,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.tableView.backgroundView = nil;
+    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar.png"]];
     self.navigationItem.title = @"Schedule";
     UIBarButtonItem *donateButton = [[UIBarButtonItem alloc] initWithTitle:@"Donate" style:UIBarButtonItemStylePlain target:self action:@selector(showDonationPage)];
@@ -38,9 +41,7 @@
     
     UIBarButtonItem *todayButton = [[UIBarButtonItem alloc] initWithTitle:@"Today" style:UIBarButtonItemStylePlain target:self action:@selector(scrollToCurrentDay)];
     self.navigationItem.rightBarButtonItem = todayButton;
-    
-    self.tableView.backgroundColor = [UIColor colorWithRed:0.92 green:0.92 blue:0.92 alpha:1.0];
-    
+        
     // Fetch and parse the schedule from the KUCI website
     [self parseSchedule];
 }
@@ -221,12 +222,49 @@
     cell.detailTextLabel.backgroundColor = [UIColor clearColor];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cellbackground.png"]];
-    cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cellbackgroundselected.png"]];
+    UACellBackgroundView *backgroundView = [[UACellBackgroundView alloc] initWithFrame:CGRectZero];
+    
+    NSInteger numberOfRowsInSection = [tableView numberOfRowsInSection:indexPath.section];
+    
+    if (numberOfRowsInSection == 1) {
+        backgroundView.position = UACellBackgroundViewPositionSingle;
+    } else if (indexPath.row == 0) {
+        backgroundView.position = UACellBackgroundViewPositionTop;
+    } else if (indexPath.row == (numberOfRowsInSection - 1)) {
+        backgroundView.position = UACellBackgroundViewPositionBottom;
+    } else {
+        backgroundView.position = UACellBackgroundViewPositionMiddle;
+    }
+    
+    cell.backgroundView = backgroundView;
+
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    //cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cellbackgroundselected.png"]];
     cell.textLabel.highlightedTextColor = [UIColor blackColor];
     cell.detailTextLabel.highlightedTextColor = [UIColor darkGrayColor];
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 22;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 22)];
+    view.backgroundColor = [UIColor clearColor];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(22, 0, 280, 22)];
+    label.backgroundColor = [UIColor clearColor];
+    label.shadowColor = [UIColor blackColor];
+    label.shadowOffset = CGSizeMake(1, 1);
+    label.textColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:0.91];
+    label.font = [UIFont boldSystemFontOfSize:15];
+    label.text = [tableView.dataSource tableView:tableView titleForHeaderInSection:section];
+    
+    [view addSubview:label];
+    
+    return view;
 }
 
 #pragma mark - UITableViewDelegate

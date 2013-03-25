@@ -88,21 +88,22 @@
     
     // Disable selection for info cells
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    //cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"cellbackground.png"]];
     
-    cell.backgroundView = [[UACellBackgroundView alloc] initWithFrame:CGRectZero];
+    UACellBackgroundView *backgroundView = [[UACellBackgroundView alloc] initWithFrame:CGRectZero];
     
     NSInteger numberOfRowsInSection = [tableView numberOfRowsInSection:indexPath.section];
     
     if (numberOfRowsInSection == 1) {
-        [(UACellBackgroundView *)cell.backgroundView setPosition:UACellBackgroundViewPositionSingle];
+        backgroundView.position = UACellBackgroundViewPositionSingle;
     } else if (indexPath.row == 0) {
-        [(UACellBackgroundView *)cell.backgroundView setPosition:UACellBackgroundViewPositionTop];
+        backgroundView.position = UACellBackgroundViewPositionTop;
     } else if (indexPath.row == (numberOfRowsInSection - 1)) {
-        [(UACellBackgroundView *)cell.backgroundView setPosition:UACellBackgroundViewPositionBottom];
+        backgroundView.position = UACellBackgroundViewPositionBottom;
     } else {
-        [(UACellBackgroundView *)cell.backgroundView setPosition:UACellBackgroundViewPositionMiddle];
+        backgroundView.position = UACellBackgroundViewPositionMiddle;
     }
+    
+    cell.backgroundView = backgroundView;
     
     // Link data for the show
     NSDictionary *socialData = [self.showData objectForKey:self.show.title];
@@ -142,7 +143,9 @@
             }
 
             // Enable selection for links
-            //cell.selectionStyle = UITableViewCellSelectionStyleGray;
+            cell.selectionStyle = UITableViewCellSelectionStyleGray;
+            cell.textLabel.highlightedTextColor = [UIColor blackColor];
+            cell.detailTextLabel.highlightedTextColor = [UIColor darkGrayColor];
             break;
     }
     
@@ -151,9 +154,7 @@
     cell.detailTextLabel.backgroundColor = [UIColor clearColor];
     
     cell.detailTextLabel.textColor = [UIColor darkGrayColor];
-    
-    //cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cellbackgroundselected.png"]];
-    
+        
     return cell;
 }
 

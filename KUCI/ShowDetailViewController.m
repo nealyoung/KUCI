@@ -88,7 +88,21 @@
     
     // Disable selection for info cells
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"cellbackground.png"]];
+    //cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"cellbackground.png"]];
+    
+    cell.backgroundView = [[UACellBackgroundView alloc] initWithFrame:CGRectZero];
+    
+    NSInteger numberOfRowsInSection = [tableView numberOfRowsInSection:indexPath.section];
+    
+    if (numberOfRowsInSection == 1) {
+        [(UACellBackgroundView *)cell.backgroundView setPosition:UACellBackgroundViewPositionSingle];
+    } else if (indexPath.row == 0) {
+        [(UACellBackgroundView *)cell.backgroundView setPosition:UACellBackgroundViewPositionTop];
+    } else if (indexPath.row == (numberOfRowsInSection - 1)) {
+        [(UACellBackgroundView *)cell.backgroundView setPosition:UACellBackgroundViewPositionBottom];
+    } else {
+        [(UACellBackgroundView *)cell.backgroundView setPosition:UACellBackgroundViewPositionMiddle];
+    }
     
     // Link data for the show
     NSDictionary *socialData = [self.showData objectForKey:self.show.title];
@@ -108,6 +122,7 @@
                 cell.textLabel.text = @"Time";
                 cell.detailTextLabel.text = self.show.time;
             }
+            
             break;
         case 1:
             cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -115,7 +130,8 @@
             cell.textLabel.textColor = [UIColor darkGrayColor];
             cell.textLabel.text = self.show.description;
             cell.textLabel.font = [UIFont systemFontOfSize:17];
-            cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"descriptioncellbackground.png"]];
+            //cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"descriptioncellbackground.png"]];
+            
             break;
         case 2:
             if (socialData != nil) {
@@ -124,13 +140,13 @@
                 cell.textLabel.text = keys[indexPath.row];
                 cell.detailTextLabel.text = [socialData objectForKey:keys[indexPath.row]];
             }
-            
+
             // Enable selection for links
             //cell.selectionStyle = UITableViewCellSelectionStyleGray;
             break;
     }
     
-    // Make the cell's label backgrounds clear so the cell background image is visible
+    // Make the cell's label backgrounds clear so the cell background is visible
     cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.detailTextLabel.backgroundColor = [UIColor clearColor];
     

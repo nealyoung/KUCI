@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Show.h"
 #import "SVModalWebViewController.h"
+#import "UACellBackgroundView.h"
 
 #define CELL_CONTENT_WIDTH 300
 #define CELL_CONTENT_MARGIN 10

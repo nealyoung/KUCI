@@ -29,6 +29,7 @@
 		0847F7C216FF96670064DC20 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 0847F7C116FF96660064DC20 /* pause.png */; };
 		0847F7C416FF966D0064DC20 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 0847F7C316FF966D0064DC20 /* play.png */; };
 		0847F7C616FF96AF0064DC20 /* TabBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 0847F7C516FF96AF0064DC20 /* TabBarBackground.png */; };
+		0847F7C916FFD3870064DC20 /* UACellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0847F7C816FFD3870064DC20 /* UACellBackgroundView.m */; };
 		08514981167DA65C00D1ED43 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08514980167DA65C00D1ED43 /* UIKit.framework */; };
 		08514983167DA65C00D1ED43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08514982167DA65C00D1ED43 /* Foundation.framework */; };
 		08514985167DA65C00D1ED43 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08514984167DA65C00D1ED43 /* CoreGraphics.framework */; };
@@ -88,6 +89,8 @@
 		0847F7C116FF96660064DC20 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		0847F7C316FF966D0064DC20 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 		0847F7C516FF96AF0064DC20 /* TabBarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBarBackground.png; sourceTree = "<group>"; };
+		0847F7C716FFD3870064DC20 /* UACellBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UACellBackgroundView.h; sourceTree = "<group>"; };
+		0847F7C816FFD3870064DC20 /* UACellBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UACellBackgroundView.m; sourceTree = "<group>"; };
 		0851497C167DA65C00D1ED43 /* KUCI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KUCI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08514980167DA65C00D1ED43 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		08514982167DA65C00D1ED43 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -197,6 +200,8 @@
 			children = (
 				0851498F167DA65C00D1ED43 /* AppDelegate.h */,
 				08514990167DA65C00D1ED43 /* AppDelegate.m */,
+				0847F7C716FFD3870064DC20 /* UACellBackgroundView.h */,
+				0847F7C816FFD3870064DC20 /* UACellBackgroundView.m */,
 				08F9EF0016F2F9BD008966C4 /* Classes */,
 				085149B6167E6EEE00D1ED43 /* View Controllers */,
 				085149C0167EBC3800D1ED43 /* XIBs */,
@@ -395,6 +400,7 @@
 				08331EDC1692738100B9796F /* ShowDetailViewController.m in Sources */,
 				08CDD18A16F7C9670061CDD1 /* SVModalWebViewController.m in Sources */,
 				08CDD18D16F7C9710061CDD1 /* SVWebViewController.m in Sources */,
+				0847F7C916FFD3870064DC20 /* UACellBackgroundView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

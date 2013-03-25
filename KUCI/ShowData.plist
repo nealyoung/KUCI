@@ -2,6 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Nirvanic Trance</key>
+	<dict>
+		<key>Website</key>
+		<string>facebook.com/NirvanicTrance</string>
+	</dict>
+	<key>Banana Stand Jams</key>
+	<dict>
+		<key>Website</key>
+		<string>bananastandjams.tumblr.com</string>
+	</dict>
 	<key>Non-Profits For Us</key>
 	<dict>
 		<key>Website</key>
@@ -12,27 +22,67 @@
 		<key>Website</key>
 		<string>creepinsidemyhead.tumblr.com</string>
 	</dict>
-	<key>Banana Stand Jams</key>
-	<dict>
-		<key>Website</key>
-		<string>bananastandjams.tumblr.com</string>
-	</dict>
-	<key>Nirvanic Trance</key>
-	<dict>
-		<key>Website</key>
-		<string>facebook.com/NirvanicTrance</string>
-	</dict>
 	<key>Privacy Piracy</key>
 	<dict>
+		<key>Website</key>
+		<string>kuci.org/privacypiracy</string>
 		<key>Twitter</key>
 		<string>privacypiracy</string>
 	</dict>
-	<key>The TPS Report</key>
+	<key>Prescriptions for Healing Conflict</key>
 	<dict>
 		<key>Website</key>
-		<string>tpsreportshow.tumblr.com</string>
-		<key>Twitter</key>
-		<string>tpsreportshow</string>
+		<string>conflicthealing.com</string>
+	</dict>
+	<key>Get the Funk Out</key>
+	<dict>
+		<key>Website</key>
+		<string>getthefunkoutshow.kuci.org/</string>
+	</dict>
+	<key>Radio Internationale</key>
+	<dict>
+		<key>Website</key>
+		<string>radiointernationale.blogspot.com</string>
+	</dict>
+	<key>Radioactify</key>
+	<dict>
+		<key>Website</key>
+		<string>radioactify.tumblr.com</string>
+	</dict>
+	<key>The Dread Zone</key>
+	<dict>
+		<key>Website</key>
+		<string>dreadzone.kuci.org</string>
+	</dict>
+	<key>.innamissions</key>
+	<dict>
+		<key>Website</key>
+		<string>innamissions.com</string>
+	</dict>
+	<key>It's a Feeling</key>
+	<dict>
+		<key>Website</key>
+		<string>itsafeeling.kuci.org</string>
+	</dict>
+	<key>Space Between Two Worlds</key>
+	<dict>
+		<key>Website</key>
+		<string>sb2w.tumblr.com</string>
+	</dict>
+	<key>Party at Gatsby's</key>
+	<dict>
+		<key>Website</key>
+		<string>lepartyatgatsbys.tumblr.com</string>
+	</dict>
+	<key>George Had A Hat</key>
+	<dict>
+		<key>Website</key>
+		<string>ghat.kuci.org</string>
+	</dict>
+	<key>Funk Your Face</key>
+	<dict>
+		<key>Website</key>
+		<string>funkyourface.tumblr.com</string>
 	</dict>
 </dict>
 </plist>

@@ -43,7 +43,6 @@
 		085149A3167DC7D500D1ED43 /* ScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 085149A1167DC7D500D1ED43 /* ScheduleViewController.xib */; };
 		085149D1167ECDB300D1ED43 /* StreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085149CF167ECDB300D1ED43 /* StreamViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		085149D2167ECDB300D1ED43 /* StreamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 085149D0167ECDB300D1ED43 /* StreamViewController.xib */; };
-		088D718A16F5889A002DF434 /* tableviewbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 088D718916F5889A002DF434 /* tableviewbackground.png */; };
 		088D718C16F5B68E002DF434 /* ShowData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 088D718B16F5B68E002DF434 /* ShowData.plist */; };
 		089C262D1680F1E70058567E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089C262C1680F1E70058567E /* AVFoundation.framework */; };
 		089C26311680FAD60058567E /* schedule.png in Resources */ = {isa = PBXBuildFile; fileRef = 089C262F1680FAD60058567E /* schedule.png */; };
@@ -106,7 +105,6 @@
 		085149CE167ECDB200D1ED43 /* StreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamViewController.h; sourceTree = "<group>"; };
 		085149CF167ECDB300D1ED43 /* StreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamViewController.m; sourceTree = "<group>"; };
 		085149D0167ECDB300D1ED43 /* StreamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StreamViewController.xib; sourceTree = "<group>"; };
-		088D718916F5889A002DF434 /* tableviewbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableviewbackground.png; sourceTree = "<group>"; };
 		088D718B16F5B68E002DF434 /* ShowData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ShowData.plist; sourceTree = "<group>"; };
 		089C262C1680F1E70058567E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		089C262F1680FAD60058567E /* schedule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = schedule.png; sourceTree = "<group>"; };
@@ -247,7 +245,6 @@
 				0847F7BB16FF0C710064DC20 /* descriptioncellbackground@2x.png */,
 				081B59EB16F6FE460070C59C /* background.png */,
 				081B59EC16F6FE460070C59C /* background@2x.png */,
-				088D718916F5889A002DF434 /* tableviewbackground.png */,
 				08331EC816917C2E00B9796F /* navbar.png */,
 				08331EC616917BCB00B9796F /* navbar@2x.png */,
 				0847F7BF16FF95B30064DC20 /* navigationbarbackground.png */,
@@ -350,7 +347,6 @@
 				08331EC716917BCB00B9796F /* navbar@2x.png in Resources */,
 				08331EC916917C2E00B9796F /* navbar.png in Resources */,
 				08331EDD1692738100B9796F /* ShowDetailViewController.xib in Resources */,
-				088D718A16F5889A002DF434 /* tableviewbackground.png in Resources */,
 				088D718C16F5B68E002DF434 /* ShowData.plist in Resources */,
 				081B59E816F634810070C59C /* Icon.png in Resources */,
 				081B59EA16F634840070C59C /* Icon@2x.png in Resources */,

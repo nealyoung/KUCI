@@ -8,6 +8,9 @@
 
 #import "ShowDetailViewController.h"
 
+#define CELL_CONTENT_WIDTH 300
+#define CELL_CONTENT_MARGIN 10
+
 @interface ShowDetailViewController ()
 
 @end

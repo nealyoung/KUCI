@@ -32,7 +32,7 @@
 	<key>Get the Funk Out</key>
 	<dict>
 		<key>Website</key>
-		<string>getthefunkoutshow.kuci.org/</string>
+		<string>getthefunkoutshow.kuci.org</string>
 	</dict>
 	<key>Radio Internationale</key>
 	<dict>
@@ -87,7 +87,7 @@
 	<key>Racheal Ray&apos;s Cooking Accident</key>
 	<dict>
 		<key>Website</key>
-		<string>kuci.org/~cmccoy/</string>
+		<string>kuci.org/~cmccoy</string>
 	</dict>
 	<key>Delirium Drop</key>
 	<dict>
@@ -97,7 +97,7 @@
 	<key>Beatification</key>
 	<dict>
 		<key>Website</key>
-		<string>beatification.kuci.org/</string>
+		<string>beatification.kuci.org</string>
 	</dict>
 	<key>Palette Swapped</key>
 	<dict>

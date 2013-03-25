@@ -17,7 +17,7 @@
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationbarbackground.png"] forBarMetrics:UIBarMetricsDefault];
     [[UIToolbar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationbarbackground.png"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
 
-    // Create view controllers for the different tabs
+    // Create view controllers for each tab
     UIViewController *scheduleView = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:nil];
     UIViewController *streamView = [[StreamViewController alloc] initWithNibName:@"StreamViewController" bundle:nil];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:scheduleView];
@@ -25,7 +25,6 @@
     self.tabController = [[UITabBarController alloc] init];
     
     NSArray *tabs = [[NSArray alloc] initWithObjects:navController, streamView, nil];
-    
     [self.tabController setViewControllers:tabs animated:NO];
 
     self.tabController.tabBar.backgroundImage = [UIImage imageNamed:@"TabBarBackground.png"];

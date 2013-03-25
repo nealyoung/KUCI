@@ -15,9 +15,6 @@
 @property (strong, nonatomic) NSString *description;
 @property (strong, nonatomic) NSString *host;
 
-- (id)initWithTime:(NSString *)time
-             title:(NSString *)title
-       description:(NSString *)description
-              host:(NSString *)host;
+- (id)initWithTime:(NSString *)time title:(NSString *)title description:(NSString *)description host:(NSString *)host;
 
 @end

@@ -43,9 +43,6 @@
 		085149A3167DC7D500D1ED43 /* ScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 085149A1167DC7D500D1ED43 /* ScheduleViewController.xib */; };
 		085149D1167ECDB300D1ED43 /* StreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085149CF167ECDB300D1ED43 /* StreamViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		085149D2167ECDB300D1ED43 /* StreamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 085149D0167ECDB300D1ED43 /* StreamViewController.xib */; };
-		085303B716F77F7500D54C1D /* cellbackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 085303B616F77F7500D54C1D /* cellbackground@2x.png */; };
-		085303C716F787CF00D54C1D /* cellbackgroundselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 085303C616F787CF00D54C1D /* cellbackgroundselected@2x.png */; };
-		085303C916F78A5D00D54C1D /* cellbackgroundselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 085303C816F78A5D00D54C1D /* cellbackgroundselected.png */; };
 		088D718A16F5889A002DF434 /* tableviewbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 088D718916F5889A002DF434 /* tableviewbackground.png */; };
 		088D718C16F5B68E002DF434 /* ShowData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 088D718B16F5B68E002DF434 /* ShowData.plist */; };
 		089C262D1680F1E70058567E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089C262C1680F1E70058567E /* AVFoundation.framework */; };
@@ -53,7 +50,6 @@
 		089C26321680FAD60058567E /* schedule@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 089C26301680FAD60058567E /* schedule@2x.png */; };
 		089C263F16815B090058567E /* pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 089C263D16815B090058567E /* pause@2x.png */; };
 		089C264016815B090058567E /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 089C263E16815B090058567E /* play@2x.png */; };
-		08A5B49616F70A8B00BC4691 /* cellbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A5B49516F70A8B00BC4691 /* cellbackground.png */; };
 		08CDD18A16F7C9670061CDD1 /* SVModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08CDD18916F7C9670061CDD1 /* SVModalWebViewController.m */; };
 		08CDD18D16F7C9710061CDD1 /* SVWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08CDD18C16F7C9710061CDD1 /* SVWebViewController.m */; };
 		08CDD18F16F7C9780061CDD1 /* SVWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 08CDD18E16F7C9780061CDD1 /* SVWebViewController.bundle */; };
@@ -110,9 +106,6 @@
 		085149CE167ECDB200D1ED43 /* StreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamViewController.h; sourceTree = "<group>"; };
 		085149CF167ECDB300D1ED43 /* StreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamViewController.m; sourceTree = "<group>"; };
 		085149D0167ECDB300D1ED43 /* StreamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StreamViewController.xib; sourceTree = "<group>"; };
-		085303B616F77F7500D54C1D /* cellbackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cellbackground@2x.png"; sourceTree = "<group>"; };
-		085303C616F787CF00D54C1D /* cellbackgroundselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cellbackgroundselected@2x.png"; sourceTree = "<group>"; };
-		085303C816F78A5D00D54C1D /* cellbackgroundselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellbackgroundselected.png; sourceTree = "<group>"; };
 		088D718916F5889A002DF434 /* tableviewbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableviewbackground.png; sourceTree = "<group>"; };
 		088D718B16F5B68E002DF434 /* ShowData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ShowData.plist; sourceTree = "<group>"; };
 		089C262C1680F1E70058567E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -120,7 +113,6 @@
 		089C26301680FAD60058567E /* schedule@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "schedule@2x.png"; sourceTree = "<group>"; };
 		089C263D16815B090058567E /* pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause@2x.png"; sourceTree = "<group>"; };
 		089C263E16815B090058567E /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
-		08A5B49516F70A8B00BC4691 /* cellbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellbackground.png; sourceTree = "<group>"; };
 		08CDD18816F7C9610061CDD1 /* SVModalWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVModalWebViewController.h; sourceTree = "<group>"; };
 		08CDD18916F7C9670061CDD1 /* SVModalWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVModalWebViewController.m; sourceTree = "<group>"; };
 		08CDD18B16F7C9710061CDD1 /* SVWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVWebViewController.h; sourceTree = "<group>"; };
@@ -251,10 +243,6 @@
 			children = (
 				081B59E716F634810070C59C /* Icon.png */,
 				081B59E916F634840070C59C /* Icon@2x.png */,
-				08A5B49516F70A8B00BC4691 /* cellbackground.png */,
-				085303B616F77F7500D54C1D /* cellbackground@2x.png */,
-				085303C816F78A5D00D54C1D /* cellbackgroundselected.png */,
-				085303C616F787CF00D54C1D /* cellbackgroundselected@2x.png */,
 				0847F7BD16FF95150064DC20 /* descriptioncellbackground.png */,
 				0847F7BB16FF0C710064DC20 /* descriptioncellbackground@2x.png */,
 				081B59EB16F6FE460070C59C /* background.png */,
@@ -368,10 +356,6 @@
 				081B59EA16F634840070C59C /* Icon@2x.png in Resources */,
 				081B59ED16F6FE460070C59C /* background.png in Resources */,
 				081B59EE16F6FE460070C59C /* background@2x.png in Resources */,
-				08A5B49616F70A8B00BC4691 /* cellbackground.png in Resources */,
-				085303B716F77F7500D54C1D /* cellbackground@2x.png in Resources */,
-				085303C716F787CF00D54C1D /* cellbackgroundselected@2x.png in Resources */,
-				085303C916F78A5D00D54C1D /* cellbackgroundselected.png in Resources */,
 				08CDD18F16F7C9780061CDD1 /* SVWebViewController.bundle in Resources */,
 				08D2025616F991D600E43AE4 /* navigationbarbackground@2x.png in Resources */,
 				0847F7BC16FF0C710064DC20 /* descriptioncellbackground@2x.png in Resources */,

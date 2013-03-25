@@ -12,11 +12,6 @@
 		<key>Website</key>
 		<string>bananastandjams.tumblr.com</string>
 	</dict>
-	<key>Non-Profits For Us</key>
-	<dict>
-		<key>Website</key>
-		<string>nonprofitsforus.wordpress.com</string>
-	</dict>
 	<key>Hot Hot Beats</key>
 	<dict>
 		<key>Website</key>
@@ -59,7 +54,7 @@
 		<key>Website</key>
 		<string>innamissions.com</string>
 	</dict>
-	<key>It's a Feeling</key>
+	<key>It&apos;s a Feeling</key>
 	<dict>
 		<key>Website</key>
 		<string>itsafeeling.kuci.org</string>
@@ -69,7 +64,7 @@
 		<key>Website</key>
 		<string>sb2w.tumblr.com</string>
 	</dict>
-	<key>Party at Gatsby's</key>
+	<key>Party at Gatsby’s</key>
 	<dict>
 		<key>Website</key>
 		<string>lepartyatgatsbys.tumblr.com</string>
@@ -83,6 +78,276 @@
 	<dict>
 		<key>Website</key>
 		<string>funkyourface.tumblr.com</string>
+	</dict>
+	<key>The Blue and Gold Report</key>
+	<dict>
+		<key>Website</key>
+		<string>kuci.org/sports.shtml</string>
+	</dict>
+	<key>Racheal Ray&apos;s Cooking Accident</key>
+	<dict>
+		<key>Website</key>
+		<string>kuci.org/~cmccoy/</string>
+	</dict>
+	<key>Delirium Drop</key>
+	<dict>
+		<key>Website</key>
+		<string>dancedomain.blogspot.com</string>
+	</dict>
+	<key>Beatification</key>
+	<dict>
+		<key>Website</key>
+		<string>beatification.kuci.org/</string>
+	</dict>
+	<key>Palette Swapped</key>
+	<dict>
+		<key>Website</key>
+		<string>paletteswapped.kuci.org</string>
+	</dict>
+	<key>Phantasm Moods</key>
+	<dict>
+		<key>Website</key>
+		<string>phantasmmoods.kuci.org</string>
+	</dict>
+	<key>Writers on Writing</key>
+	<dict>
+		<key>Website</key>
+		<string>writersonwriting.com</string>
+	</dict>
+	<key>Roots And Riddims</key>
+	<dict>
+		<key>Website</key>
+		<string>rootsandriddims.kuci.org</string>
+	</dict>
+	<key>Beat Surgery</key>
+	<dict>
+		<key>Website</key>
+		<string>beatsurgery.wordpress.com</string>
+	</dict>
+	<key>Non-Profits For Us</key>
+	<dict>
+		<key>Website</key>
+		<string>nonprofitsforus.wordpress.com</string>
+	</dict>
+	<key>Tokki Sounds</key>
+	<dict>
+		<key>Website</key>
+		<string>tokkisounds.kuci.org</string>
+	</dict>
+	<key>Bunnies in Space</key>
+	<dict>
+		<key>Website</key>
+		<string>bunnies.kuci.org</string>
+	</dict>
+	<key>Suburban Outfitters</key>
+	<dict>
+		<key>Website</key>
+		<string>insuburbanoutfitters.kuci.org</string>
+	</dict>
+	<key>Galactic Soup</key>
+	<dict>
+		<key>Website</key>
+		<string>galacticsoupradio.tumblr.com</string>
+	</dict>
+	<key>CoolCats Anonymous</key>
+	<dict>
+		<key>Website</key>
+		<string>coolcatsanonymous.tumblr.com</string>
+	</dict>
+	<key>Thoughts So Far</key>
+	<dict>
+		<key>Website</key>
+		<string>thoughtssofar.tumblr.com</string>
+	</dict>
+	<key>Surfa Nova</key>
+	<dict>
+		<key>Website</key>
+		<string>surfanova.tumblr.com</string>
+	</dict>
+	<key>Red Does Research</key>
+	<dict>
+		<key>Website</key>
+		<string>reddoesresearch.tumblr.com</string>
+	</dict>
+	<key>Our Digital Future</key>
+	<dict>
+		<key>Website</key>
+		<string>ziba.kuci.org</string>
+	</dict>
+	<key>World Without Words</key>
+	<dict>
+		<key>Website</key>
+		<string>withoutwords.kuci.org</string>
+	</dict>
+	<key>Bruised and Confused</key>
+	<dict>
+		<key>Website</key>
+		<string>bruised-and-confused.tumblr.com</string>
+	</dict>
+	<key>Real People of Orange County</key>
+	<dict>
+		<key>Website</key>
+		<string>kimberleemartin.com</string>
+	</dict>
+	<key>Planetary Radio</key>
+	<dict>
+		<key>Website</key>
+		<string>planetary.org/radio</string>
+	</dict>
+	<key>Things that Are Square</key>
+	<dict>
+		<key>Website</key>
+		<string>square.kuci.org</string>
+	</dict>
+	<key>Café Decay</key>
+	<dict>
+		<key>Website</key>
+		<string>cafedecay.kuci.org</string>
+	</dict>
+	<key>Shaving Your Eyebrows</key>
+	<dict>
+		<key>Website</key>
+		<string>feet.kuci.org</string>
+	</dict>
+	<key>Euthanasia Can&apos;t Sleep</key>
+	<dict>
+		<key>Website</key>
+		<string>euthanasiacantsleep.blogspot.com</string>
+	</dict>
+	<key>Waving Cornstalks</key>
+	<dict>
+		<key>Website</key>
+		<string>wavingcornstalks.kuci.org</string>
+	</dict>
+	<key>Weekly Signals</key>
+	<dict>
+		<key>Website</key>
+		<string>weeklysignals.com</string>
+	</dict>
+	<key>filmschool</key>
+	<dict>
+		<key>Website</key>
+		<string>filmschoolradio.com</string>
+	</dict>
+	<key>Couch Boat Connection</key>
+	<dict>
+		<key>Website</key>
+		<string>couchboat.kuci.org</string>
+	</dict>
+	<key>Raw Rawk</key>
+	<dict>
+		<key>Website</key>
+		<string>rawrawk.tumblr.com</string>
+	</dict>
+	<key>Memories of the Future</key>
+	<dict>
+		<key>Website</key>
+		<string>memories.kuci.org</string>
+	</dict>
+	<key>Activism for Amateurs</key>
+	<dict>
+		<key>Website</key>
+		<string>activismforamateurs.tumblr.com</string>
+	</dict>
+	<key>A Midnight Anthem</key>
+	<dict>
+		<key>Website</key>
+		<string>amidnightanthem.blogspot.com</string>
+	</dict>
+	<key>Riders of the Plastic Groove</key>
+	<dict>
+		<key>Website</key>
+		<string>plasticgroove.com</string>
+	</dict>
+	<key>Digital::Nimbus</key>
+	<dict>
+		<key>Website</key>
+		<string>digitalnimbus.com</string>
+	</dict>
+	<key>Telesthesia: Sound System Circuitry</key>
+	<dict>
+		<key>Website</key>
+		<string>kuci.org/telesthesia</string>
+	</dict>
+	<key>Dance Across The Ages</key>
+	<dict>
+		<key>Website</key>
+		<string>danccross.blogspot.com</string>
+	</dict>
+	<key>Sound Evolution</key>
+	<dict>
+		<key>Website</key>
+		<string>soundevolutionkuci.blogspot.com</string>
+	</dict>
+	<key>The Crystal Egg</key>
+	<dict>
+		<key>Website</key>
+		<string>thecrystalegg.blogspot.com</string>
+	</dict>
+	<key>When The Party’s Over</key>
+	<dict>
+		<key>Website</key>
+		<string>soulrevival.kuci.org</string>
+	</dict>
+	<key>Living with Pizzazz</key>
+	<dict>
+		<key>Website</key>
+		<string>livingwithpizzazz.tumblr.com</string>
+	</dict>
+	<key>The Hodgepodge Collective</key>
+	<dict>
+		<key>Website</key>
+		<string>hodgepodge.kuci.org</string>
+	</dict>
+	<key>Play It As it Lays</key>
+	<dict>
+		<key>Website</key>
+		<string>playit.kuci.org</string>
+	</dict>
+	<key>Nerd Metal</key>
+	<dict>
+		<key>Website</key>
+		<string>nerdmetal.kuci.org</string>
+	</dict>
+	<key>The Black Cauldron</key>
+	<dict>
+		<key>Website</key>
+		<string>blackcauldron.kuci.org</string>
+	</dict>
+	<key>The Heart Beats Machine</key>
+	<dict>
+		<key>Website</key>
+		<string>theheartbeatsmachine.blogspot.com</string>
+	</dict>
+	<key>Into the Cochlea</key>
+	<dict>
+		<key>Website</key>
+		<string>cochlea889.tumblr.com</string>
+	</dict>
+	<key>German Radio Broadcast</key>
+	<dict>
+		<key>Website</key>
+		<string>germanradio.kuci.org</string>
+	</dict>
+	<key>Darkling Eclectica</key>
+	<dict>
+		<key>Website</key>
+		<string>kuci.org/darklingeclectica</string>
+	</dict>
+	<key>Dory Previn Power Hour</key>
+	<dict>
+		<key>Website</key>
+		<string>dpph.tumblr.com</string>
+	</dict>
+	<key>Howdylicious!</key>
+	<dict>
+		<key>Website</key>
+		<string>howdylicious.com</string>
+	</dict>
+	<key>Trash-o-matic Garbage A Go-Go</key>
+	<dict>
+		<key>Website</key>
+		<string>facebook.com/garbageagogo</string>
 	</dict>
 </dict>
 </plist>

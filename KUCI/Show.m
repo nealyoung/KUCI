@@ -10,10 +10,7 @@
 
 @implementation Show
 
-- (id)initWithTime:(NSString *)time
-             title:(NSString *)title
-       description:(NSString *)description
-              host:(NSString *)host {
+- (id)initWithTime:(NSString *)time title:(NSString *)title description:(NSString *)description host:(NSString *)host {
     self = [super init];
     
     if (self) {

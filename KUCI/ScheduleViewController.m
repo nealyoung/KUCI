@@ -36,10 +36,10 @@
     
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar.png"]];
     self.navigationItem.title = @"Schedule";
-    UIBarButtonItem *donateButton = [[UIBarButtonItem alloc] initWithTitle:@"Donate" style:UIBarButtonItemStylePlain target:self action:@selector(showDonationPage)];
-    self.navigationItem.leftBarButtonItem = donateButton;
     
+    UIBarButtonItem *donateButton = [[UIBarButtonItem alloc] initWithTitle:@"Donate" style:UIBarButtonItemStylePlain target:self action:@selector(showDonationPage)];
     UIBarButtonItem *todayButton = [[UIBarButtonItem alloc] initWithTitle:@"Today" style:UIBarButtonItemStylePlain target:self action:@selector(scrollToCurrentDay)];
+    self.navigationItem.leftBarButtonItem = donateButton;
     self.navigationItem.rightBarButtonItem = todayButton;
         
     // Fetch and parse the schedule from the KUCI website
@@ -239,7 +239,6 @@
     cell.backgroundView = backgroundView;
 
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
-    //cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cellbackgroundselected.png"]];
     cell.textLabel.highlightedTextColor = [UIColor blackColor];
     cell.detailTextLabel.highlightedTextColor = [UIColor darkGrayColor];
     

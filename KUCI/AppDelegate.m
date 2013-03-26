@@ -16,6 +16,8 @@
     // Set custom navigation bar and toolbar backgrounds
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationbarbackground.png"] forBarMetrics:UIBarMetricsDefault];
     [[UIToolbar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationbarbackground.png"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+    // Set bar button item tint color to black
+    [[UIBarButtonItem appearance] setTintColor:[UIColor blackColor]];
 
     // Create view controllers for each tab
     UIViewController *scheduleView = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:nil];
@@ -29,9 +31,6 @@
 
     self.tabController.tabBar.backgroundImage = [UIImage imageNamed:@"TabBarBackground.png"];
     self.tabController.tabBar.selectedImageTintColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
-    
-    // For black bar button items
-    navController.navigationBar.tintColor = [UIColor blackColor];
     
     // Enable background audio
     NSError *sessionError = nil;

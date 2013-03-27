@@ -21,7 +21,9 @@
     // Set bar button item background image
     [[UIBarButtonItem appearance] setBackgroundImage:[UIImage imageNamed:@"barbutton.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [[UIBarButtonItem appearance] setBackgroundImage:[UIImage imageNamed:@"barbuttonpressed.png"] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"barbuttonback.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"barbuttonbackpressed.png"] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+    
     // Create view controllers for each tab
     UIViewController *scheduleView = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:nil];
     UIViewController *streamView = [[StreamViewController alloc] initWithNibName:@"StreamViewController" bundle:nil];

@@ -59,6 +59,10 @@
 		0E2866BA17026EEA00816222 /* barbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866B817026EEA00816222 /* barbutton@2x.png */; };
 		0E2866BD17026F1600816222 /* barbuttonpressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866BB17026F1600816222 /* barbuttonpressed.png */; };
 		0E2866BE17026F1600816222 /* barbuttonpressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866BC17026F1600816222 /* barbuttonpressed@2x.png */; };
+		0E2866CF1702B69B00816222 /* barbuttonback.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866CB1702B69A00816222 /* barbuttonback.png */; };
+		0E2866D01702B69B00816222 /* barbuttonback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866CC1702B69A00816222 /* barbuttonback@2x.png */; };
+		0E2866D11702B69B00816222 /* barbuttonbackpressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866CD1702B69A00816222 /* barbuttonbackpressed.png */; };
+		0E2866D21702B69B00816222 /* barbuttonbackpressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866CE1702B69A00816222 /* barbuttonbackpressed@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +131,10 @@
 		0E2866B817026EEA00816222 /* barbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbutton@2x.png"; sourceTree = "<group>"; };
 		0E2866BB17026F1600816222 /* barbuttonpressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barbuttonpressed.png; sourceTree = "<group>"; };
 		0E2866BC17026F1600816222 /* barbuttonpressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbuttonpressed@2x.png"; sourceTree = "<group>"; };
+		0E2866CB1702B69A00816222 /* barbuttonback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barbuttonback.png; sourceTree = "<group>"; };
+		0E2866CC1702B69A00816222 /* barbuttonback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbuttonback@2x.png"; sourceTree = "<group>"; };
+		0E2866CD1702B69A00816222 /* barbuttonbackpressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barbuttonbackpressed.png; sourceTree = "<group>"; };
+		0E2866CE1702B69A00816222 /* barbuttonbackpressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbuttonbackpressed@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +259,10 @@
 				0E2866B817026EEA00816222 /* barbutton@2x.png */,
 				0E2866BB17026F1600816222 /* barbuttonpressed.png */,
 				0E2866BC17026F1600816222 /* barbuttonpressed@2x.png */,
+				0E2866CB1702B69A00816222 /* barbuttonback.png */,
+				0E2866CC1702B69A00816222 /* barbuttonback@2x.png */,
+				0E2866CD1702B69A00816222 /* barbuttonbackpressed.png */,
+				0E2866CE1702B69A00816222 /* barbuttonbackpressed@2x.png */,
 				081B59E716F634810070C59C /* Icon.png */,
 				081B59E916F634840070C59C /* Icon@2x.png */,
 				0847F7BD16FF95150064DC20 /* descriptioncellbackground.png */,
@@ -376,6 +388,10 @@
 				0E2866BA17026EEA00816222 /* barbutton@2x.png in Resources */,
 				0E2866BD17026F1600816222 /* barbuttonpressed.png in Resources */,
 				0E2866BE17026F1600816222 /* barbuttonpressed@2x.png in Resources */,
+				0E2866CF1702B69B00816222 /* barbuttonback.png in Resources */,
+				0E2866D01702B69B00816222 /* barbuttonback@2x.png in Resources */,
+				0E2866D11702B69B00816222 /* barbuttonbackpressed.png in Resources */,
+				0E2866D21702B69B00816222 /* barbuttonbackpressed@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

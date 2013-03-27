@@ -8,7 +8,9 @@
 
 #import "ScheduleViewController.h"
 
-@interface ScheduleViewController ()
+@interface ScheduleViewController () {
+
+}
 
 - (void)parseSchedule;
 
@@ -42,8 +44,18 @@
     self.navigationItem.leftBarButtonItem = donateButton;
     self.navigationItem.rightBarButtonItem = todayButton;
         
-    // Fetch and parse the schedule from the KUCI website
-    [self parseSchedule];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSArray *storedShows = [defaults arrayForKey:@"shows"];
+    
+    // Time in seconds since the schedule was last updated
+    NSTimeInterval updateInterval = [NSDate timeIntervalSinceReferenceDate] - [defaults doubleForKey:@"updated"];
+    
+    // If the schedule is stored and has been updated in the last 5 days, use the stored schedule, otherwise fetch and parse the schedule from the KUCI website
+    if (updateInterval < 432000) {
+        self.shows = [NSMutableArray arrayWithArray:storedShows];
+    } else {
+        [self parseSchedule];
+    }
 }
 
 - (void)parseSchedule {
@@ -55,7 +67,7 @@
         NSRange beginDay = [scheduleHtml rangeOfString:@"<!--- Loop would begin here --->"];
         NSRange endDay = [scheduleHtml rangeOfString:@"<!--- end here --->"];
                 
-        shows = [[NSMutableArray alloc] init];
+        self.shows = [[NSMutableArray alloc] init];
         
         while (beginDay.location != NSNotFound) {
             // The portion of the schedule representing a single day
@@ -83,14 +95,13 @@
             for (NSInteger i = 0; i < [scheduleNodes count]; i += 2) {
                 NSString *time = [[scheduleNodes[i] allContents] substringFromIndex:1];
                 NSString *title = [[scheduleNodes[i + 1] allContents] substringFromIndex:1];
-                
                 NSString *description = [descriptionNodes[i] allContents];
                 NSString *host = [[descriptionNodes[i + 1] allContents] substringFromIndex:3];
                 
-                Show *show = [[Show alloc] initWithTime:time
-                                                  title:title
-                                            description:description
-                                                   host:host];
+                NSArray *objects = [NSArray arrayWithObjects:time, title, description, host, nil];
+                NSArray *keys = [NSArray arrayWithObjects:@"time", @"title", @"description", @"host", nil];
+                
+                NSDictionary *show = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
                 
                 [dayShows addObject:show];
             }
@@ -104,8 +115,16 @@
             // Remove the duplicate last show from the day array
             [dayShows removeLastObject];
             
-            [shows addObject:dayShows];
+            // Convert the mutable array to NSArray
+            [ self.shows addObject:[NSArray arrayWithArray:dayShows]];
         }
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        // Save the fetched schedule (need to convert the mutable array to NSArray first) and last updated time
+        [defaults setObject:[NSArray arrayWithArray:self.shows] forKey:@"shows"];
+        [defaults setDouble:[NSDate timeIntervalSinceReferenceDate] forKey:@"updated"];
+        
+        NSLog(@"Result in thing: %f", [defaults doubleForKey:@"updated"]);
     }
 }
 
@@ -170,7 +189,7 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [shows count];
+    return [self.shows count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -200,10 +219,10 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [shows[section] count];
+    return [self.shows[section] count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
     NSString *cellIdentifier = @"ShowCell";
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -212,12 +231,12 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
-    Show *show = shows[indexPath.section][indexPath.row];
+    NSDictionary *show = self.shows[indexPath.section][indexPath.row];
         
-    cell.textLabel.text = show.title;
+    cell.textLabel.text = show[@"title"];
     cell.textLabel.font = [UIFont boldSystemFontOfSize:17.0];
     cell.textLabel.backgroundColor = [UIColor clearColor];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", show.time];
+    cell.detailTextLabel.text = show[@"time"];
     cell.detailTextLabel.textColor = [UIColor darkGrayColor];
     cell.detailTextLabel.backgroundColor = [UIColor clearColor];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -270,7 +289,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ShowDetailViewController *showDetail = [[ShowDetailViewController alloc] initWithNibName:@"ShowDetailViewController" bundle:nil];
-    showDetail.show = shows[indexPath.section][indexPath.row];
+    showDetail.show = self.shows[indexPath.section][indexPath.row];
     
     [self.navigationController pushViewController:showDetail animated:YES];
 }

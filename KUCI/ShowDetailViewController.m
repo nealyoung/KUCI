@@ -33,7 +33,7 @@
     
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
-    self.navigationItem.title = self.show.title;
+    self.navigationItem.title = self.show[@"title"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -52,7 +52,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Check if there are any links for the show. If not, don't show the links section.
-    if ([[[self.showData objectForKey:self.show.title] allKeys] count] > 0) {
+    if ([[[self.showData objectForKey:self.show[@"title"]] allKeys] count] > 0) {
         return 3;
     } else {
         return 2;
@@ -77,7 +77,7 @@
         return 1;
     } else {
         // Number of links
-        return [[[self.showData objectForKey:self.show.title] allKeys] count];
+        return [[[self.showData objectForKey:self.show[@"title"]] allKeys] count];
     }
 }
 
@@ -109,7 +109,7 @@
     cell.backgroundView = backgroundView;
     
     // Link data for the show
-    NSDictionary *socialData = [self.showData objectForKey:self.show.title];
+    NSDictionary *socialData = [self.showData objectForKey:self.show[@"title"]];
     
     // 0: Info
     // 1: Description
@@ -118,13 +118,13 @@
         case 0:
             if (indexPath.row == 0) {
                 cell.textLabel.text = @"Title";
-                cell.detailTextLabel.text = self.show.title;
+                cell.detailTextLabel.text = self.show[@"title"];
             } else if (indexPath.row == 1) {
                 cell.textLabel.text = @"Host";
-                cell.detailTextLabel.text = self.show.host;
+                cell.detailTextLabel.text = self.show[@"host"];
             } else if (indexPath.row == 2) {
                 cell.textLabel.text = @"Time";
-                cell.detailTextLabel.text = self.show.time;
+                cell.detailTextLabel.text = self.show[@"time"];
             }
             
             break;
@@ -132,7 +132,7 @@
             cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
             cell.textLabel.numberOfLines = 0;
             cell.textLabel.textColor = [UIColor darkGrayColor];
-            cell.textLabel.text = self.show.description;
+            cell.textLabel.text = self.show[@"description"];
             cell.textLabel.font = [UIFont systemFontOfSize:17];
             //cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"descriptioncellbackground.png"]];
             
@@ -188,7 +188,7 @@
     // Check if the description section's height is being calculated, if not, return the default row height
     if (indexPath.section == 1) {
         CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2), 20000.0f);
-        CGSize size = [self.show.description sizeWithFont:[UIFont systemFontOfSize:17] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+        CGSize size = [self.show[@"description"] sizeWithFont:[UIFont systemFontOfSize:17] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
         CGFloat height = MAX(size.height + (CELL_CONTENT_MARGIN * 2), 44.0f);
         
         return height;
@@ -199,7 +199,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 2) {
-        NSDictionary *socialData = [self.showData objectForKey:self.show.title];
+        NSDictionary *socialData = [self.showData objectForKey:self.show[@"title"]];
         
         if (socialData != nil) {
             NSArray *keys = [socialData allKeys];            

@@ -11,10 +11,9 @@
 #import "Show.h"
 #import "ShowDetailViewController.h"
 
-@interface ScheduleViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
-    NSMutableArray *shows;
-}
+@interface ScheduleViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (retain) NSMutableArray *shows;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

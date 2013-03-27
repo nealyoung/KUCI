@@ -23,7 +23,7 @@
     [[UIBarButtonItem appearance] setBackgroundImage:[UIImage imageNamed:@"barbuttonpressed.png"] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"barbuttonback.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"barbuttonbackpressed.png"] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-    
+        
     // Create view controllers for each tab
     UIViewController *scheduleView = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:nil];
     UIViewController *streamView = [[StreamViewController alloc] initWithNibName:@"StreamViewController" bundle:nil];
@@ -34,7 +34,7 @@
     NSArray *tabs = [[NSArray alloc] initWithObjects:navController, streamView, nil];
     [self.tabController setViewControllers:tabs animated:NO];
 
-    self.tabController.tabBar.backgroundImage = [UIImage imageNamed:@"TabBarBackground.png"];
+    self.tabController.tabBar.backgroundImage = [UIImage imageNamed:@"tabbar.png"];
     self.tabController.tabBar.selectedImageTintColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
     
     // Enable background audio

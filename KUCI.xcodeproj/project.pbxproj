@@ -19,7 +19,6 @@
 		08331EC916917C2E00B9796F /* navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 08331EC816917C2E00B9796F /* navbar.png */; };
 		08331EDC1692738100B9796F /* ShowDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08331EDA1692738100B9796F /* ShowDetailViewController.m */; };
 		08331EDD1692738100B9796F /* ShowDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08331EDB1692738100B9796F /* ShowDetailViewController.xib */; };
-		08349BF6167FA56200490037 /* TabBarBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08349BF5167FA56200490037 /* TabBarBackground@2x.png */; };
 		08349BFD167FB96A00490037 /* music.png in Resources */ = {isa = PBXBuildFile; fileRef = 08349BFB167FB96A00490037 /* music.png */; };
 		08349BFE167FB96A00490037 /* music@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08349BFC167FB96A00490037 /* music@2x.png */; };
 		08363E111690FFDB009BFE33 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 08363E101690FFDB009BFE33 /* libxml2.dylib */; };
@@ -28,7 +27,6 @@
 		0847F7C016FF95B30064DC20 /* navigationbarbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 0847F7BF16FF95B30064DC20 /* navigationbarbackground.png */; };
 		0847F7C216FF96670064DC20 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 0847F7C116FF96660064DC20 /* pause.png */; };
 		0847F7C416FF966D0064DC20 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 0847F7C316FF966D0064DC20 /* play.png */; };
-		0847F7C616FF96AF0064DC20 /* TabBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 0847F7C516FF96AF0064DC20 /* TabBarBackground.png */; };
 		0847F7C916FFD3870064DC20 /* UACellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0847F7C816FFD3870064DC20 /* UACellBackgroundView.m */; };
 		08514981167DA65C00D1ED43 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08514980167DA65C00D1ED43 /* UIKit.framework */; };
 		08514983167DA65C00D1ED43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08514982167DA65C00D1ED43 /* Foundation.framework */; };
@@ -60,9 +58,11 @@
 		0E2866D01702B69B00816222 /* barbuttonback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866CC1702B69A00816222 /* barbuttonback@2x.png */; };
 		0E2866D11702B69B00816222 /* barbuttonbackpressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866CD1702B69A00816222 /* barbuttonbackpressed.png */; };
 		0E2866D21702B69B00816222 /* barbuttonbackpressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866CE1702B69A00816222 /* barbuttonbackpressed@2x.png */; };
-		0E2866D41702BAD200816222 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866D31702BAD200816222 /* Default-568h@2x.png */; };
 		0E2866D61702BCF800816222 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866D51702BCF800816222 /* Default.png */; };
 		0E2866D81702BD0200816222 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866D71702BD0200816222 /* Default@2x.png */; };
+		0E2866DB1702C09F00816222 /* tabbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866D91702C09F00816222 /* tabbar.png */; };
+		0E2866DC1702C09F00816222 /* tabbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866DA1702C09F00816222 /* tabbar@2x.png */; };
+		0E2866DE1702C17C00816222 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866DD1702C17C00816222 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,7 +82,6 @@
 		08331ED91692738100B9796F /* ShowDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDetailViewController.h; sourceTree = "<group>"; };
 		08331EDA1692738100B9796F /* ShowDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDetailViewController.m; sourceTree = "<group>"; };
 		08331EDB1692738100B9796F /* ShowDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowDetailViewController.xib; sourceTree = "<group>"; };
-		08349BF5167FA56200490037 /* TabBarBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarBackground@2x.png"; sourceTree = "<group>"; };
 		08349BFB167FB96A00490037 /* music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music.png; sourceTree = "<group>"; };
 		08349BFC167FB96A00490037 /* music@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "music@2x.png"; sourceTree = "<group>"; };
 		08363E101690FFDB009BFE33 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -91,7 +90,6 @@
 		0847F7BF16FF95B30064DC20 /* navigationbarbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationbarbackground.png; sourceTree = "<group>"; };
 		0847F7C116FF96660064DC20 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		0847F7C316FF966D0064DC20 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
-		0847F7C516FF96AF0064DC20 /* TabBarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBarBackground.png; sourceTree = "<group>"; };
 		0847F7C716FFD3870064DC20 /* UACellBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UACellBackgroundView.h; sourceTree = "<group>"; };
 		0847F7C816FFD3870064DC20 /* UACellBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UACellBackgroundView.m; sourceTree = "<group>"; };
 		0851497C167DA65C00D1ED43 /* KUCI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KUCI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,9 +130,11 @@
 		0E2866CC1702B69A00816222 /* barbuttonback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbuttonback@2x.png"; sourceTree = "<group>"; };
 		0E2866CD1702B69A00816222 /* barbuttonbackpressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barbuttonbackpressed.png; sourceTree = "<group>"; };
 		0E2866CE1702B69A00816222 /* barbuttonbackpressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbuttonbackpressed@2x.png"; sourceTree = "<group>"; };
-		0E2866D31702BAD200816222 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
 		0E2866D51702BCF800816222 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		0E2866D71702BD0200816222 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "KUCI/Default@2x.png"; sourceTree = SOURCE_ROOT; };
+		0E2866D91702C09F00816222 /* tabbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar.png; sourceTree = "<group>"; };
+		0E2866DA1702C09F00816222 /* tabbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar@2x.png"; sourceTree = "<group>"; };
+		0E2866DD1702C17C00816222 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,7 +224,7 @@
 				0851498E167DA65C00D1ED43 /* KUCI-Prefix.pch */,
 				0E2866D51702BCF800816222 /* Default.png */,
 				0E2866D71702BD0200816222 /* Default@2x.png */,
-				0E2866D31702BAD200816222 /* Default-568h@2x.png */,
+				0E2866DD1702C17C00816222 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -281,8 +281,8 @@
 				089C26301680FAD60058567E /* schedule@2x.png */,
 				08349BFB167FB96A00490037 /* music.png */,
 				08349BFC167FB96A00490037 /* music@2x.png */,
-				0847F7C516FF96AF0064DC20 /* TabBarBackground.png */,
-				08349BF5167FA56200490037 /* TabBarBackground@2x.png */,
+				0E2866D91702C09F00816222 /* tabbar.png */,
+				0E2866DA1702C09F00816222 /* tabbar@2x.png */,
 			);
 			name = Resources;
 			path = KUCI;
@@ -358,7 +358,6 @@
 				0851498B167DA65C00D1ED43 /* InfoPlist.strings in Resources */,
 				085149A3167DC7D500D1ED43 /* ScheduleViewController.xib in Resources */,
 				085149D2167ECDB300D1ED43 /* StreamViewController.xib in Resources */,
-				08349BF6167FA56200490037 /* TabBarBackground@2x.png in Resources */,
 				08349BFD167FB96A00490037 /* music.png in Resources */,
 				08349BFE167FB96A00490037 /* music@2x.png in Resources */,
 				089C26311680FAD60058567E /* schedule.png in Resources */,
@@ -380,7 +379,6 @@
 				0847F7C016FF95B30064DC20 /* navigationbarbackground.png in Resources */,
 				0847F7C216FF96670064DC20 /* pause.png in Resources */,
 				0847F7C416FF966D0064DC20 /* play.png in Resources */,
-				0847F7C616FF96AF0064DC20 /* TabBarBackground.png in Resources */,
 				0E2866B917026EEA00816222 /* barbutton.png in Resources */,
 				0E2866BA17026EEA00816222 /* barbutton@2x.png in Resources */,
 				0E2866BD17026F1600816222 /* barbuttonpressed.png in Resources */,
@@ -389,9 +387,11 @@
 				0E2866D01702B69B00816222 /* barbuttonback@2x.png in Resources */,
 				0E2866D11702B69B00816222 /* barbuttonbackpressed.png in Resources */,
 				0E2866D21702B69B00816222 /* barbuttonbackpressed@2x.png in Resources */,
-				0E2866D41702BAD200816222 /* Default-568h@2x.png in Resources */,
 				0E2866D61702BCF800816222 /* Default.png in Resources */,
 				0E2866D81702BD0200816222 /* Default@2x.png in Resources */,
+				0E2866DB1702C09F00816222 /* tabbar.png in Resources */,
+				0E2866DC1702C09F00816222 /* tabbar@2x.png in Resources */,
+				0E2866DE1702C17C00816222 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

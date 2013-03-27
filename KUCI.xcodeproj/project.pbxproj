@@ -34,7 +34,7 @@
 		0851498B167DA65C00D1ED43 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 08514989167DA65C00D1ED43 /* InfoPlist.strings */; };
 		0851498D167DA65C00D1ED43 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0851498C167DA65C00D1ED43 /* main.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		08514991167DA65C00D1ED43 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08514990167DA65C00D1ED43 /* AppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		085149A2167DC7D500D1ED43 /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085149A0167DC7D500D1ED43 /* ScheduleViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		085149A2167DC7D500D1ED43 /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085149A0167DC7D500D1ED43 /* ScheduleViewController.m */; };
 		085149A3167DC7D500D1ED43 /* ScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 085149A1167DC7D500D1ED43 /* ScheduleViewController.xib */; };
 		085149D1167ECDB300D1ED43 /* StreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085149CF167ECDB300D1ED43 /* StreamViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		085149D2167ECDB300D1ED43 /* StreamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 085149D0167ECDB300D1ED43 /* StreamViewController.xib */; };
@@ -63,6 +63,7 @@
 		0E2866DB1702C09F00816222 /* tabbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866D91702C09F00816222 /* tabbar.png */; };
 		0E2866DC1702C09F00816222 /* tabbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866DA1702C09F00816222 /* tabbar@2x.png */; };
 		0E2866DE1702C17C00816222 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866DD1702C17C00816222 /* Default-568h@2x.png */; };
+		0E2866E01702C62400816222 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E2866DF1702C62400816222 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,6 +136,7 @@
 		0E2866D91702C09F00816222 /* tabbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar.png; sourceTree = "<group>"; };
 		0E2866DA1702C09F00816222 /* tabbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar@2x.png"; sourceTree = "<group>"; };
 		0E2866DD1702C17C00816222 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		0E2866DF1702C62400816222 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				08514983167DA65C00D1ED43 /* Foundation.framework in Frameworks */,
 				08363E111690FFDB009BFE33 /* libxml2.dylib in Frameworks */,
 				08CDD19116F7C9EF0061CDD1 /* MessageUI.framework in Frameworks */,
+				0E2866E01702C62400816222 /* SystemConfiguration.framework in Frameworks */,
 				08514981167DA65C00D1ED43 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,14 +192,15 @@
 		0851497F167DA65C00D1ED43 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				08CDD19016F7C9EF0061CDD1 /* MessageUI.framework */,
 				08363E101690FFDB009BFE33 /* libxml2.dylib */,
 				089C262C1680F1E70058567E /* AVFoundation.framework */,
 				081B59E516F62DF20070C59C /* AudioToolbox.framework */,
-				08F537BB169CDBB200685480 /* CoreMedia.framework */,
-				08514980167DA65C00D1ED43 /* UIKit.framework */,
-				08514982167DA65C00D1ED43 /* Foundation.framework */,
 				08514984167DA65C00D1ED43 /* CoreGraphics.framework */,
+				08F537BB169CDBB200685480 /* CoreMedia.framework */,
+				08514982167DA65C00D1ED43 /* Foundation.framework */,
+				08CDD19016F7C9EF0061CDD1 /* MessageUI.framework */,
+				0E2866DF1702C62400816222 /* SystemConfiguration.framework */,
+				08514980167DA65C00D1ED43 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

@@ -26,14 +26,12 @@
         
     // Create view controllers for each tab
     UIViewController *scheduleView = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:nil];
-    UIViewController *streamView = [[StreamViewController alloc] initWithNibName:@"StreamViewController" bundle:nil];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:scheduleView];
-    
-    self.tabController = [[UITabBarController alloc] init];
-    
+    UIViewController *streamView = [[StreamViewController alloc] initWithNibName:@"StreamViewController" bundle:nil];
     NSArray *tabs = [[NSArray alloc] initWithObjects:navController, streamView, nil];
-    [self.tabController setViewControllers:tabs animated:NO];
 
+    self.tabController = [[UITabBarController alloc] init];
+    [self.tabController setViewControllers:tabs animated:NO];
     self.tabController.tabBar.backgroundImage = [UIImage imageNamed:@"tabbar.png"];
     self.tabController.tabBar.selectedImageTintColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
     

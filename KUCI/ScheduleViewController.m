@@ -31,7 +31,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
@@ -43,14 +42,27 @@
     UIBarButtonItem *todayButton = [[UIBarButtonItem alloc] initWithTitle:@"Today" style:UIBarButtonItemStylePlain target:self action:@selector(scrollToCurrentDay)];
     self.navigationItem.leftBarButtonItem = donateButton;
     self.navigationItem.rightBarButtonItem = todayButton;
-        
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSArray *storedShows = [defaults arrayForKey:@"shows"];
+    
+    // TODO Handle lack of network connectivity
+    
+    /*
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus internetStatus = [reachability currentReachabilityStatus];
+    if (internetStatus != NotReachable) {
+        //my web-dependent code
+    }
+    else {
+        //there-is-no-connection warning
+    }
+    */
     
     // Time in seconds since the schedule was last updated
     NSTimeInterval updateInterval = [NSDate timeIntervalSinceReferenceDate] - [defaults doubleForKey:@"updated"];
     
-    // If the schedule is stored and has been updated in the last 5 days, use the stored schedule, otherwise fetch and parse the schedule from the KUCI website
+    // If the schedule is stored and has been updated in the last 5 days, use the stored schedule. Otherwise, fetch and parse the schedule from the KUCI website.
     if (updateInterval < 432000) {
         self.shows = [NSMutableArray arrayWithArray:storedShows];
     } else {
@@ -73,9 +85,7 @@
             // The portion of the schedule representing a single day
             NSRange dayRange = NSMakeRange(beginDay.location, (endDay.location + endDay.length) - beginDay.location);
             NSMutableString *daySchedule = (NSMutableString *)[scheduleHtml substringWithRange:dayRange];
-            
-            //NSLog(@"%@", daySchedule);
-            
+                        
             NSError *error = nil;
             HTMLParser *parser = [[HTMLParser alloc] initWithString:daySchedule
                                                               error:&error];
@@ -116,7 +126,7 @@
             [dayShows removeLastObject];
             
             // Convert the mutable array to NSArray
-            [ self.shows addObject:[NSArray arrayWithArray:dayShows]];
+            [self.shows addObject:[NSArray arrayWithArray:dayShows]];
         }
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -276,7 +286,7 @@
     label.backgroundColor = [UIColor clearColor];
     label.shadowColor = [UIColor blackColor];
     label.shadowOffset = CGSizeMake(1, 1);
-    label.textColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:0.91];
+    label.textColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.0];
     label.font = [UIFont boldSystemFontOfSize:15];
     label.text = [tableView.dataSource tableView:tableView titleForHeaderInSection:section];
     

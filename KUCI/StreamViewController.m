@@ -103,7 +103,7 @@
     webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
     
     // Remove useless actions (cause PayPal session errors)
-    webViewController.availableActions = 0;
+    webViewController.availableActions = SVWebViewControllerAvailableActionsOpenInSafari | SVWebViewControllerAvailableActionsMailLink;
     
     [self presentViewController:webViewController animated:YES completion:nil];
 }

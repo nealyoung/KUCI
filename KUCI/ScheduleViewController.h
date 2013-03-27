@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Nealon Young. All rights reserved.
 //
 
+#import <SystemConfiguration/SystemConfiguration.h>
 #import <UIKit/UIKit.h>
 #import "HTMLParser.h"
 #import "Show.h"
@@ -13,7 +14,7 @@
 
 @interface ScheduleViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (retain) NSMutableArray *shows;
+@property (strong, nonatomic) NSMutableArray *shows;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

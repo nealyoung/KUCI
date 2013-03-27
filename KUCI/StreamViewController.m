@@ -86,6 +86,10 @@
     return YES;
 }
 
+- (BOOL)canResignFirstResponder {
+    return NO;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

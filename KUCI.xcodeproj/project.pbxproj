@@ -55,6 +55,10 @@
 		08CDD19116F7C9EF0061CDD1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CDD19016F7C9EF0061CDD1 /* MessageUI.framework */; };
 		08D2025616F991D600E43AE4 /* navigationbarbackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08D2025516F991D600E43AE4 /* navigationbarbackground@2x.png */; };
 		08F537BC169CDBB200685480 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F537BB169CDBB200685480 /* CoreMedia.framework */; };
+		0E2866B917026EEA00816222 /* barbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866B717026EE900816222 /* barbutton.png */; };
+		0E2866BA17026EEA00816222 /* barbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866B817026EEA00816222 /* barbutton@2x.png */; };
+		0E2866BD17026F1600816222 /* barbuttonpressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866BB17026F1600816222 /* barbuttonpressed.png */; };
+		0E2866BE17026F1600816222 /* barbuttonpressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866BC17026F1600816222 /* barbuttonpressed@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +123,10 @@
 		08CDD19016F7C9EF0061CDD1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		08D2025516F991D600E43AE4 /* navigationbarbackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationbarbackground@2x.png"; sourceTree = "<group>"; };
 		08F537BB169CDBB200685480 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		0E2866B717026EE900816222 /* barbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barbutton.png; sourceTree = "<group>"; };
+		0E2866B817026EEA00816222 /* barbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbutton@2x.png"; sourceTree = "<group>"; };
+		0E2866BB17026F1600816222 /* barbuttonpressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barbuttonpressed.png; sourceTree = "<group>"; };
+		0E2866BC17026F1600816222 /* barbuttonpressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbuttonpressed@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +247,10 @@
 		085149C3167EC3B500D1ED43 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0E2866B717026EE900816222 /* barbutton.png */,
+				0E2866B817026EEA00816222 /* barbutton@2x.png */,
+				0E2866BB17026F1600816222 /* barbuttonpressed.png */,
+				0E2866BC17026F1600816222 /* barbuttonpressed@2x.png */,
 				081B59E716F634810070C59C /* Icon.png */,
 				081B59E916F634840070C59C /* Icon@2x.png */,
 				0847F7BD16FF95150064DC20 /* descriptioncellbackground.png */,
@@ -360,6 +372,10 @@
 				0847F7C216FF96670064DC20 /* pause.png in Resources */,
 				0847F7C416FF966D0064DC20 /* play.png in Resources */,
 				0847F7C616FF96AF0064DC20 /* TabBarBackground.png in Resources */,
+				0E2866B917026EEA00816222 /* barbutton.png in Resources */,
+				0E2866BA17026EEA00816222 /* barbutton@2x.png in Resources */,
+				0E2866BD17026F1600816222 /* barbuttonpressed.png in Resources */,
+				0E2866BE17026F1600816222 /* barbuttonpressed@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

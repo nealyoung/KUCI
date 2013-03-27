@@ -18,6 +18,9 @@
     [[UIToolbar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationbarbackground.png"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     // Set bar button item tint color to black
     [[UIBarButtonItem appearance] setTintColor:[UIColor blackColor]];
+    // Set bar button item background image
+    [[UIBarButtonItem appearance] setBackgroundImage:[UIImage imageNamed:@"barbutton.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setBackgroundImage:[UIImage imageNamed:@"barbuttonpressed.png"] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
 
     // Create view controllers for each tab
     UIViewController *scheduleView = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:nil];

@@ -36,9 +36,6 @@
 		0851498B167DA65C00D1ED43 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 08514989167DA65C00D1ED43 /* InfoPlist.strings */; };
 		0851498D167DA65C00D1ED43 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0851498C167DA65C00D1ED43 /* main.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		08514991167DA65C00D1ED43 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08514990167DA65C00D1ED43 /* AppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		08514993167DA65C00D1ED43 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 08514992167DA65C00D1ED43 /* Default.png */; };
-		08514995167DA65C00D1ED43 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08514994167DA65C00D1ED43 /* Default@2x.png */; };
-		08514997167DA65C00D1ED43 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08514996167DA65C00D1ED43 /* Default-568h@2x.png */; };
 		085149A2167DC7D500D1ED43 /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085149A0167DC7D500D1ED43 /* ScheduleViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		085149A3167DC7D500D1ED43 /* ScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 085149A1167DC7D500D1ED43 /* ScheduleViewController.xib */; };
 		085149D1167ECDB300D1ED43 /* StreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085149CF167ECDB300D1ED43 /* StreamViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -63,6 +60,9 @@
 		0E2866D01702B69B00816222 /* barbuttonback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866CC1702B69A00816222 /* barbuttonback@2x.png */; };
 		0E2866D11702B69B00816222 /* barbuttonbackpressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866CD1702B69A00816222 /* barbuttonbackpressed.png */; };
 		0E2866D21702B69B00816222 /* barbuttonbackpressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866CE1702B69A00816222 /* barbuttonbackpressed@2x.png */; };
+		0E2866D41702BAD200816222 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866D31702BAD200816222 /* Default-568h@2x.png */; };
+		0E2866D61702BCF800816222 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866D51702BCF800816222 /* Default.png */; };
+		0E2866D81702BD0200816222 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2866D71702BD0200816222 /* Default@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,9 +104,6 @@
 		0851498E167DA65C00D1ED43 /* KUCI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KUCI-Prefix.pch"; sourceTree = "<group>"; };
 		0851498F167DA65C00D1ED43 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		08514990167DA65C00D1ED43 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		08514992167DA65C00D1ED43 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		08514994167DA65C00D1ED43 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		08514996167DA65C00D1ED43 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0851499F167DC7D500D1ED43 /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
 		085149A0167DC7D500D1ED43 /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
 		085149A1167DC7D500D1ED43 /* ScheduleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleViewController.xib; sourceTree = "<group>"; };
@@ -135,6 +132,9 @@
 		0E2866CC1702B69A00816222 /* barbuttonback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbuttonback@2x.png"; sourceTree = "<group>"; };
 		0E2866CD1702B69A00816222 /* barbuttonbackpressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barbuttonbackpressed.png; sourceTree = "<group>"; };
 		0E2866CE1702B69A00816222 /* barbuttonbackpressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbuttonbackpressed@2x.png"; sourceTree = "<group>"; };
+		0E2866D31702BAD200816222 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
+		0E2866D51702BCF800816222 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		0E2866D71702BD0200816222 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "KUCI/Default@2x.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,9 +222,9 @@
 				08514989167DA65C00D1ED43 /* InfoPlist.strings */,
 				0851498C167DA65C00D1ED43 /* main.m */,
 				0851498E167DA65C00D1ED43 /* KUCI-Prefix.pch */,
-				08514992167DA65C00D1ED43 /* Default.png */,
-				08514994167DA65C00D1ED43 /* Default@2x.png */,
-				08514996167DA65C00D1ED43 /* Default-568h@2x.png */,
+				0E2866D51702BCF800816222 /* Default.png */,
+				0E2866D71702BD0200816222 /* Default@2x.png */,
+				0E2866D31702BAD200816222 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -356,9 +356,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0851498B167DA65C00D1ED43 /* InfoPlist.strings in Resources */,
-				08514993167DA65C00D1ED43 /* Default.png in Resources */,
-				08514995167DA65C00D1ED43 /* Default@2x.png in Resources */,
-				08514997167DA65C00D1ED43 /* Default-568h@2x.png in Resources */,
 				085149A3167DC7D500D1ED43 /* ScheduleViewController.xib in Resources */,
 				085149D2167ECDB300D1ED43 /* StreamViewController.xib in Resources */,
 				08349BF6167FA56200490037 /* TabBarBackground@2x.png in Resources */,
@@ -392,6 +389,9 @@
 				0E2866D01702B69B00816222 /* barbuttonback@2x.png in Resources */,
 				0E2866D11702B69B00816222 /* barbuttonbackpressed.png in Resources */,
 				0E2866D21702B69B00816222 /* barbuttonbackpressed@2x.png in Resources */,
+				0E2866D41702BAD200816222 /* Default-568h@2x.png in Resources */,
+				0E2866D61702BCF800816222 /* Default.png in Resources */,
+				0E2866D81702BD0200816222 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

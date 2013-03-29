@@ -87,7 +87,7 @@
 }
 
 - (BOOL)canResignFirstResponder {
-    return NO;
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {

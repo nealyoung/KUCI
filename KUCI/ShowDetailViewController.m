@@ -13,6 +13,8 @@
 
 @interface ShowDetailViewController ()
 
+- (void)shareButtonPressed;
+
 @end
 
 @implementation ShowDetailViewController
@@ -31,6 +33,10 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"ShowData" ofType:@"plist"];
     self.showData = [[NSDictionary alloc] initWithContentsOfFile:path];
     
+    //UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithTitle:@"Share" style:UIBarButtonItemStylePlain target:self action:@selector(scrollToCurrentDay)];
+    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonPressed)];
+    self.navigationItem.rightBarButtonItem = shareButton;
+    
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.navigationItem.title = self.show[@"title"];
@@ -46,6 +52,25 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)shareButtonPressed {
+    NSDictionary *socialData = [self.showData objectForKey:self.show[@"title"]];
+    NSString *text;
+    
+    // If the show has an associated website, include it in the text to share
+    if (socialData[@"Website"]) {
+        text = [NSString stringWithFormat:@"I'm listening to %@ on KUCI! %@", self.show[@"title"], socialData[@"Website"]];
+    } else {
+        text = [NSString stringWithFormat:@"I'm listening to %@ on KUCI!", self.show[@"title"]];
+    }
+    
+    NSArray *activityItems = @[text];
+    
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    activityViewController.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll];
+    
+    [self presentViewController:activityViewController animated:TRUE completion:nil];
 }
 
 #pragma mark - UITableViewDataSource

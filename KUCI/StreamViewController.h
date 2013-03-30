@@ -16,4 +16,6 @@
 @property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 @property (strong, nonatomic) AVPlayer *player;
 
+- (void)toggleStream:(NSNotification *)notification;
+
 @end

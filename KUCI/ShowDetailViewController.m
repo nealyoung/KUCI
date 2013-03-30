@@ -60,9 +60,9 @@
     
     // If the show has an associated website, include it in the text to share
     if (socialData[@"Website"]) {
-        text = [NSString stringWithFormat:@"I'm listening to %@ on KUCI! %@", self.show[@"title"], socialData[@"Website"]];
+        text = [NSString stringWithFormat:@"I'm listening to %@ on @kuciFM! %@", self.show[@"title"], socialData[@"Website"]];
     } else {
-        text = [NSString stringWithFormat:@"I'm listening to %@ on KUCI!", self.show[@"title"]];
+        text = [NSString stringWithFormat:@"I'm listening to %@ on @kuciFM!", self.show[@"title"]];
     }
     
     NSArray *activityItems = @[text];

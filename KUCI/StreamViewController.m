@@ -40,6 +40,9 @@
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
     
+    // Toggle the stream when a remote control play/pause event occurs (sent from app delegate)
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleStream:) name:@"toggleStream" object:nil];
+    
     self.player = [[AVPlayer alloc] initWithURL:stream];
     
     //
@@ -49,34 +52,36 @@
     [self.player pause];
 }
 
-- (IBAction)toggleStream:(UIButton *)sender {
+- (void)toggleStream:(NSNotification *)notification {
     if (self.player.rate == 0.0) {
         [self.player play];
-        [sender setBackgroundImage:[UIImage imageNamed:@"pause.png"]
-                          forState:UIControlStateNormal];
+        [self.playButton setBackgroundImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
     } else {
         [self.player pause];
-        [sender setBackgroundImage:[UIImage imageNamed:@"play.png"]
-                          forState:UIControlStateNormal];
+        [self.playButton setBackgroundImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
     }
+}
+
+- (IBAction)playButtonPressed:(UIButton *)sender {
+    [self toggleStream:NULL];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    //[[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
-    [self becomeFirstResponder];
+    //[self becomeFirstResponder];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+    //[[UIApplication sharedApplication] endReceivingRemoteControlEvents];
     
-    [self resignFirstResponder];
+    //[self resignFirstResponder];
 }
 
 - (void)remoteControlReceivedWithEvent:(UIEvent *)event {
-    [self toggleStream:self.playButton];
+    [self toggleStream:NULL];
 
     if (event.type == UIEventTypeRemoteControl) {
     }

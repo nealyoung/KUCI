@@ -36,6 +36,8 @@
     self.tabController.tabBar.selectedImageTintColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
     
     // Enable background audio
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    
     NSError *sessionError = nil;
     [[AVAudioSession sharedInstance] setDelegate:self];
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&sessionError];
@@ -50,6 +52,13 @@
     [self.window makeKeyAndVisible];
 
     return YES;
+}
+
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event {
+    if (event.subtype == UIEventSubtypeRemoteControlTogglePlayPause) {
+        // Send a notification to the stream view controller to toggle the stream when a remote control event is received
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"toggleStream" object:nil];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -31,7 +31,7 @@
     NSArray *tabs = [[NSArray alloc] initWithObjects:navController, streamView, nil];
 
     self.tabController = [[UITabBarController alloc] init];
-    [self.tabController setViewControllers:tabs animated:NO];
+    self.tabController.viewControllers = tabs;
     self.tabController.tabBar.backgroundImage = [UIImage imageNamed:@"tabbar.png"];
     self.tabController.tabBar.selectedImageTintColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
     

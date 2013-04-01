@@ -87,8 +87,7 @@
             NSMutableString *daySchedule = (NSMutableString *)[scheduleHtml substringWithRange:dayRange];
                         
             NSError *error = nil;
-            HTMLParser *parser = [[HTMLParser alloc] initWithString:daySchedule
-                                                              error:&error];
+            HTMLParser *parser = [[HTMLParser alloc] initWithString:daySchedule error:&error];
             
             if (error) {
                 NSLog(@"%@", error);
@@ -119,6 +118,8 @@
             // After processing the day's schedule, remove it from the main schedule HTML
             [scheduleHtml deleteCharactersInRange:dayRange];
             
+            
+            // Set beginDay and endDay to the beginning and ending positions of the next day
             beginDay = [scheduleHtml rangeOfString:@"<!--- Loop would begin here --->"];
             endDay = [scheduleHtml rangeOfString:@"<!--- end here --->"];
             
@@ -130,11 +131,10 @@
         }
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        // Save the fetched schedule (need to convert the mutable array to NSArray first) and last updated time
-        [defaults setObject:[NSArray arrayWithArray:self.shows] forKey:@"shows"];
-        [defaults setDouble:[NSDate timeIntervalSinceReferenceDate] forKey:@"updated"];
         
-        NSLog(@"Result in thing: %f", [defaults doubleForKey:@"updated"]);
+        // Save the fetched schedule (need to convert the mutable array to NSArray to save in defaults) and last updated time
+        [defaults setObject:[NSArray arrayWithArray:self.shows] forKey:@"shows"];
+        [defaults setDouble:[NSDate timeIntervalSinceReferenceDate] forKey:@"updated"];        
     }
 }
 

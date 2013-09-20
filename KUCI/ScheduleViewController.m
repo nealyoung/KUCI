@@ -23,7 +23,7 @@
     
     if (self) {
         // Custom initialization
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Schedule" image:[UIImage imageNamed:@"schedule.png"] tag:0];
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Schedule" image:[UIImage imageNamed:@"clock.png"] tag:0];
     }
     
     return self;
@@ -244,28 +244,12 @@
     NSDictionary *show = self.shows[indexPath.section][indexPath.row];
         
     cell.textLabel.text = show[@"title"];
-    cell.textLabel.font = [UIFont boldSystemFontOfSize:17.0];
+    cell.textLabel.font = [UIFont systemFontOfSize:17.0];
     cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.detailTextLabel.text = show[@"time"];
     cell.detailTextLabel.textColor = [UIColor darkGrayColor];
     cell.detailTextLabel.backgroundColor = [UIColor clearColor];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
-    UACellBackgroundView *backgroundView = [[UACellBackgroundView alloc] initWithFrame:CGRectZero];
-    
-    NSInteger numberOfRowsInSection = [tableView numberOfRowsInSection:indexPath.section];
-    
-    if (numberOfRowsInSection == 1) {
-        backgroundView.position = UACellBackgroundViewPositionSingle;
-    } else if (indexPath.row == 0) {
-        backgroundView.position = UACellBackgroundViewPositionTop;
-    } else if (indexPath.row == (numberOfRowsInSection - 1)) {
-        backgroundView.position = UACellBackgroundViewPositionBottom;
-    } else {
-        backgroundView.position = UACellBackgroundViewPositionMiddle;
-    }
-    
-    cell.backgroundView = backgroundView;
 
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
     cell.textLabel.highlightedTextColor = [UIColor blackColor];
@@ -278,16 +262,18 @@
     return 22;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0;
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 22)];
     view.backgroundColor = [UIColor clearColor];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(22, 0, 280, 22)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(16, 0, 280, 22)];
     label.backgroundColor = [UIColor clearColor];
-    label.shadowColor = [UIColor blackColor];
-    label.shadowOffset = CGSizeMake(1, 1);
-    label.textColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.0];
-    label.font = [UIFont boldSystemFontOfSize:15];
+    label.textColor = [UIColor whiteColor];
+    label.font = [UIFont boldSystemFontOfSize:15.0];
     label.text = [tableView.dataSource tableView:tableView titleForHeaderInSection:section];
     
     [view addSubview:label];

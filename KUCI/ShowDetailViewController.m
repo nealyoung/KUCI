@@ -117,22 +117,6 @@
     // Disable selection for info cells
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    UACellBackgroundView *backgroundView = [[UACellBackgroundView alloc] initWithFrame:CGRectZero];
-    
-    NSInteger numberOfRowsInSection = [tableView numberOfRowsInSection:indexPath.section];
-    
-    if (numberOfRowsInSection == 1) {
-        backgroundView.position = UACellBackgroundViewPositionSingle;
-    } else if (indexPath.row == 0) {
-        backgroundView.position = UACellBackgroundViewPositionTop;
-    } else if (indexPath.row == (numberOfRowsInSection - 1)) {
-        backgroundView.position = UACellBackgroundViewPositionBottom;
-    } else {
-        backgroundView.position = UACellBackgroundViewPositionMiddle;
-    }
-    
-    cell.backgroundView = backgroundView;
-    
     // Link data for the show
     NSDictionary *socialData = [self.showData objectForKey:self.show[@"title"]];
     
@@ -156,10 +140,9 @@
         case 1:
             cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
             cell.textLabel.numberOfLines = 0;
-            cell.textLabel.textColor = [UIColor darkGrayColor];
+            //cell.textLabel.textColor = [UIColor darkGrayColor];
             cell.textLabel.text = self.show[@"description"];
             cell.textLabel.font = [UIFont systemFontOfSize:17];
-            //cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"descriptioncellbackground.png"]];
             
             break;
         case 2:
@@ -194,11 +177,9 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 22)];
     view.backgroundColor = [UIColor clearColor];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(22, 0, 280, 22)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(16, 0, 280, 22)];
     label.backgroundColor = [UIColor clearColor];
-    label.shadowColor = [UIColor blackColor];
-    label.shadowOffset = CGSizeMake(1, 1);
-    label.textColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:0.91];
+    label.textColor = [UIColor whiteColor];
     label.font = [UIFont boldSystemFontOfSize:15];
     label.text = [tableView.dataSource tableView:tableView titleForHeaderInSection:section];
     

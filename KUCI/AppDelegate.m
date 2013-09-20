@@ -12,28 +12,28 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.tintColor = [UIColor whiteColor];
     
-    // Set custom navigation bar and toolbar backgrounds
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationbarbackground.png"] forBarMetrics:UIBarMetricsDefault];
-    [[UIToolbar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationbarbackground.png"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
-    // Set bar button item tint color to black
-    [[UIBarButtonItem appearance] setTintColor:[UIColor blackColor]];
-    // Set bar button item background image
-    [[UIBarButtonItem appearance] setBackgroundImage:[UIImage imageNamed:@"barbutton.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    [[UIBarButtonItem appearance] setBackgroundImage:[UIImage imageNamed:@"barbuttonpressed.png"] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"barbuttonback.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"barbuttonbackpressed.png"] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-        
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    [[UINavigationBar appearance] setBarTintColor:[UIColor blackColor]];
+    [[UITabBar appearance] setBarTintColor:[UIColor blackColor]];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+    
+    NSDictionary *navigationBarTitleTextAttributes = @{UITextAttributeTextColor: [UIColor whiteColor]};
+    [[UINavigationBar appearance] setTitleTextAttributes:navigationBarTitleTextAttributes];
+
+    
     // Create view controllers for each tab
     UIViewController *scheduleView = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:nil];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:scheduleView];
     UIViewController *streamView = [[StreamViewController alloc] initWithNibName:@"StreamViewController" bundle:nil];
-    NSArray *tabs = [[NSArray alloc] initWithObjects:navController, streamView, nil];
+    NSArray *tabs = @[navController, streamView];
 
-    self.tabController = [[UITabBarController alloc] init];
-    self.tabController.viewControllers = tabs;
-    self.tabController.tabBar.backgroundImage = [UIImage imageNamed:@"tabbar.png"];
-    self.tabController.tabBar.selectedImageTintColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
+    UITabBarController *tabController = [[UITabBarController alloc] init];
+    tabController.viewControllers = tabs;
+    tabController.tabBar.selectedImageTintColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
+    tabController.tabBar.barTintColor = [UIColor blackColor];
     
     // Enable background audio
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
@@ -48,7 +48,7 @@
     UInt32 doChangeDefaultRoute = 1;
     AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof(doChangeDefaultRoute), &doChangeDefaultRoute);
     
-    [self.window setRootViewController:self.tabController];
+    [self.window setRootViewController:tabController];
     [self.window makeKeyAndVisible];
 
     return YES;

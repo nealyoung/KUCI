@@ -40,10 +40,10 @@
 		085149D2167ECDB300D1ED43 /* StreamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 085149D0167ECDB300D1ED43 /* StreamViewController.xib */; };
 		088D718C16F5B68E002DF434 /* ShowData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 088D718B16F5B68E002DF434 /* ShowData.plist */; };
 		089C262D1680F1E70058567E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089C262C1680F1E70058567E /* AVFoundation.framework */; };
-		089C26311680FAD60058567E /* schedule.png in Resources */ = {isa = PBXBuildFile; fileRef = 089C262F1680FAD60058567E /* schedule.png */; };
-		089C26321680FAD60058567E /* schedule@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 089C26301680FAD60058567E /* schedule@2x.png */; };
 		089C263F16815B090058567E /* pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 089C263D16815B090058567E /* pause@2x.png */; };
 		089C264016815B090058567E /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 089C263E16815B090058567E /* play@2x.png */; };
+		089EB79017EBF953008B8817 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 089EB78F17EBF953008B8817 /* clock@2x.png */; };
+		089EB79217EBF957008B8817 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 089EB79117EBF957008B8817 /* clock.png */; };
 		08CDD18A16F7C9670061CDD1 /* SVModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08CDD18916F7C9670061CDD1 /* SVModalWebViewController.m */; };
 		08CDD18D16F7C9710061CDD1 /* SVWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08CDD18C16F7C9710061CDD1 /* SVWebViewController.m */; };
 		08CDD18F16F7C9780061CDD1 /* SVWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 08CDD18E16F7C9780061CDD1 /* SVWebViewController.bundle */; };
@@ -111,10 +111,10 @@
 		085149D0167ECDB300D1ED43 /* StreamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StreamViewController.xib; sourceTree = "<group>"; };
 		088D718B16F5B68E002DF434 /* ShowData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ShowData.plist; sourceTree = "<group>"; };
 		089C262C1680F1E70058567E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		089C262F1680FAD60058567E /* schedule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = schedule.png; sourceTree = "<group>"; };
-		089C26301680FAD60058567E /* schedule@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "schedule@2x.png"; sourceTree = "<group>"; };
 		089C263D16815B090058567E /* pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause@2x.png"; sourceTree = "<group>"; };
 		089C263E16815B090058567E /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
+		089EB78F17EBF953008B8817 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
+		089EB79117EBF957008B8817 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		08CDD18816F7C9610061CDD1 /* SVModalWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVModalWebViewController.h; sourceTree = "<group>"; };
 		08CDD18916F7C9670061CDD1 /* SVModalWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVModalWebViewController.m; sourceTree = "<group>"; };
 		08CDD18B16F7C9710061CDD1 /* SVWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVWebViewController.h; sourceTree = "<group>"; };
@@ -281,8 +281,8 @@
 				089C263D16815B090058567E /* pause@2x.png */,
 				0847F7C316FF966D0064DC20 /* play.png */,
 				089C263E16815B090058567E /* play@2x.png */,
-				089C262F1680FAD60058567E /* schedule.png */,
-				089C26301680FAD60058567E /* schedule@2x.png */,
+				089EB79117EBF957008B8817 /* clock.png */,
+				089EB78F17EBF953008B8817 /* clock@2x.png */,
 				08349BFB167FB96A00490037 /* music.png */,
 				08349BFC167FB96A00490037 /* music@2x.png */,
 				0E2866D91702C09F00816222 /* tabbar.png */,
@@ -364,8 +364,6 @@
 				085149D2167ECDB300D1ED43 /* StreamViewController.xib in Resources */,
 				08349BFD167FB96A00490037 /* music.png in Resources */,
 				08349BFE167FB96A00490037 /* music@2x.png in Resources */,
-				089C26311680FAD60058567E /* schedule.png in Resources */,
-				089C26321680FAD60058567E /* schedule@2x.png in Resources */,
 				089C263F16815B090058567E /* pause@2x.png in Resources */,
 				089C264016815B090058567E /* play@2x.png in Resources */,
 				08331EC716917BCB00B9796F /* navbar@2x.png in Resources */,
@@ -376,6 +374,7 @@
 				081B59EA16F634840070C59C /* Icon@2x.png in Resources */,
 				081B59ED16F6FE460070C59C /* background.png in Resources */,
 				081B59EE16F6FE460070C59C /* background@2x.png in Resources */,
+				089EB79017EBF953008B8817 /* clock@2x.png in Resources */,
 				08CDD18F16F7C9780061CDD1 /* SVWebViewController.bundle in Resources */,
 				08D2025616F991D600E43AE4 /* navigationbarbackground@2x.png in Resources */,
 				0847F7BC16FF0C710064DC20 /* descriptioncellbackground@2x.png in Resources */,
@@ -394,6 +393,7 @@
 				0E2866D61702BCF800816222 /* Default.png in Resources */,
 				0E2866D81702BD0200816222 /* Default@2x.png in Resources */,
 				0E2866DB1702C09F00816222 /* tabbar.png in Resources */,
+				089EB79217EBF957008B8817 /* clock.png in Resources */,
 				0E2866DC1702C09F00816222 /* tabbar@2x.png in Resources */,
 				0E2866DE1702C17C00816222 /* Default-568h@2x.png in Resources */,
 			);

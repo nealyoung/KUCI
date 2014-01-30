@@ -222,6 +222,7 @@
             
             SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:url];
             webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
+            webViewController.barsTintColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.8f];
             webViewController.availableActions = SVWebViewControllerAvailableActionsOpenInSafari | SVWebViewControllerAvailableActionsMailLink;
             [self presentViewController:webViewController animated:YES completion:nil];
         }

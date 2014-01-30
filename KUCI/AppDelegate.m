@@ -16,7 +16,7 @@
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
-    [[UINavigationBar appearance] setBarTintColor:[UIColor blackColor]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.8f]];
     [[UITabBar appearance] setBarTintColor:[UIColor blackColor]];
     [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
     
@@ -25,15 +25,18 @@
 
     
     // Create view controllers for each tab
-    UIViewController *scheduleView = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:nil];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:scheduleView];
-    UIViewController *streamView = [[StreamViewController alloc] initWithNibName:@"StreamViewController" bundle:nil];
-    NSArray *tabs = @[navController, streamView];
+    ScheduleViewController *scheduleView = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:nil];
+    UINavigationController *scheduleNavigationController = [[UINavigationController alloc] initWithRootViewController:scheduleView];
+    
+    StreamViewController *streamViewController = [[StreamViewController alloc] initWithNibName:@"StreamViewController" bundle:nil];
+    UINavigationController *streamNavigationController = [[UINavigationController alloc] initWithRootViewController:streamViewController];
+
+    NSArray *tabs = @[scheduleNavigationController, streamNavigationController];
 
     UITabBarController *tabController = [[UITabBarController alloc] init];
     tabController.viewControllers = tabs;
     tabController.tabBar.selectedImageTintColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
-    tabController.tabBar.barTintColor = [UIColor blackColor];
+    tabController.tabBar.barTintColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8f];
     
     // Enable background audio
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];

@@ -8,10 +8,9 @@
 
 #import "ScheduleViewController.h"
 
-@interface ScheduleViewController () {
+@interface ScheduleViewController ()
 
-}
-
+- (void)donateButtonPressed;
 - (void)parseSchedule;
 
 @end
@@ -38,7 +37,7 @@
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar.png"]];
     self.navigationItem.title = @"Schedule";
     
-    UIBarButtonItem *donateButton = [[UIBarButtonItem alloc] initWithTitle:@"Donate" style:UIBarButtonItemStylePlain target:self action:@selector(showDonationPage)];
+    UIBarButtonItem *donateButton = [[UIBarButtonItem alloc] initWithTitle:@"Donate" style:UIBarButtonItemStylePlain target:self action:@selector(donateButtonPressed)];
     UIBarButtonItem *todayButton = [[UIBarButtonItem alloc] initWithTitle:@"Today" style:UIBarButtonItemStylePlain target:self action:@selector(scrollToCurrentDay)];
     self.navigationItem.leftBarButtonItem = donateButton;
     self.navigationItem.rightBarButtonItem = todayButton;
@@ -183,7 +182,7 @@
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
-- (void)showDonationPage {
+- (void)donateButtonPressed {
     NSString *website = @"http://www.kuci.org/paypal/fund_drive/index.shtml";
     NSURL *url = [NSURL URLWithString:website];
     

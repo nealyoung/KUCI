@@ -13,7 +13,6 @@
 @interface StreamViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIButton *playButton;
-@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 @property (strong, nonatomic) AVPlayer *player;
 
 - (void)toggleStream:(NSNotification *)notification;

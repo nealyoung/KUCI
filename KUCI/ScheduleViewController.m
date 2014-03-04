@@ -32,7 +32,7 @@
     [super viewDidLoad];
     
     self.tableView.backgroundView = nil;
-    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.tableView.backgroundColor = [UIColor colorWithWhite:0.15f alpha:1.0f];
     
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar.png"]];
     self.navigationItem.title = @"Schedule";
@@ -243,9 +243,10 @@
     NSDictionary *show = self.shows[indexPath.section][indexPath.row];
         
     cell.textLabel.text = show[@"title"];
-    cell.textLabel.font = [UIFont systemFontOfSize:17.0];
+    cell.textLabel.font = [UIFont semiboldApplicationFontOfSize:17.0];
     cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.detailTextLabel.text = show[@"time"];
+    cell.detailTextLabel.font = [UIFont applicationFontOfSize:15.0f];
     cell.detailTextLabel.textColor = [UIColor darkGrayColor];
     cell.detailTextLabel.backgroundColor = [UIColor clearColor];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -258,7 +259,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 22;
+    return 24;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -272,7 +273,7 @@
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(16, 0, 280, 22)];
     label.backgroundColor = [UIColor clearColor];
     label.textColor = [UIColor whiteColor];
-    label.font = [UIFont boldSystemFontOfSize:15.0];
+    label.font = [UIFont semiboldApplicationFontOfSize:15.0];
     label.text = [tableView.dataSource tableView:tableView titleForHeaderInSection:section];
     
     [view addSubview:label];

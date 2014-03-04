@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "Show.h"
 #import "SVModalWebViewController.h"
-#import "UACellBackgroundView.h"
 
 @interface ShowDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

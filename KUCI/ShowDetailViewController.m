@@ -33,7 +33,6 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"ShowData" ofType:@"plist"];
     self.showData = [[NSDictionary alloc] initWithContentsOfFile:path];
     
-    //UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithTitle:@"Share" style:UIBarButtonItemStylePlain target:self action:@selector(scrollToCurrentDay)];
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonPressed)];
     self.navigationItem.rightBarButtonItem = shareButton;
     
@@ -126,27 +125,33 @@
     switch (indexPath.section) {
         case 0:
             if (indexPath.row == 0) {
-                cell.textLabel.text = @"Title";
+                cell.textLabel.text = NSLocalizedString(@"Title", nil);
+                cell.textLabel.font = [UIFont semiboldApplicationFontOfSize:17.0f];
                 cell.detailTextLabel.text = self.show[@"title"];
+                cell.detailTextLabel.font = [UIFont applicationFontOfSize:17.0f];
             } else if (indexPath.row == 1) {
-                cell.textLabel.text = @"Host";
+                cell.textLabel.text = NSLocalizedString(@"Host", nil);
+                cell.textLabel.font = [UIFont semiboldApplicationFontOfSize:17.0f];
                 cell.detailTextLabel.text = self.show[@"host"];
+                cell.detailTextLabel.font = [UIFont applicationFontOfSize:17.0f];
             } else if (indexPath.row == 2) {
-                cell.textLabel.text = @"Time";
+                cell.textLabel.text = NSLocalizedString(@"Time", nil);
+                cell.textLabel.font = [UIFont semiboldApplicationFontOfSize:17.0f];
                 cell.detailTextLabel.text = self.show[@"time"];
+                cell.detailTextLabel.font = [UIFont applicationFontOfSize:17.0f];
             }
             
             break;
         case 1:
             cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
             cell.textLabel.numberOfLines = 0;
-            //cell.textLabel.textColor = [UIColor darkGrayColor];
+            cell.textLabel.textColor = [UIColor darkGrayColor];
             cell.textLabel.text = self.show[@"description"];
-            cell.textLabel.font = [UIFont systemFontOfSize:17];
+            cell.textLabel.font = [UIFont applicationFontOfSize:17];
             
             break;
         case 2:
-            if (socialData != nil) {
+            if (socialData) {
                 NSArray *keys = [socialData allKeys];
                 
                 cell.textLabel.text = keys[indexPath.row];
@@ -156,7 +161,9 @@
             // Enable selection for links
             cell.selectionStyle = UITableViewCellSelectionStyleGray;
             cell.textLabel.highlightedTextColor = [UIColor blackColor];
+            cell.textLabel.font = [UIFont semiboldApplicationFontOfSize:17.0f];
             cell.detailTextLabel.highlightedTextColor = [UIColor darkGrayColor];
+            cell.detailTextLabel.font = [UIFont applicationFontOfSize:17.0f];
             break;
     }
     
@@ -170,7 +177,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 22;
+    return 24;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -180,7 +187,7 @@
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(16, 0, 280, 22)];
     label.backgroundColor = [UIColor clearColor];
     label.textColor = [UIColor whiteColor];
-    label.font = [UIFont boldSystemFontOfSize:15];
+    label.font = [UIFont semiboldApplicationFontOfSize:15];
     label.text = [tableView.dataSource tableView:tableView titleForHeaderInSection:section];
     
     [view addSubview:label];
@@ -194,7 +201,9 @@
     // Check if the description section's height is being calculated, if not, return the default row height
     if (indexPath.section == 1) {
         CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2), 20000.0f);
-        CGSize size = [self.show[@"description"] sizeWithFont:[UIFont systemFontOfSize:17] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+        CGSize size = [self.show[@"description"] sizeWithFont:[UIFont systemFontOfSize:14]
+                                            constrainedToSize:constraint
+                                                lineBreakMode:NSLineBreakByWordWrapping];
         CGFloat height = MAX(size.height + (CELL_CONTENT_MARGIN * 2), 44.0f);
         
         return height;
@@ -207,7 +216,7 @@
     if (indexPath.section == 2) {
         NSDictionary *socialData = [self.showData objectForKey:self.show[@"title"]];
         
-        if (socialData != nil) {
+        if (socialData) {
             NSArray *keys = [socialData allKeys];            
             NSURL *url;
             

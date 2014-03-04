@@ -18,23 +18,29 @@
     
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.8f]];
     [[UITabBar appearance] setBarTintColor:[UIColor blackColor]];
+    [[UIToolbar appearance] setBarTintColor:[UIColor blackColor]];
     [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
     
-    NSDictionary *navigationBarTitleTextAttributes = @{UITextAttributeTextColor: [UIColor whiteColor]};
+    NSDictionary *navigationBarTitleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                       NSFontAttributeName: [UIFont semiboldApplicationFontOfSize:19.0f]};
     [[UINavigationBar appearance] setTitleTextAttributes:navigationBarTitleTextAttributes];
 
-    
-    // Create view controllers for each tab
+    NSDictionary *barButtonItemTitleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                       NSFontAttributeName: [UIFont applicationFontOfSize:17.0f]};
+    [[UIBarButtonItem appearance] setTitleTextAttributes:barButtonItemTitleTextAttributes forState:UIControlStateNormal];
+
+    NSDictionary *tabBarItemTitleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                    NSFontAttributeName: [UIFont applicationFontOfSize:12.5f]};
+    [[UITabBarItem appearance] setTitleTextAttributes:tabBarItemTitleTextAttributes forState:UIControlStateNormal];
+
     ScheduleViewController *scheduleView = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:nil];
     UINavigationController *scheduleNavigationController = [[UINavigationController alloc] initWithRootViewController:scheduleView];
     
     StreamViewController *streamViewController = [[StreamViewController alloc] initWithNibName:@"StreamViewController" bundle:nil];
     UINavigationController *streamNavigationController = [[UINavigationController alloc] initWithRootViewController:streamViewController];
 
-    NSArray *tabs = @[scheduleNavigationController, streamNavigationController];
-
     UITabBarController *tabController = [[UITabBarController alloc] init];
-    tabController.viewControllers = tabs;
+    tabController.viewControllers = @[scheduleNavigationController, streamNavigationController];
     tabController.tabBar.selectedImageTintColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
     tabController.tabBar.barTintColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8f];
     

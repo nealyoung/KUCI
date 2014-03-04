@@ -19,7 +19,7 @@
     
     if (self) {
         // Custom initialization        
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Listen" image:[UIImage imageNamed:@"music.png"] tag:1];
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Listen" image:[UIImage imageNamed:@"radio.png"] tag:1];
     }
     
     return self;

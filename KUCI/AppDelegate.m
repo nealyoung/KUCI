@@ -16,9 +16,9 @@
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.8f]];
-    [[UITabBar appearance] setBarTintColor:[UIColor blackColor]];
-    [[UIToolbar appearance] setBarTintColor:[UIColor blackColor]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithWhite:0.15f alpha:1.0f]];
+    [[UITabBar appearance] setBarTintColor:[UIColor colorWithWhite:0.15f alpha:1.0f]];
+    [[UIToolbar appearance] setBarTintColor:[UIColor colorWithWhite:0.15f alpha:1.0f]];
     [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
     
     NSDictionary *navigationBarTitleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor],
@@ -30,7 +30,7 @@
     [[UIBarButtonItem appearance] setTitleTextAttributes:barButtonItemTitleTextAttributes forState:UIControlStateNormal];
 
     NSDictionary *tabBarItemTitleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor],
-                                                    NSFontAttributeName: [UIFont applicationFontOfSize:12.5f]};
+                                                    NSFontAttributeName: [UIFont applicationFontOfSize:12.0f]};
     [[UITabBarItem appearance] setTitleTextAttributes:tabBarItemTitleTextAttributes forState:UIControlStateNormal];
 
     ScheduleViewController *scheduleView = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:nil];
@@ -42,7 +42,7 @@
     UITabBarController *tabController = [[UITabBarController alloc] init];
     tabController.viewControllers = @[scheduleNavigationController, streamNavigationController];
     tabController.tabBar.selectedImageTintColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
-    tabController.tabBar.barTintColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8f];
+    tabController.tabBar.barTintColor = [UIColor colorWithWhite:0.15f alpha:1.0f];
     
     // Enable background audio
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];

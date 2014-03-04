@@ -36,8 +36,7 @@
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonPressed)];
     self.navigationItem.rightBarButtonItem = shareButton;
     
-    self.tableView.backgroundView = nil;
-    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.tableView.backgroundColor = [UIColor colorWithWhite:0.15f alpha:1.0f];
     self.navigationItem.title = self.show[@"title"];
 }
 

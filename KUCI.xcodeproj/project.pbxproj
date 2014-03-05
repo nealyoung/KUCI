@@ -16,7 +16,6 @@
 		08331EDD1692738100B9796F /* ShowDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08331EDB1692738100B9796F /* ShowDetailViewController.xib */; };
 		08349BFE167FB96A00490037 /* music@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08349BFC167FB96A00490037 /* music@2x.png */; };
 		08363E111690FFDB009BFE33 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 08363E101690FFDB009BFE33 /* libxml2.dylib */; };
-		0847F7BC16FF0C710064DC20 /* descriptioncellbackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0847F7BB16FF0C710064DC20 /* descriptioncellbackground@2x.png */; };
 		08514981167DA65C00D1ED43 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08514980167DA65C00D1ED43 /* UIKit.framework */; };
 		08514983167DA65C00D1ED43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08514982167DA65C00D1ED43 /* Foundation.framework */; };
 		08514985167DA65C00D1ED43 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08514984167DA65C00D1ED43 /* CoreGraphics.framework */; };
@@ -38,7 +37,6 @@
 		0E32A52D18C56C850047E28F /* SourceSansPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E32A52A18C56C850047E28F /* SourceSansPro-Bold.otf */; };
 		0E32A52E18C56C850047E28F /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E32A52B18C56C850047E28F /* SourceSansPro-Regular.otf */; };
 		0E32A52F18C56C850047E28F /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E32A52C18C56C850047E28F /* SourceSansPro-Semibold.otf */; };
-		0E47B1E01841B1920079DBFC /* navbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E47B1DF1841B1920079DBFC /* navbar@2x.png */; };
 		0EA4AF1218C5693100F94066 /* schedule@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EA4AF1118C5693100F94066 /* schedule@2x.png */; };
 		0EA4AF1418C56A5200F94066 /* radio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EA4AF1318C56A5200F94066 /* radio@2x.png */; };
 		0ECB813918C5599D00B7C4B5 /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ECB813718C5599D00B7C4B5 /* play@2x.png */; };
@@ -62,7 +60,6 @@
 		08331EDB1692738100B9796F /* ShowDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowDetailViewController.xib; sourceTree = "<group>"; };
 		08349BFC167FB96A00490037 /* music@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "music@2x.png"; sourceTree = "<group>"; };
 		08363E101690FFDB009BFE33 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		0847F7BB16FF0C710064DC20 /* descriptioncellbackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "descriptioncellbackground@2x.png"; sourceTree = "<group>"; };
 		0851497C167DA65C00D1ED43 /* KUCI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KUCI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08514980167DA65C00D1ED43 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		08514982167DA65C00D1ED43 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -92,7 +89,6 @@
 		0E32A52A18C56C850047E28F /* SourceSansPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Bold.otf"; path = "KUCI/Fonts/SourceSansPro-Bold.otf"; sourceTree = "<group>"; };
 		0E32A52B18C56C850047E28F /* SourceSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Regular.otf"; path = "KUCI/Fonts/SourceSansPro-Regular.otf"; sourceTree = "<group>"; };
 		0E32A52C18C56C850047E28F /* SourceSansPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Semibold.otf"; path = "KUCI/Fonts/SourceSansPro-Semibold.otf"; sourceTree = "<group>"; };
-		0E47B1DF1841B1920079DBFC /* navbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar@2x.png"; sourceTree = "<group>"; };
 		0EA4AF1118C5693100F94066 /* schedule@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "schedule@2x.png"; sourceTree = "<group>"; };
 		0EA4AF1318C56A5200F94066 /* radio@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio@2x.png"; sourceTree = "<group>"; };
 		0ECB813718C5599D00B7C4B5 /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
@@ -230,8 +226,6 @@
 				0ECB813718C5599D00B7C4B5 /* play@2x.png */,
 				0ECB813818C5599D00B7C4B5 /* pause@2x.png */,
 				0ED68AFA18C6D4F300370BD0 /* navbar-logo@2x.png */,
-				0E47B1DF1841B1920079DBFC /* navbar@2x.png */,
-				0847F7BB16FF0C710064DC20 /* descriptioncellbackground@2x.png */,
 				0EA4AF1118C5693100F94066 /* schedule@2x.png */,
 				08349BFC167FB96A00490037 /* music@2x.png */,
 			);
@@ -336,7 +330,6 @@
 				0E32A52D18C56C850047E28F /* SourceSansPro-Bold.otf in Resources */,
 				085149D2167ECDB300D1ED43 /* StreamViewController.xib in Resources */,
 				08349BFE167FB96A00490037 /* music@2x.png in Resources */,
-				0E47B1E01841B1920079DBFC /* navbar@2x.png in Resources */,
 				08331EDD1692738100B9796F /* ShowDetailViewController.xib in Resources */,
 				088D718C16F5B68E002DF434 /* ShowData.plist in Resources */,
 				0E32A52E18C56C850047E28F /* SourceSansPro-Regular.otf in Resources */,
@@ -346,7 +339,6 @@
 				08CDD18F16F7C9780061CDD1 /* SVWebViewController.bundle in Resources */,
 				0EA4AF1218C5693100F94066 /* schedule@2x.png in Resources */,
 				0EA4AF1418C56A5200F94066 /* radio@2x.png in Resources */,
-				0847F7BC16FF0C710064DC20 /* descriptioncellbackground@2x.png in Resources */,
 				0E32A52F18C56C850047E28F /* SourceSansPro-Semibold.otf in Resources */,
 				0ECB813A18C5599D00B7C4B5 /* pause@2x.png in Resources */,
 			);

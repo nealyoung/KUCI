@@ -10,6 +10,8 @@
 
 @interface StreamViewController ()
 
+- (void)donateButtonPressed;
+
 @end
 
 @implementation StreamViewController
@@ -31,9 +33,21 @@
     self.view.backgroundColor = [UIColor colorWithWhite:0.15f alpha:1.0f];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar-logo.png"]];
     
-    UIBarButtonItem *donateButton = [[UIBarButtonItem alloc] initWithTitle:@"Donate" style:UIBarButtonItemStylePlain target:self action:@selector(showDonationPage)];
+    UIBarButtonItem *donateButton = [[UIBarButtonItem alloc] initWithTitle:@"Donate"
+                                                                     style:UIBarButtonItemStylePlain
+                                                                    target:self
+                                                                    action:@selector(donateButtonPressed)];
     self.navigationItem.leftBarButtonItem = donateButton;
-
+    
+    UIDevice *device = [UIDevice currentDevice];
+    if ([[device model] isEqualToString:@"iPhone"]) {
+        UIBarButtonItem *callButton = [[UIBarButtonItem alloc] initWithTitle:@"Call"
+                                                                       style:UIBarButtonItemStylePlain
+                                                                      target:self
+                                                                      action:@selector(callButtonPressed)];
+        self.navigationItem.rightBarButtonItem = callButton;
+    }
+    
     NSString *streamUrl = @"http://streamer.kuci.org:8000/high";
     NSURL *stream = [NSURL URLWithString:streamUrl];
     
@@ -100,7 +114,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)showDonationPage {
+- (void)donateButtonPressed {
     NSString *website = @"http://www.kuci.org/paypal/fund_drive/index.shtml";
     NSURL *url = [NSURL URLWithString:website];
     
@@ -111,6 +125,10 @@
     webViewController.availableActions = SVWebViewControllerAvailableActionsOpenInSafari | SVWebViewControllerAvailableActionsMailLink;
     
     [self presentViewController:webViewController animated:YES completion:nil];
+}
+
+- (void)callButtonPressed {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:1-949-824-5824"]]];
 }
 
 @end

@@ -45,6 +45,7 @@
 		0ECB813A18C5599D00B7C4B5 /* pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ECB813818C5599D00B7C4B5 /* pause@2x.png */; };
 		0ECB813D18C55A8400B7C4B5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ECB813C18C55A8400B7C4B5 /* Default-568h@2x.png */; };
 		0ECB814618C55DDA00B7C4B5 /* UIFont+Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ECB814518C55DDA00B7C4B5 /* UIFont+Application.m */; };
+		0ED68AFB18C6D4F300370BD0 /* navbar-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ED68AFA18C6D4F300370BD0 /* navbar-logo@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +100,7 @@
 		0ECB813C18C55A8400B7C4B5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0ECB814418C55DDA00B7C4B5 /* UIFont+Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Application.h"; sourceTree = "<group>"; };
 		0ECB814518C55DDA00B7C4B5 /* UIFont+Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Application.m"; sourceTree = "<group>"; };
+		0ED68AFA18C6D4F300370BD0 /* navbar-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-logo@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 				081B59E916F634840070C59C /* Icon@2x.png */,
 				0ECB813718C5599D00B7C4B5 /* play@2x.png */,
 				0ECB813818C5599D00B7C4B5 /* pause@2x.png */,
+				0ED68AFA18C6D4F300370BD0 /* navbar-logo@2x.png */,
 				0E47B1DF1841B1920079DBFC /* navbar@2x.png */,
 				0847F7BB16FF0C710064DC20 /* descriptioncellbackground@2x.png */,
 				0EA4AF1118C5693100F94066 /* schedule@2x.png */,
@@ -329,6 +332,7 @@
 			files = (
 				0851498B167DA65C00D1ED43 /* InfoPlist.strings in Resources */,
 				085149A3167DC7D500D1ED43 /* ScheduleViewController.xib in Resources */,
+				0ED68AFB18C6D4F300370BD0 /* navbar-logo@2x.png in Resources */,
 				0E32A52D18C56C850047E28F /* SourceSansPro-Bold.otf in Resources */,
 				085149D2167ECDB300D1ED43 /* StreamViewController.xib in Resources */,
 				08349BFE167FB96A00490037 /* music@2x.png in Resources */,

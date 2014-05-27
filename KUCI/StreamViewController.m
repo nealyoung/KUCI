@@ -14,6 +14,9 @@
 
 @end
 
+static NSString * const kStreamURLString = @"http://streamer.kuci.org:8000/high";
+static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_drive/index.shtml";
+
 @implementation StreamViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -48,20 +51,17 @@
         self.navigationItem.rightBarButtonItem = callButton;
     }
     
-    NSString *streamUrl = @"http://streamer.kuci.org:8000/high";
-    NSURL *stream = [NSURL URLWithString:streamUrl];
     
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
     
-    // Toggle the stream when a remote control play/pause event occurs (sent from app delegate)
+    // Register for the notification to toggle the stream when a remote control play/pause event occurs
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleStream:) name:@"toggleStream" object:nil];
     
-    self.player = [[AVPlayer alloc] initWithURL:stream];
+    NSURL *streamURL = [NSURL URLWithString:kStreamURLString];
+    self.player = [[AVPlayer alloc] initWithURL:streamURL];
     
-    //
     // Start loading data for faster playback when the user first taps the button
-    //
     [self.player play];
     [self.player pause];
 }
@@ -109,22 +109,9 @@
     return YES;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)donateButtonPressed {
-    NSString *website = @"http://www.kuci.org/paypal/fund_drive/index.shtml";
-    NSURL *url = [NSURL URLWithString:website];
-    
-    SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:url];
-    webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
-    
-    // Remove useless actions (cause PayPal session errors)
-    webViewController.availableActions = SVWebViewControllerAvailableActionsOpenInSafari | SVWebViewControllerAvailableActionsMailLink;
-    
-    [self presentViewController:webViewController animated:YES completion:nil];
+    NSURL *donationURL = [NSURL URLWithString:kDonationURLString];
+    [[UIApplication sharedApplication] openURL:donationURL];
 }
 
 - (void)callButtonPressed {

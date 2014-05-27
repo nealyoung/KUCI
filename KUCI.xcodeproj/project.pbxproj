@@ -61,14 +61,14 @@
 		08331EDB1692738100B9796F /* ShowDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowDetailViewController.xib; sourceTree = "<group>"; };
 		08349BFC167FB96A00490037 /* music@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "music@2x.png"; sourceTree = "<group>"; };
 		08363E101690FFDB009BFE33 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		0851497C167DA65C00D1ED43 /* kuci.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kuci.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0851497C167DA65C00D1ED43 /* KUCI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KUCI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08514980167DA65C00D1ED43 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		08514982167DA65C00D1ED43 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		08514984167DA65C00D1ED43 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		08514988167DA65C00D1ED43 /* kuci-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "kuci-Info.plist"; sourceTree = "<group>"; };
+		08514988167DA65C00D1ED43 /* KUCI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KUCI-Info.plist"; sourceTree = "<group>"; };
 		0851498A167DA65C00D1ED43 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0851498C167DA65C00D1ED43 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0851498E167DA65C00D1ED43 /* kuci-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kuci-Prefix.pch"; sourceTree = "<group>"; };
+		0851498E167DA65C00D1ED43 /* KUCI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KUCI-Prefix.pch"; sourceTree = "<group>"; };
 		0851498F167DA65C00D1ED43 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		08514990167DA65C00D1ED43 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0851499F167DC7D500D1ED43 /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 		0851497D167DA65C00D1ED43 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0851497C167DA65C00D1ED43 /* kuci.app */,
+				0851497C167DA65C00D1ED43 /* KUCI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -197,10 +197,10 @@
 			isa = PBXGroup;
 			children = (
 				088D718B16F5B68E002DF434 /* ShowData.plist */,
-				08514988167DA65C00D1ED43 /* kuci-Info.plist */,
+				08514988167DA65C00D1ED43 /* KUCI-Info.plist */,
 				08514989167DA65C00D1ED43 /* InfoPlist.strings */,
 				0851498C167DA65C00D1ED43 /* main.m */,
-				0851498E167DA65C00D1ED43 /* kuci-Prefix.pch */,
+				0851498E167DA65C00D1ED43 /* KUCI-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -296,9 +296,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0851497B167DA65C00D1ED43 /* kuci */ = {
+		0851497B167DA65C00D1ED43 /* KUCI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0851499A167DA65C00D1ED43 /* Build configuration list for PBXNativeTarget "kuci" */;
+			buildConfigurationList = 0851499A167DA65C00D1ED43 /* Build configuration list for PBXNativeTarget "KUCI" */;
 			buildPhases = (
 				08514978167DA65C00D1ED43 /* Sources */,
 				08514979167DA65C00D1ED43 /* Frameworks */,
@@ -308,9 +308,9 @@
 			);
 			dependencies = (
 			);
-			name = kuci;
+			name = KUCI;
 			productName = NavTest;
-			productReference = 0851497C167DA65C00D1ED43 /* kuci.app */;
+			productReference = 0851497C167DA65C00D1ED43 /* KUCI.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -327,7 +327,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 08514976167DA65C00D1ED43 /* Build configuration list for PBXProject "kuci" */;
+			buildConfigurationList = 08514976167DA65C00D1ED43 /* Build configuration list for PBXProject "KUCI" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -339,7 +339,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0851497B167DA65C00D1ED43 /* kuci */,
+				0851497B167DA65C00D1ED43 /* KUCI */,
 			);
 		};
 /* End PBXProject section */
@@ -429,7 +429,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				"HEADER_SEARCH_PATHS[arch=*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -450,7 +450,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -470,16 +470,16 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KUCI/kuci-Prefix.pch";
+				GCC_PREFIX_HEADER = "KUCI/KUCI-Prefix.pch";
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/include/libxml2;
-				INFOPLIST_FILE = "KUCI/kuci-Info.plist";
+				INFOPLIST_FILE = "KUCI/KUCI-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-framework",
 					Reveal,
 				);
-				PRODUCT_NAME = kuci;
+				PRODUCT_NAME = KUCI;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -498,11 +498,11 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KUCI/kuci-Prefix.pch";
+				GCC_PREFIX_HEADER = "KUCI/KUCI-Prefix.pch";
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/include/libxml2;
-				INFOPLIST_FILE = "KUCI/kuci-Info.plist";
+				INFOPLIST_FILE = "KUCI/KUCI-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = kuci;
+				PRODUCT_NAME = KUCI;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -511,7 +511,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		08514976167DA65C00D1ED43 /* Build configuration list for PBXProject "kuci" */ = {
+		08514976167DA65C00D1ED43 /* Build configuration list for PBXProject "KUCI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				08514998167DA65C00D1ED43 /* Debug */,
@@ -520,7 +520,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0851499A167DA65C00D1ED43 /* Build configuration list for PBXNativeTarget "kuci" */ = {
+		0851499A167DA65C00D1ED43 /* Build configuration list for PBXNativeTarget "KUCI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0851499B167DA65C00D1ED43 /* Debug */,

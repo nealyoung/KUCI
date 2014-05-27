@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0851497B167DA65C00D1ED43"
-               BuildableName = "kuci.app"
-               BlueprintName = "kuci"
-               ReferencedContainer = "container:kuci.xcodeproj">
+               BuildableName = "KUCI.app"
+               BlueprintName = "KUCI"
+               ReferencedContainer = "container:KUCI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0851497B167DA65C00D1ED43"
-            BuildableName = "kuci.app"
-            BlueprintName = "kuci"
-            ReferencedContainer = "container:kuci.xcodeproj">
+            BuildableName = "KUCI.app"
+            BlueprintName = "KUCI"
+            ReferencedContainer = "container:KUCI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0851497B167DA65C00D1ED43"
-            BuildableName = "kuci.app"
-            BlueprintName = "kuci"
-            ReferencedContainer = "container:kuci.xcodeproj">
+            BuildableName = "KUCI.app"
+            BlueprintName = "KUCI"
+            ReferencedContainer = "container:KUCI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0851497B167DA65C00D1ED43"
-            BuildableName = "kuci.app"
-            BlueprintName = "kuci"
-            ReferencedContainer = "container:kuci.xcodeproj">
+            BuildableName = "KUCI.app"
+            BlueprintName = "KUCI"
+            ReferencedContainer = "container:KUCI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

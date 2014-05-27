@@ -48,16 +48,7 @@
     
     // TODO Handle lack of network connectivity
     
-    /*
-    Reachability *reachability = [Reachability reachabilityForInternetConnection];
-    NetworkStatus internetStatus = [reachability currentReachabilityStatus];
-    if (internetStatus != NotReachable) {
-        //my web-dependent code
-    }
-    else {
-        //there-is-no-connection warning
-    }
-    */
+    
     
     // Time in seconds since the schedule was last updated
     NSTimeInterval updateInterval = [NSDate timeIntervalSinceReferenceDate] - [defaults doubleForKey:@"updated"];

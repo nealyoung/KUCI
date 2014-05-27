@@ -7,9 +7,7 @@
 //
 
 #import "ShowDetailViewController.h"
-
-#define CELL_CONTENT_WIDTH 300
-#define CELL_CONTENT_MARGIN 10
+#import "ShowDescriptionTableViewCell.h"
 
 @interface ShowDetailViewController ()
 
@@ -105,74 +103,68 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *cellIdentifier = @"ShowCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
-    }
-    
-    // Disable selection for info cells
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
     // Link data for the show
     NSDictionary *socialData = [self.showData objectForKey:self.show[@"title"]];
     
-    // 0: Info
-    // 1: Description
-    // 2: Links
-    switch (indexPath.section) {
-        case 0:
-            if (indexPath.row == 0) {
-                cell.textLabel.text = NSLocalizedString(@"Title", nil);
-                cell.textLabel.font = [UIFont semiboldApplicationFontOfSize:17.0f];
-                cell.detailTextLabel.text = self.show[@"title"];
-                cell.detailTextLabel.font = [UIFont applicationFontOfSize:17.0f];
-            } else if (indexPath.row == 1) {
-                cell.textLabel.text = NSLocalizedString(@"Host", nil);
-                cell.textLabel.font = [UIFont semiboldApplicationFontOfSize:17.0f];
-                cell.detailTextLabel.text = self.show[@"host"];
-                cell.detailTextLabel.font = [UIFont applicationFontOfSize:17.0f];
-            } else if (indexPath.row == 2) {
-                cell.textLabel.text = NSLocalizedString(@"Time", nil);
-                cell.textLabel.font = [UIFont semiboldApplicationFontOfSize:17.0f];
-                cell.detailTextLabel.text = self.show[@"time"];
-                cell.detailTextLabel.font = [UIFont applicationFontOfSize:17.0f];
-            }
-            
-            break;
-        case 1:
-            cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
-            cell.textLabel.numberOfLines = 0;
-            cell.textLabel.textColor = [UIColor darkGrayColor];
-            cell.textLabel.text = self.show[@"description"];
-            cell.textLabel.font = [UIFont applicationFontOfSize:17];
-            
-            break;
-        case 2:
-            if (socialData) {
-                NSArray *keys = [socialData allKeys];
-                
-                cell.textLabel.text = keys[indexPath.row];
-                cell.detailTextLabel.text = [socialData objectForKey:keys[indexPath.row]];
-            }
-
-            // Enable selection for links
-            cell.selectionStyle = UITableViewCellSelectionStyleGray;
-            cell.textLabel.highlightedTextColor = [UIColor blackColor];
-            cell.textLabel.font = [UIFont semiboldApplicationFontOfSize:17.0f];
-            cell.detailTextLabel.highlightedTextColor = [UIColor darkGrayColor];
-            cell.detailTextLabel.font = [UIFont applicationFontOfSize:17.0f];
-            break;
-    }
-    
-    // Make the cell's label backgrounds clear so the cell background is visible
-    cell.textLabel.backgroundColor = [UIColor clearColor];
-    cell.detailTextLabel.backgroundColor = [UIColor clearColor];
-    
-    cell.detailTextLabel.textColor = [UIColor darkGrayColor];
+    if (indexPath.section == 0) {
+        static NSString *cellIdentifier = @"Cell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         
-    return cell;
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.textLabel.font = [UIFont semiboldApplicationFontOfSize:17.0f];
+            cell.detailTextLabel.font = [UIFont applicationFontOfSize:17.0f];
+            cell.detailTextLabel.textColor = [UIColor darkGrayColor];
+        }
+        
+        if (indexPath.row == 0) {
+            cell.textLabel.text = NSLocalizedString(@"Title", nil);
+            cell.detailTextLabel.text = self.show[@"title"];
+        } else if (indexPath.row == 1) {
+            cell.textLabel.text = NSLocalizedString(@"Host", nil);
+            cell.detailTextLabel.text = self.show[@"host"];
+        } else if (indexPath.row == 2) {
+            cell.textLabel.text = NSLocalizedString(@"Time", nil);
+            cell.detailTextLabel.text = self.show[@"time"];
+        }
+        
+        return cell;
+    } else if (indexPath.section == 1) {
+        static NSString *showDescriptionCellIdentifier = @"ShowDescriptionCell";
+        ShowDescriptionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:showDescriptionCellIdentifier];
+        
+        if (cell == nil) {
+            cell = [[ShowDescriptionTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:showDescriptionCellIdentifier];
+        }
+        
+        cell.descriptionLabel.text = self.show[@"description"];
+        
+        return cell;
+    } else {
+        static NSString *cellIdentifier = @"Cell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
+        }
+        
+        if (socialData) {
+            NSArray *keys = [socialData allKeys];
+            
+            cell.textLabel.text = keys[indexPath.row];
+            cell.detailTextLabel.text = [socialData objectForKey:keys[indexPath.row]];
+        }
+        
+        // Enable selection for links
+        cell.selectionStyle = UITableViewCellSelectionStyleGray;
+        cell.textLabel.highlightedTextColor = [UIColor blackColor];
+        cell.textLabel.font = [UIFont semiboldApplicationFontOfSize:17.0f];
+        cell.detailTextLabel.highlightedTextColor = [UIColor darkGrayColor];
+        cell.detailTextLabel.font = [UIFont applicationFontOfSize:17.0f];
+        
+        return cell;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -199,13 +191,26 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     // Check if the description section's height is being calculated, if not, return the default row height
     if (indexPath.section == 1) {
-        CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2), 20000.0f);
-        CGSize size = [self.show[@"description"] sizeWithFont:[UIFont systemFontOfSize:14]
-                                            constrainedToSize:constraint
-                                                lineBreakMode:NSLineBreakByWordWrapping];
-        CGFloat height = MAX(size.height + (CELL_CONTENT_MARGIN * 2), 44.0f);
+        static ShowDescriptionTableViewCell *showDescriptionMetricsCell;
         
-        return height;
+        if (!showDescriptionMetricsCell) {
+            showDescriptionMetricsCell = [[ShowDescriptionTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        }
+        
+        showDescriptionMetricsCell.bounds = CGRectMake(0.0f, 0.0f, self.tableView.bounds.size.width, 9999.0f);
+        
+        showDescriptionMetricsCell.descriptionLabel.text = self.show[@"description"];
+        
+        [showDescriptionMetricsCell setNeedsLayout];
+        [showDescriptionMetricsCell layoutIfNeeded];
+        
+        // Get the actual height required for the cell
+        CGFloat height = [showDescriptionMetricsCell.contentView systemLayoutSizeFittingSize:UILayoutFittingExpandedSize].height;
+        
+        // Add an extra point to the height to account for the cell separator, which is added between the bottom of the cell's contentView and the bottom of the table view cell.
+        height += 1;
+        
+        return MAX(height, 44.0f);
     } else {
         return tableView.rowHeight;
     }

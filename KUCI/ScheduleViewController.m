@@ -233,12 +233,12 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
-    static NSString *CellIdentifier = @"ShowTableViewCell";
+    static NSString *cellIdentifier = @"ShowTableViewCell";
 
-    ShowTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    ShowTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (cell == nil) {
-        cell = [[ShowTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[ShowTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
     NSDictionary *show = self.shows[indexPath.section][indexPath.row];
@@ -246,13 +246,6 @@
     cell.titleLabel.text = show[@"title"];
     cell.hostLabel.text = show[@"host"];
     cell.timeLabel.text = show[@"time"];
-//    cell.detailTextLabel.textColor = [UIColor darkGrayColor];
-//    cell.detailTextLabel.backgroundColor = [UIColor clearColor];
-//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
-    cell.selectionStyle = UITableViewCellSelectionStyleGray;
-    //cell.textLabel.highlightedTextColor = [UIColor blackColor];
-    //cell.detailTextLabel.highlightedTextColor = [UIColor darkGrayColor];
     
     return cell;
 }

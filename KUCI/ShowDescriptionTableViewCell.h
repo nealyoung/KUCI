@@ -10,4 +10,6 @@
 
 @interface ShowDescriptionTableViewCell : UITableViewCell
 
+@property UILabel *descriptionLabel;
+
 @end

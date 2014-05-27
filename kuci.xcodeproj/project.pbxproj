@@ -32,6 +32,8 @@
 		08CDD18F16F7C9780061CDD1 /* SVWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 08CDD18E16F7C9780061CDD1 /* SVWebViewController.bundle */; };
 		08CDD19116F7C9EF0061CDD1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CDD19016F7C9EF0061CDD1 /* MessageUI.framework */; };
 		08F537BC169CDBB200685480 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F537BB169CDBB200685480 /* CoreMedia.framework */; };
+		0E1B385019341136004AE4C8 /* ShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B384F19341136004AE4C8 /* ShowTableViewCell.m */; };
+		0E1B3854193417F7004AE4C8 /* ShowDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B3853193417F7004AE4C8 /* ShowDescriptionTableViewCell.m */; };
 		0E2866E01702C62400816222 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E2866DF1702C62400816222 /* SystemConfiguration.framework */; };
 		0E32A52D18C56C850047E28F /* SourceSansPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E32A52A18C56C850047E28F /* SourceSansPro-Bold.otf */; };
 		0E32A52E18C56C850047E28F /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E32A52B18C56C850047E28F /* SourceSansPro-Regular.otf */; };
@@ -84,6 +86,10 @@
 		08CDD18E16F7C9780061CDD1 /* SVWebViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVWebViewController.bundle; sourceTree = "<group>"; };
 		08CDD19016F7C9EF0061CDD1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		08F537BB169CDBB200685480 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		0E1B384E19341136004AE4C8 /* ShowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowTableViewCell.h; sourceTree = "<group>"; };
+		0E1B384F19341136004AE4C8 /* ShowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowTableViewCell.m; sourceTree = "<group>"; };
+		0E1B3852193417F7004AE4C8 /* ShowDescriptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDescriptionTableViewCell.h; sourceTree = "<group>"; };
+		0E1B3853193417F7004AE4C8 /* ShowDescriptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDescriptionTableViewCell.m; sourceTree = "<group>"; };
 		0E2866DF1702C62400816222 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0E32A52A18C56C850047E28F /* SourceSansPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Bold.otf"; path = "KUCI/Fonts/SourceSansPro-Bold.otf"; sourceTree = "<group>"; };
 		0E32A52B18C56C850047E28F /* SourceSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Regular.otf"; path = "KUCI/Fonts/SourceSansPro-Regular.otf"; sourceTree = "<group>"; };
@@ -176,6 +182,7 @@
 				0ECB814518C55DDA00B7C4B5 /* UIFont+Application.m */,
 				08331EB91691191B00B9796F /* Show.h */,
 				08331EBA1691191B00B9796F /* Show.m */,
+				0E1B385119341141004AE4C8 /* Views */,
 				085149B6167E6EEE00D1ED43 /* View Controllers */,
 				085149C0167EBC3800D1ED43 /* XIBs */,
 				0EFDDD9618C7B9CF006C1B7B /* Images.xcassets */,
@@ -231,6 +238,17 @@
 			);
 			name = Images;
 			path = KUCI;
+			sourceTree = "<group>";
+		};
+		0E1B385119341141004AE4C8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0E1B384E19341136004AE4C8 /* ShowTableViewCell.h */,
+				0E1B384F19341136004AE4C8 /* ShowTableViewCell.m */,
+				0E1B3852193417F7004AE4C8 /* ShowDescriptionTableViewCell.h */,
+				0E1B3853193417F7004AE4C8 /* ShowDescriptionTableViewCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		0E32A53018C56C930047E28F /* Fonts */ = {
@@ -301,6 +319,11 @@
 			attributes = {
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Nealon Young";
+				TargetAttributes = {
+					0851497B167DA65C00D1ED43 = {
+						DevelopmentTeam = 3KNK86UB96;
+					};
+				};
 			};
 			buildConfigurationList = 08514976167DA65C00D1ED43 /* Build configuration list for PBXProject "kuci" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -351,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E1B3854193417F7004AE4C8 /* ShowDescriptionTableViewCell.m in Sources */,
 				0851498D167DA65C00D1ED43 /* main.m in Sources */,
 				0ECB814618C55DDA00B7C4B5 /* UIFont+Application.m in Sources */,
 				08514991167DA65C00D1ED43 /* AppDelegate.m in Sources */,
@@ -361,6 +385,7 @@
 				08331EBB1691191B00B9796F /* Show.m in Sources */,
 				08331EDC1692738100B9796F /* ShowDetailViewController.m in Sources */,
 				08CDD18A16F7C9670061CDD1 /* SVModalWebViewController.m in Sources */,
+				0E1B385019341136004AE4C8 /* ShowTableViewCell.m in Sources */,
 				08CDD18D16F7C9710061CDD1 /* SVWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,13 +461,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KUCI/kuci-Prefix.pch";
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/include/libxml2;
 				INFOPLIST_FILE = "KUCI/kuci-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = kuci;
-				PROVISIONING_PROFILE = "9238D445-9DEF-4F9E-8DA5-0BF220E4D47D";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -453,13 +480,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KUCI/kuci-Prefix.pch";
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/include/libxml2;
 				INFOPLIST_FILE = "KUCI/kuci-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = kuci;
-				PROVISIONING_PROFILE = "BA16EBB7-63C3-430A-827A-6A22DB261396";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

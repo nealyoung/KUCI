@@ -7,6 +7,7 @@
 //
 
 #import "ScheduleViewController.h"
+#import "ShowTableViewCell.h"
 
 @interface ScheduleViewController ()
 
@@ -232,28 +233,26 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
-    NSString *cellIdentifier = @"ShowCell";
+    static NSString *CellIdentifier = @"ShowTableViewCell";
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    ShowTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        cell = [[ShowTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     NSDictionary *show = self.shows[indexPath.section][indexPath.row];
         
-    cell.textLabel.text = show[@"title"];
-    cell.textLabel.font = [UIFont semiboldApplicationFontOfSize:17.0];
-    cell.textLabel.backgroundColor = [UIColor clearColor];
-    cell.detailTextLabel.text = show[@"time"];
-    cell.detailTextLabel.font = [UIFont applicationFontOfSize:15.0f];
-    cell.detailTextLabel.textColor = [UIColor darkGrayColor];
-    cell.detailTextLabel.backgroundColor = [UIColor clearColor];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.titleLabel.text = show[@"title"];
+    cell.hostLabel.text = show[@"host"];
+    cell.timeLabel.text = show[@"time"];
+//    cell.detailTextLabel.textColor = [UIColor darkGrayColor];
+//    cell.detailTextLabel.backgroundColor = [UIColor clearColor];
+//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
-    cell.textLabel.highlightedTextColor = [UIColor blackColor];
-    cell.detailTextLabel.highlightedTextColor = [UIColor darkGrayColor];
+    //cell.textLabel.highlightedTextColor = [UIColor blackColor];
+    //cell.detailTextLabel.highlightedTextColor = [UIColor darkGrayColor];
     
     return cell;
 }
@@ -264,6 +263,33 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static ShowTableViewCell *ShowMetricsCell;
+    
+    if (!ShowMetricsCell) {
+        ShowMetricsCell = [[ShowTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    }
+    
+    ShowMetricsCell.bounds = CGRectMake(0.0f, 0.0f, self.tableView.bounds.size.width, 9999.0f);
+    
+    NSDictionary *show = self.shows[indexPath.section][indexPath.row];
+    
+    ShowMetricsCell.titleLabel.text = show[@"title"];
+    ShowMetricsCell.hostLabel.text = show[@"host"];
+    ShowMetricsCell.timeLabel.text = show[@"time"];
+    
+    [ShowMetricsCell setNeedsLayout];
+    [ShowMetricsCell layoutIfNeeded];
+    
+    // Get the actual height required for the cell
+    CGFloat height = [ShowMetricsCell.contentView systemLayoutSizeFittingSize:UILayoutFittingExpandedSize].height;
+    
+    // Add an extra point to the height to account for the cell separator, which is added between the bottom of the cell's contentView and the bottom of the table view cell.
+    height += 1;
+    
+    return height;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

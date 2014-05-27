@@ -153,32 +153,29 @@
             NSArray *keys = [socialData allKeys];
             
             cell.textLabel.text = keys[indexPath.row];
+            cell.textLabel.font = [UIFont semiboldApplicationFontOfSize:17.0f];
+
             cell.detailTextLabel.text = [socialData objectForKey:keys[indexPath.row]];
+            cell.detailTextLabel.font = [UIFont applicationFontOfSize:17.0f];
+            cell.detailTextLabel.textColor = [UIColor darkGrayColor];
         }
-        
-        // Enable selection for links
-        cell.selectionStyle = UITableViewCellSelectionStyleGray;
-        cell.textLabel.highlightedTextColor = [UIColor blackColor];
-        cell.textLabel.font = [UIFont semiboldApplicationFontOfSize:17.0f];
-        cell.detailTextLabel.highlightedTextColor = [UIColor darkGrayColor];
-        cell.detailTextLabel.font = [UIFont applicationFontOfSize:17.0f];
         
         return cell;
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 24;
+    return 24.0f;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 22)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 300.0f, 22.0f)];
     view.backgroundColor = [UIColor clearColor];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(16, 0, 280, 22)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(16.0f, 0.0f, 280.0f, 22.0f)];
     label.backgroundColor = [UIColor clearColor];
     label.textColor = [UIColor whiteColor];
-    label.font = [UIFont semiboldApplicationFontOfSize:15];
+    label.font = [UIFont semiboldApplicationFontOfSize:15.0f];
     label.text = [tableView.dataSource tableView:tableView titleForHeaderInSection:section];
     
     [view addSubview:label];

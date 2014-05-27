@@ -6,7 +6,11 @@
 //  Copyright (c) 2012 Nealon Young. All rights reserved.
 //
 
+
+#import "HTMLParser.h"
 #import "ScheduleViewController.h"
+#import "Show.h"
+#import "ShowDetailViewController.h"
 #import "ShowTableViewCell.h"
 
 @interface ScheduleViewController ()

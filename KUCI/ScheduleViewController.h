@@ -6,11 +6,7 @@
 //  Copyright (c) 2012 Nealon Young. All rights reserved.
 //
 
-#import <SystemConfiguration/SystemConfiguration.h>
 #import <UIKit/UIKit.h>
-#import "HTMLParser.h"
-#import "Show.h"
-#import "ShowDetailViewController.h"
 
 @interface ScheduleViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

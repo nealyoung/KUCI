@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import "ScheduleViewController.h"
+#import "StreamViewController.h"
 
 @implementation AppDelegate
 

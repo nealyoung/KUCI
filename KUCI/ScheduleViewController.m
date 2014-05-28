@@ -20,6 +20,8 @@
 
 @end
 
+static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_drive/index.shtml";
+
 @implementation ScheduleViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -36,7 +38,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor colorWithWhite:0.15f alpha:1.0f];
     
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar-logo.png"]];
@@ -179,16 +180,8 @@
 }
 
 - (void)donateButtonPressed {
-    NSString *website = @"http://www.kuci.org/paypal/fund_drive/index.shtml";
-    NSURL *url = [NSURL URLWithString:website];
-    
-    SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:url];
-    webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
-    
-    // Remove useless actions (cause PayPal session errors)
-    webViewController.availableActions = SVWebViewControllerAvailableActionsOpenInSafari | SVWebViewControllerAvailableActionsMailLink;
-    
-    [self presentViewController:webViewController animated:YES completion:nil];
+    NSURL *donationURL = [NSURL URLWithString:kDonationURLString];
+    [[UIApplication sharedApplication] openURL:donationURL];
 }
 
 #pragma mark - UITableViewDataSource

@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "Show.h"
-#import "SVModalWebViewController.h"
 
 @interface ShowDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

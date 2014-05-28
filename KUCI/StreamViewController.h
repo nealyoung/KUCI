@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
-#import "SVModalWebViewController.h"
 
 @interface StreamViewController : UIViewController
 

@@ -15,8 +15,8 @@
 
 @end
 
-@implementation SVModalWebViewController
 
+@implementation SVModalWebViewController
 
 #pragma mark - Initialization
 
@@ -27,24 +27,24 @@
 
 - (id)initWithURL:(NSURL *)URL {
     self.webViewController = [[SVWebViewController alloc] initWithURL:URL];
-    
     if (self = [super initWithRootViewController:self.webViewController]) {
-        self.webViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self.webViewController action:@selector(doneButtonClicked:)];
+        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                                                    target:self.webViewController
+                                                                                    action:@selector(doneButtonClicked:)];
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+            self.webViewController.navigationItem.leftBarButtonItem = doneButton;
+        else
+            self.webViewController.navigationItem.rightBarButtonItem = doneButton;
     }
-    
-    self.barsTintColor = [UIColor blackColor];
-    
     return self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:NO];
     
+    self.webViewController.title = self.title;
     self.navigationBar.tintColor = self.barsTintColor;
-}
-
-- (void)setAvailableActions:(SVWebViewControllerAvailableActions)newAvailableActions {
-    self.webViewController.availableActions = newAvailableActions;
 }
 
 @end

@@ -22,9 +22,7 @@
 		0851498D167DA65C00D1ED43 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0851498C167DA65C00D1ED43 /* main.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		08514991167DA65C00D1ED43 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08514990167DA65C00D1ED43 /* AppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		085149A2167DC7D500D1ED43 /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085149A0167DC7D500D1ED43 /* ScheduleViewController.m */; };
-		085149A3167DC7D500D1ED43 /* ScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 085149A1167DC7D500D1ED43 /* ScheduleViewController.xib */; };
 		085149D1167ECDB300D1ED43 /* StreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085149CF167ECDB300D1ED43 /* StreamViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		085149D2167ECDB300D1ED43 /* StreamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 085149D0167ECDB300D1ED43 /* StreamViewController.xib */; };
 		088D718C16F5B68E002DF434 /* ShowData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 088D718B16F5B68E002DF434 /* ShowData.plist */; };
 		089C262D1680F1E70058567E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089C262C1680F1E70058567E /* AVFoundation.framework */; };
 		08CDD19116F7C9EF0061CDD1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CDD19016F7C9EF0061CDD1 /* MessageUI.framework */; };
@@ -35,6 +33,8 @@
 		0E32A52D18C56C850047E28F /* SourceSansPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E32A52A18C56C850047E28F /* SourceSansPro-Bold.otf */; };
 		0E32A52E18C56C850047E28F /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E32A52B18C56C850047E28F /* SourceSansPro-Regular.otf */; };
 		0E32A52F18C56C850047E28F /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E32A52C18C56C850047E28F /* SourceSansPro-Semibold.otf */; };
+		0E630091193BEF46008B72EE /* pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E63008F193BEF46008B72EE /* pause@2x.png */; };
+		0E630094193BEFA9008B72EE /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E630093193BEFA9008B72EE /* play@2x.png */; };
 		0E77E1C5193BBB4700AFFC8F /* SVWebViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0E77E1A7193BBB4700AFFC8F /* SVWebViewController.strings */; };
 		0E77E1C6193BBB4700AFFC8F /* SVModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E77E1B0193BBB4700AFFC8F /* SVModalWebViewController.m */; };
 		0E77E1C7193BBB4700AFFC8F /* SVWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0E77E1B1193BBB4700AFFC8F /* SVWebViewController.bundle */; };
@@ -50,8 +50,6 @@
 		0E77E1D1193BBB4700AFFC8F /* SVWebViewControllerActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E77E1C2193BBB4700AFFC8F /* SVWebViewControllerActivity.m */; };
 		0EA4AF1218C5693100F94066 /* schedule@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EA4AF1118C5693100F94066 /* schedule@2x.png */; };
 		0EA4AF1418C56A5200F94066 /* radio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EA4AF1318C56A5200F94066 /* radio@2x.png */; };
-		0ECB813918C5599D00B7C4B5 /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ECB813718C5599D00B7C4B5 /* play@2x.png */; };
-		0ECB813A18C5599D00B7C4B5 /* pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ECB813818C5599D00B7C4B5 /* pause@2x.png */; };
 		0ECB814618C55DDA00B7C4B5 /* UIFont+Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ECB814518C55DDA00B7C4B5 /* UIFont+Application.m */; };
 		0ED68AFB18C6D4F300370BD0 /* navbar-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ED68AFA18C6D4F300370BD0 /* navbar-logo@2x.png */; };
 		0EFDDD9718C7B9CF006C1B7B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EFDDD9618C7B9CF006C1B7B /* Images.xcassets */; };
@@ -82,10 +80,8 @@
 		08514990167DA65C00D1ED43 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0851499F167DC7D500D1ED43 /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
 		085149A0167DC7D500D1ED43 /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
-		085149A1167DC7D500D1ED43 /* ScheduleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleViewController.xib; sourceTree = "<group>"; };
 		085149CE167ECDB200D1ED43 /* StreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamViewController.h; sourceTree = "<group>"; };
 		085149CF167ECDB300D1ED43 /* StreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamViewController.m; sourceTree = "<group>"; };
-		085149D0167ECDB300D1ED43 /* StreamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StreamViewController.xib; sourceTree = "<group>"; };
 		088D718B16F5B68E002DF434 /* ShowData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ShowData.plist; sourceTree = "<group>"; };
 		089C262C1680F1E70058567E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		08CDD19016F7C9EF0061CDD1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -99,6 +95,8 @@
 		0E32A52A18C56C850047E28F /* SourceSansPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Bold.otf"; path = "KUCI/Fonts/SourceSansPro-Bold.otf"; sourceTree = "<group>"; };
 		0E32A52B18C56C850047E28F /* SourceSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Regular.otf"; path = "KUCI/Fonts/SourceSansPro-Regular.otf"; sourceTree = "<group>"; };
 		0E32A52C18C56C850047E28F /* SourceSansPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Semibold.otf"; path = "KUCI/Fonts/SourceSansPro-Semibold.otf"; sourceTree = "<group>"; };
+		0E63008F193BEF46008B72EE /* pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause@2x.png"; sourceTree = "<group>"; };
+		0E630093193BEFA9008B72EE /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
 		0E77E1A8193BBB4700AFFC8F /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
 		0E77E1A9193BBB4700AFFC8F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
 		0E77E1AA193BBB4700AFFC8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
@@ -127,8 +125,6 @@
 		0E77E1C4193BBB4700AFFC8F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SVWebViewController.strings"; sourceTree = "<group>"; };
 		0EA4AF1118C5693100F94066 /* schedule@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "schedule@2x.png"; sourceTree = "<group>"; };
 		0EA4AF1318C56A5200F94066 /* radio@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio@2x.png"; sourceTree = "<group>"; };
-		0ECB813718C5599D00B7C4B5 /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
-		0ECB813818C5599D00B7C4B5 /* pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause@2x.png"; sourceTree = "<group>"; };
 		0ECB814418C55DDA00B7C4B5 /* UIFont+Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Application.h"; sourceTree = "<group>"; };
 		0ECB814518C55DDA00B7C4B5 /* UIFont+Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Application.m"; sourceTree = "<group>"; };
 		0ED68AFA18C6D4F300370BD0 /* navbar-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-logo@2x.png"; sourceTree = "<group>"; };
@@ -198,8 +194,7 @@
 				08514990167DA65C00D1ED43 /* AppDelegate.m */,
 				0ECB814418C55DDA00B7C4B5 /* UIFont+Application.h */,
 				0ECB814518C55DDA00B7C4B5 /* UIFont+Application.m */,
-				08331EB91691191B00B9796F /* Show.h */,
-				08331EBA1691191B00B9796F /* Show.m */,
+				0E77E1D2193BBBD900AFFC8F /* Models */,
 				0E1B385119341141004AE4C8 /* Views */,
 				085149B6167E6EEE00D1ED43 /* View Controllers */,
 				085149C0167EBC3800D1ED43 /* XIBs */,
@@ -237,9 +232,7 @@
 		085149C0167EBC3800D1ED43 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
-				085149A1167DC7D500D1ED43 /* ScheduleViewController.xib */,
 				08331EDB1692738100B9796F /* ShowDetailViewController.xib */,
-				085149D0167ECDB300D1ED43 /* StreamViewController.xib */,
 			);
 			name = XIBs;
 			sourceTree = "<group>";
@@ -247,9 +240,9 @@
 		085149C3167EC3B500D1ED43 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0E630093193BEFA9008B72EE /* play@2x.png */,
+				0E63008F193BEF46008B72EE /* pause@2x.png */,
 				0EA4AF1318C56A5200F94066 /* radio@2x.png */,
-				0ECB813718C5599D00B7C4B5 /* play@2x.png */,
-				0ECB813818C5599D00B7C4B5 /* pause@2x.png */,
 				0ED68AFA18C6D4F300370BD0 /* navbar-logo@2x.png */,
 				0EA4AF1118C5693100F94066 /* schedule@2x.png */,
 				08349BFC167FB96A00490037 /* music@2x.png */,
@@ -328,6 +321,15 @@
 			path = Safari;
 			sourceTree = "<group>";
 		};
+		0E77E1D2193BBBD900AFFC8F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				08331EB91691191B00B9796F /* Show.h */,
+				08331EBA1691191B00B9796F /* Show.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		0EA4AF1018C5682D00F94066 /* HTML Parser */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,7 +390,7 @@
 				ORGANIZATIONNAME = "Nealon Young";
 				TargetAttributes = {
 					0851497B167DA65C00D1ED43 = {
-						DevelopmentTeam = 3KNK86UB96;
+						DevelopmentTeam = 4Z4Y9H22V8;
 					};
 				};
 			};
@@ -423,28 +425,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				0851498B167DA65C00D1ED43 /* InfoPlist.strings in Resources */,
-				085149A3167DC7D500D1ED43 /* ScheduleViewController.xib in Resources */,
 				0ED68AFB18C6D4F300370BD0 /* navbar-logo@2x.png in Resources */,
 				0E77E1C9193BBB4700AFFC8F /* SVWebViewControllerActivityChrome-iPad.png in Resources */,
 				0E32A52D18C56C850047E28F /* SourceSansPro-Bold.otf in Resources */,
 				0E77E1C7193BBB4700AFFC8F /* SVWebViewController.bundle in Resources */,
-				085149D2167ECDB300D1ED43 /* StreamViewController.xib in Resources */,
 				0E77E1CA193BBB4700AFFC8F /* SVWebViewControllerActivityChrome-iPad@2x.png in Resources */,
 				08349BFE167FB96A00490037 /* music@2x.png in Resources */,
+				0E630091193BEF46008B72EE /* pause@2x.png in Resources */,
 				08331EDD1692738100B9796F /* ShowDetailViewController.xib in Resources */,
 				088D718C16F5B68E002DF434 /* ShowData.plist in Resources */,
 				0E77E1CD193BBB4700AFFC8F /* SVWebViewControllerActivitySafari-iPad.png in Resources */,
 				0E32A52E18C56C850047E28F /* SourceSansPro-Regular.otf in Resources */,
 				0E77E1C5193BBB4700AFFC8F /* SVWebViewController.strings in Resources */,
 				0EFDDD9718C7B9CF006C1B7B /* Images.xcassets in Resources */,
-				0ECB813918C5599D00B7C4B5 /* play@2x.png in Resources */,
+				0E630094193BEFA9008B72EE /* play@2x.png in Resources */,
 				0E77E1CE193BBB4700AFFC8F /* SVWebViewControllerActivitySafari-iPad@2x.png in Resources */,
 				0EA4AF1218C5693100F94066 /* schedule@2x.png in Resources */,
 				0EA4AF1418C56A5200F94066 /* radio@2x.png in Resources */,
 				0E77E1D0193BBB4700AFFC8F /* SVWebViewControllerActivitySafari@2x.png in Resources */,
 				0E32A52F18C56C850047E28F /* SourceSansPro-Semibold.otf in Resources */,
 				0E77E1CC193BBB4700AFFC8F /* SVWebViewControllerActivityChrome@2x.png in Resources */,
-				0ECB813A18C5599D00B7C4B5 /* pause@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,7 +579,7 @@
 					Reveal,
 				);
 				PRODUCT_NAME = KUCI;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "B76A7122-A7EF-48C0-B493-6B864D4FA975";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

@@ -16,5 +16,6 @@
 @property (strong, nonatomic) NSString *host;
 
 - (id)initWithTime:(NSString *)time title:(NSString *)title description:(NSString *)description host:(NSString *)host;
++ (NSArray *)allShows;
 
 @end

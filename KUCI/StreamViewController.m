@@ -12,6 +12,9 @@
 
 - (void)donateButtonPressed;
 
+@property UILabel *showTitleLabel;
+@property UILabel *hostLabel;
+
 @end
 
 static NSString * const kStreamURLString = @"http://streamer.kuci.org:8000/high";
@@ -23,8 +26,62 @@ static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_d
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if (self) {
-        // Custom initialization        
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Listen" image:[UIImage imageNamed:@"radio.png"] tag:1];
+        
+        self.playButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.playButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self.playButton setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+        [self.playButton setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateSelected];
+        [self.playButton addTarget:self action:@selector(playButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:self.playButton];
+        
+        UILabel *nowPlayingLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        [nowPlayingLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+        nowPlayingLabel.text = NSLocalizedString(@"NOW PLAYING", nil);
+        nowPlayingLabel.font = [UIFont applicationFontOfSize:13.0f];
+        nowPlayingLabel.textColor = [UIColor lightGrayColor];
+        [self.view addSubview:nowPlayingLabel];
+        
+        self.showTitleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        [self.showTitleLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+        self.showTitleLabel.text = NSLocalizedString(@"Nirvanic Trance", nil);
+        self.showTitleLabel.font = [UIFont semiboldApplicationFontOfSize:15.0f];
+        self.showTitleLabel.textColor = [UIColor colorWithWhite:0.8f alpha:1.0f];
+        [self.view addSubview:self.showTitleLabel];
+        
+        self.hostLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        [self.hostLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+        self.hostLabel.text = NSLocalizedString(@"with Osburn", nil);
+        self.hostLabel.font = [UIFont semiboldApplicationFontOfSize:13.0f];
+        self.hostLabel.textColor = [UIColor colorWithWhite:0.8f alpha:1.0f];
+        [self.view addSubview:self.hostLabel];
+        
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-8-[playButton]-8-[nowPlayingLabel]"
+                                                                          options:0
+                                                                          metrics:nil
+                                                                            views:@{@"playButton": self.playButton,
+                                                                                    @"nowPlayingLabel": nowPlayingLabel}]];
+        
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-4-[nowPlayingLabel][showTitleLabel][hostLabel]"
+                                                                          options:NSLayoutFormatAlignAllLeft
+                                                                          metrics:nil
+                                                                            views:@{@"nowPlayingLabel": nowPlayingLabel,
+                                                                                    @"showTitleLabel": self.showTitleLabel,
+                                                                                    @"hostLabel": self.hostLabel}]];
+        
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-4-[playButton]-4-|"
+                                                                          options:0
+                                                                          metrics:nil
+                                                                            views:@{@"playButton": self.playButton}]];
+        
+        
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.playButton
+                                                              attribute:NSLayoutAttributeWidth
+                                                              relatedBy:NSLayoutRelationEqual
+                                                                 toItem:self.playButton
+                                                              attribute:NSLayoutAttributeHeight
+                                                             multiplier:1.0f
+                                                               constant:0.0f]];
     }
     
     return self;
@@ -33,7 +90,7 @@ static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_d
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor colorWithWhite:0.15f alpha:1.0f];
+    self.view.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar-logo.png"]];
     
     UIBarButtonItem *donateButton = [[UIBarButtonItem alloc] initWithTitle:@"Donate"
@@ -69,14 +126,13 @@ static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_d
 - (void)toggleStream:(NSNotification *)notification {
     if (self.player.rate == 0.0) {
         [self.player play];
-        [self.playButton setBackgroundImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
     } else {
         [self.player pause];
-        [self.playButton setBackgroundImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
     }
 }
 
-- (IBAction)playButtonPressed:(UIButton *)sender {
+- (void)playButtonPressed:(id)sender {
+    self.playButton.selected = !self.playButton.selected;
     [self toggleStream:NULL];
 }
 

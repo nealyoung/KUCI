@@ -37,17 +37,9 @@
                                                     NSFontAttributeName: [UIFont applicationFontOfSize:12.0f]};
     [[UITabBarItem appearance] setTitleTextAttributes:tabBarItemTitleTextAttributes forState:UIControlStateNormal];
 
-    ScheduleViewController *scheduleView = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:nil];
+    ScheduleViewController *scheduleView = [[ScheduleViewController alloc] initWithNibName:nil bundle:nil];
     UINavigationController *scheduleNavigationController = [[UINavigationController alloc] initWithRootViewController:scheduleView];
-    
-    StreamViewController *streamViewController = [[StreamViewController alloc] initWithNibName:@"StreamViewController" bundle:nil];
-    UINavigationController *streamNavigationController = [[UINavigationController alloc] initWithRootViewController:streamViewController];
 
-    UITabBarController *tabController = [[UITabBarController alloc] init];
-    tabController.viewControllers = @[scheduleNavigationController, streamNavigationController];
-    tabController.tabBar.selectedImageTintColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
-    tabController.tabBar.barTintColor = [UIColor colorWithWhite:0.15f alpha:1.0f];
-    
     // Enable background audio
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
@@ -66,7 +58,7 @@
     
 #pragma clang diagnostic pop
 
-    [self.window setRootViewController:tabController];
+    [self.window setRootViewController:scheduleNavigationController];
     [self.window makeKeyAndVisible];
 
     return YES;

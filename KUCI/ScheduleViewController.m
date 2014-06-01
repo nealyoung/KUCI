@@ -12,11 +12,14 @@
 #import "Show.h"
 #import "ShowDetailViewController.h"
 #import "ShowTableViewCell.h"
+#import "StreamViewController.h"
 
 @interface ScheduleViewController ()
 
 - (void)donateButtonPressed;
-- (void)parseSchedule;
+
+@property (strong, nonatomic) NSArray *shows;
+@property StreamViewController *streamViewController;
 
 @end
 
@@ -30,6 +33,34 @@ static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_d
     if (self) {
         // Custom initialization
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Schedule" image:[UIImage imageNamed:@"schedule.png"] tag:0];
+        
+        self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        self.tableView.dataSource = self;
+        self.tableView.delegate = self;
+        [self.view addSubview:self.tableView];
+        
+        self.streamViewController = [[StreamViewController alloc] initWithNibName:nil bundle:nil];
+        [self.streamViewController.view setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self addChildViewController:self.streamViewController];
+        [self.view addSubview:self.streamViewController.view];
+        [self.streamViewController didMoveToParentViewController:self];
+        
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[tableView]|"
+                                                                          options:0
+                                                                          metrics:nil
+                                                                            views:@{@"tableView": self.tableView}]];
+        
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[streamView]|"
+                                                                          options:0
+                                                                          metrics:nil
+                                                                            views:@{@"streamView": self.streamViewController.view}]];
+        
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[tableView][streamView(64)]|"
+                                                                          options:0
+                                                                          metrics:nil
+                                                                            views:@{@"tableView": self.tableView,
+                                                                                    @"streamView": self.streamViewController.view}]];
     }
     
     return self;
@@ -48,89 +79,18 @@ static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_d
     self.navigationItem.leftBarButtonItem = donateButton;
     self.navigationItem.rightBarButtonItem = todayButton;
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSArray *storedShows = [defaults arrayForKey:@"shows"];
+    NSArray *storedShows = [[NSUserDefaults standardUserDefaults] arrayForKey:@"shows"];
     
     // TODO Handle lack of network connectivity
     
-    
-    
     // Time in seconds since the schedule was last updated
-    NSTimeInterval updateInterval = [NSDate timeIntervalSinceReferenceDate] - [defaults doubleForKey:@"updated"];
+    NSTimeInterval updateInterval = [NSDate timeIntervalSinceReferenceDate] - [[NSUserDefaults standardUserDefaults] doubleForKey:@"updated"];
     
     // If the schedule is stored and has been updated in the last 5 days, use the stored schedule. Otherwise, fetch and parse the schedule from the KUCI website.
     if (updateInterval < 432000) {
         self.shows = [NSMutableArray arrayWithArray:storedShows];
     } else {
-        [self parseSchedule];
-    }
-}
-
-- (void)parseSchedule {
-    NSURL *scheduleURL = [NSURL URLWithString:@"http://kuci.org/schedule.shtml"];
-    
-    NSMutableString *scheduleHtml = [NSMutableString stringWithContentsOfURL:scheduleURL encoding:NSUTF8StringEncoding error:NULL];
-    
-    if (scheduleHtml) {
-        NSRange beginDay = [scheduleHtml rangeOfString:@"<!--- Loop would begin here --->"];
-        NSRange endDay = [scheduleHtml rangeOfString:@"<!--- end here --->"];
-                
-        self.shows = [[NSMutableArray alloc] init];
-        
-        while (beginDay.location != NSNotFound) {
-            // The portion of the schedule representing a single day
-            NSRange dayRange = NSMakeRange(beginDay.location, (endDay.location + endDay.length) - beginDay.location);
-            NSMutableString *daySchedule = (NSMutableString *)[scheduleHtml substringWithRange:dayRange];
-                        
-            NSError *error = nil;
-            HTMLParser *parser = [[HTMLParser alloc] initWithString:daySchedule error:&error];
-            
-            if (error) {
-                NSLog(@"%@", error);
-                return;
-            }
-            
-            HTMLNode *scheduleBody = [parser body];
-            NSArray *scheduleNodes = [scheduleBody findChildrenWithAttribute:@"class" matchingName:@"progschedule" allowPartial:FALSE];
-            NSArray *descriptionNodes = [scheduleBody findChildrenWithAttribute:@"class" matchingName:@"smallDark" allowPartial:FALSE];
-            
-            NSMutableArray *dayShows = [[NSMutableArray alloc] init];
-            
-            // Add shows to the array
-            for (NSInteger i = 0; i < [scheduleNodes count]; i += 2) {
-                NSString *time = [[scheduleNodes[i] allContents] substringFromIndex:1];
-                NSString *title = [[scheduleNodes[i + 1] allContents] substringFromIndex:1];
-                NSString *description = [descriptionNodes[i] allContents];
-                NSString *host = [[descriptionNodes[i + 1] allContents] substringFromIndex:3];
-                
-                NSArray *objects = [NSArray arrayWithObjects:time, title, description, host, nil];
-                NSArray *keys = [NSArray arrayWithObjects:@"time", @"title", @"description", @"host", nil];
-                
-                NSDictionary *show = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
-                
-                [dayShows addObject:show];
-            }
-            
-            // After processing the day's schedule, remove it from the main schedule HTML
-            [scheduleHtml deleteCharactersInRange:dayRange];
-            
-            
-            // Set beginDay and endDay to the beginning and ending positions of the next day
-            beginDay = [scheduleHtml rangeOfString:@"<!--- Loop would begin here --->"];
-            endDay = [scheduleHtml rangeOfString:@"<!--- end here --->"];
-            
-            // Remove the duplicate last show from the day array
-            [dayShows removeLastObject];
-            
-            // Convert the mutable array to NSArray
-            [self.shows addObject:[NSArray arrayWithArray:dayShows]];
-        }
-        
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        
-        // Save the fetched schedule (need to convert the mutable array to NSArray to save in defaults) and last updated time
-        [defaults setObject:[NSArray arrayWithArray:self.shows] forKey:@"shows"];
-        [defaults setDouble:[NSDate timeIntervalSinceReferenceDate] forKey:@"updated"];        
+        self.shows = [Show allShows];
     }
 }
 

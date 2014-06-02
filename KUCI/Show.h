@@ -12,10 +12,11 @@
 
 @property (strong, nonatomic) NSString *time;
 @property (strong, nonatomic) NSString *title;
-@property (strong, nonatomic) NSString *description;
+@property (strong, nonatomic) NSString *information;
 @property (strong, nonatomic) NSString *host;
 
-- (id)initWithTime:(NSString *)time title:(NSString *)title description:(NSString *)description host:(NSString *)host;
-+ (NSArray *)allShows;
++ (void)allShowsWithCompletion:(void (^)(NSArray *shows))block;
+
+- (id)initWithTime:(NSString *)time title:(NSString *)title information:(NSString *)information host:(NSString *)host;
 
 @end

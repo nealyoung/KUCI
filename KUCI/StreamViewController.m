@@ -44,14 +44,14 @@ static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_d
         
         self.showTitleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         [self.showTitleLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-        self.showTitleLabel.text = NSLocalizedString(@"Nirvanic Trance", nil);
+        self.showTitleLabel.text = NSLocalizedString(@"Prescriptions for Healing Conflict", nil);
         self.showTitleLabel.font = [UIFont semiboldApplicationFontOfSize:15.0f];
         self.showTitleLabel.textColor = [UIColor colorWithWhite:0.8f alpha:1.0f];
         [self.view addSubview:self.showTitleLabel];
         
         self.hostLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         [self.hostLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-        self.hostLabel.text = NSLocalizedString(@"with Osburn", nil);
+        self.hostLabel.text = NSLocalizedString(@"with Mari Frank", nil);
         self.hostLabel.font = [UIFont semiboldApplicationFontOfSize:13.0f];
         self.hostLabel.textColor = [UIColor colorWithWhite:0.8f alpha:1.0f];
         [self.view addSubview:self.hostLabel];
@@ -87,10 +87,15 @@ static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_d
     return self;
 }
 
+- (void)loadView {
+    // Make the view a UIToolbar for transparency/blur effects
+    self.view = [[UIToolbar alloc] initWithFrame:CGRectZero];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0];
+    self.view.tintColor = [UIColor colorWithWhite:0.15f alpha:1.0f];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar-logo.png"]];
     
     UIBarButtonItem *donateButton = [[UIBarButtonItem alloc] initWithTitle:@"Donate"
@@ -134,20 +139,6 @@ static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_d
 - (void)playButtonPressed:(id)sender {
     self.playButton.selected = !self.playButton.selected;
     [self toggleStream:NULL];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    //[[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-    
-    //[self becomeFirstResponder];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    //[[UIApplication sharedApplication] endReceivingRemoteControlEvents];
-    
-    //[self resignFirstResponder];
 }
 
 - (void)remoteControlReceivedWithEvent:(UIEvent *)event {

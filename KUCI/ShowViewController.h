@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Show.h"
 
-@interface ShowDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ShowViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, nonatomic) NSDictionary *show;
+@property (strong, nonatomic) Show *show;
 @property (strong, nonatomic) NSDictionary *showData;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 

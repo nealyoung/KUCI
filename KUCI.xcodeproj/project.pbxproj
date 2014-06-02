@@ -12,7 +12,6 @@
 		08331EB81691016A00B9796F /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 08331EB61691016A00B9796F /* HTMLParser.m */; };
 		08331EBB1691191B00B9796F /* Show.m in Sources */ = {isa = PBXBuildFile; fileRef = 08331EBA1691191B00B9796F /* Show.m */; };
 		08331EDC1692738100B9796F /* ShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08331EDA1692738100B9796F /* ShowViewController.m */; };
-		08331EDD1692738100B9796F /* ShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08331EDB1692738100B9796F /* ShowViewController.xib */; };
 		08349BFE167FB96A00490037 /* music@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08349BFC167FB96A00490037 /* music@2x.png */; };
 		08363E111690FFDB009BFE33 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 08363E101690FFDB009BFE33 /* libxml2.dylib */; };
 		08514981167DA65C00D1ED43 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08514980167DA65C00D1ED43 /* UIKit.framework */; };
@@ -67,7 +66,6 @@
 		08331EBA1691191B00B9796F /* Show.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Show.m; sourceTree = "<group>"; };
 		08331ED91692738100B9796F /* ShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowViewController.h; sourceTree = "<group>"; };
 		08331EDA1692738100B9796F /* ShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowViewController.m; sourceTree = "<group>"; };
-		08331EDB1692738100B9796F /* ShowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowViewController.xib; sourceTree = "<group>"; };
 		08349BFC167FB96A00490037 /* music@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "music@2x.png"; sourceTree = "<group>"; };
 		08363E101690FFDB009BFE33 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		0851497C167DA65C00D1ED43 /* KUCI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KUCI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,12 +196,10 @@
 			children = (
 				0851498F167DA65C00D1ED43 /* AppDelegate.h */,
 				08514990167DA65C00D1ED43 /* AppDelegate.m */,
-				0ECB814418C55DDA00B7C4B5 /* UIFont+Application.h */,
-				0ECB814518C55DDA00B7C4B5 /* UIFont+Application.m */,
+				0E63009C193C0918008B72EE /* Categories */,
 				0E77E1D2193BBBD900AFFC8F /* Models */,
 				0E1B385119341141004AE4C8 /* Views */,
 				085149B6167E6EEE00D1ED43 /* View Controllers */,
-				085149C0167EBC3800D1ED43 /* XIBs */,
 				0EFDDD9618C7B9CF006C1B7B /* Images.xcassets */,
 				08514987167DA65C00D1ED43 /* Supporting Files */,
 			);
@@ -233,14 +229,6 @@
 				085149CF167ECDB300D1ED43 /* StreamViewController.m */,
 			);
 			name = "View Controllers";
-			sourceTree = "<group>";
-		};
-		085149C0167EBC3800D1ED43 /* XIBs */ = {
-			isa = PBXGroup;
-			children = (
-				08331EDB1692738100B9796F /* ShowViewController.xib */,
-			);
-			name = XIBs;
 			sourceTree = "<group>";
 		};
 		085149C3167EC3B500D1ED43 /* Images */ = {
@@ -287,6 +275,15 @@
 				0E630099193C0747008B72EE /* SVProgressHUD.m */,
 			);
 			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		0E63009C193C0918008B72EE /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				0ECB814418C55DDA00B7C4B5 /* UIFont+Application.h */,
+				0ECB814518C55DDA00B7C4B5 /* UIFont+Application.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		0E77E1A6193BBB4700AFFC8F /* SVWebViewController */ = {
@@ -450,7 +447,6 @@
 				0E77E1CA193BBB4700AFFC8F /* SVWebViewControllerActivityChrome-iPad@2x.png in Resources */,
 				08349BFE167FB96A00490037 /* music@2x.png in Resources */,
 				0E630091193BEF46008B72EE /* pause@2x.png in Resources */,
-				08331EDD1692738100B9796F /* ShowViewController.xib in Resources */,
 				088D718C16F5B68E002DF434 /* ShowData.plist in Resources */,
 				0E77E1CD193BBB4700AFFC8F /* SVWebViewControllerActivitySafari-iPad.png in Resources */,
 				0E32A52E18C56C850047E28F /* SourceSansPro-Regular.otf in Resources */,

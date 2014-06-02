@@ -247,7 +247,7 @@ static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_d
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    ShowViewController *showDetailViewController = [[ShowViewController alloc] initWithNibName:@"ShowDetailViewController" bundle:nil];
+    ShowViewController *showDetailViewController = [[ShowViewController alloc] initWithStyle:UITableViewStyleGrouped];
     showDetailViewController.show = self.shows[indexPath.section][indexPath.row];
     
     [self.navigationController pushViewController:showDetailViewController animated:YES];

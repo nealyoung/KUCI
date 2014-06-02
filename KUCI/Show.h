@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSString *host;
 
 + (void)allShowsWithCompletion:(void (^)(NSArray *shows))block;
++ (void)currentShowWithCompletion:(void (^)(Show *show))block;
 
 - (id)initWithTime:(NSString *)time title:(NSString *)title information:(NSString *)information host:(NSString *)host;
 

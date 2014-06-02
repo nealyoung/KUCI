@@ -30,18 +30,18 @@ static NSString * const kScheduleURLString = @"http://kuci.org/schedule.shtml";
 + (void)allShowsWithCompletion:(void (^)(NSArray *shows))block {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         NSURL *scheduleURL = [NSURL URLWithString:kScheduleURLString];
-        NSMutableString *scheduleHtml = [NSMutableString stringWithContentsOfURL:scheduleURL encoding:NSUTF8StringEncoding error:NULL];
+        NSMutableString *scheduleHTML = [NSMutableString stringWithContentsOfURL:scheduleURL encoding:NSUTF8StringEncoding error:NULL];
         
-        if (scheduleHtml) {
-            NSRange dayStartRange = [scheduleHtml rangeOfString:@"<!--- Loop would begin here --->"];
-            NSRange dayEndRange = [scheduleHtml rangeOfString:@"<!--- end here --->"];
+        if (scheduleHTML) {
+            NSRange dayStartRange = [scheduleHTML rangeOfString:@"<!--- Loop would begin here --->"];
+            NSRange dayEndRange = [scheduleHTML rangeOfString:@"<!--- end here --->"];
             
             NSMutableArray *shows = [[NSMutableArray alloc] init];
             
             while (dayStartRange.location != NSNotFound) {
                 // The portion of the schedule representing a single day
                 NSRange dayRange = NSMakeRange(dayStartRange.location, (dayEndRange.location + dayEndRange.length) - dayStartRange.location);
-                NSMutableString *daySchedule = (NSMutableString *)[scheduleHtml substringWithRange:dayRange];
+                NSMutableString *daySchedule = (NSMutableString *)[scheduleHTML substringWithRange:dayRange];
                 
                 NSError *error = nil;
                 HTMLParser *parser = [[HTMLParser alloc] initWithString:daySchedule error:&error];
@@ -69,11 +69,11 @@ static NSString * const kScheduleURLString = @"http://kuci.org/schedule.shtml";
                 }
                 
                 // After processing the day's schedule, remove it from the main schedule HTML
-                [scheduleHtml deleteCharactersInRange:dayRange];
+                [scheduleHTML deleteCharactersInRange:dayRange];
                 
                 // Set dayStartRange and dayEndRange to the beginning and ending positions of the next day
-                dayStartRange = [scheduleHtml rangeOfString:@"<!--- Loop would begin here --->"];
-                dayEndRange = [scheduleHtml rangeOfString:@"<!--- end here --->"];
+                dayStartRange = [scheduleHTML rangeOfString:@"<!--- Loop would begin here --->"];
+                dayEndRange = [scheduleHTML rangeOfString:@"<!--- end here --->"];
                 
                 // Remove the duplicate last show from the day array
                 [dayShows removeLastObject];
@@ -90,7 +90,57 @@ static NSString * const kScheduleURLString = @"http://kuci.org/schedule.shtml";
 }
 
 + (void)currentShowWithCompletion:(void (^)(Show *show))block {
-    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        NSURL *homepageURL = [NSURL URLWithString:kHomepageURLString];
+        NSMutableString *homepageHTML = [NSMutableString stringWithContentsOfURL:homepageURL encoding:NSUTF8StringEncoding error:NULL];
+        
+        if (homepageHTML) {
+            NSRange dayStartRange = [homepageHTML rangeOfString:@"<!--- Loop would begin here --->"];
+            NSRange dayEndRange = [homepageHTML rangeOfString:@"<!--- end here --->"];
+            
+            while (dayStartRange.location != NSNotFound) {
+                // The portion of the schedule representing a single day
+                NSRange dayRange = NSMakeRange(dayStartRange.location, (dayEndRange.location + dayEndRange.length) - dayStartRange.location);
+                NSMutableString *daySchedule = (NSMutableString *)[homepageHTML substringWithRange:dayRange];
+                
+                NSError *error = nil;
+                HTMLParser *parser = [[HTMLParser alloc] initWithString:daySchedule error:&error];
+                
+                if (error) {
+                    block(nil);
+                }
+                
+                HTMLNode *scheduleBody = [parser body];
+                NSArray *scheduleNodes = [scheduleBody findChildrenWithAttribute:@"class" matchingName:@"currentlyplaying" allowPartial:FALSE];
+                
+                if ([scheduleNodes count]) {
+                    // I sure hope I never have to touch at this code again
+                    NSArray *descriptionNodes = [[[[[[[scheduleNodes firstObject] parent] nextSibling] nextSibling] children] objectAtIndex:3] children];
+                    
+                    NSString *time = [[[scheduleNodes firstObject] allContents] substringFromIndex:1];
+                    NSString *title = [[[scheduleNodes lastObject] allContents] substringFromIndex:1];
+                    NSString *information = [descriptionNodes[1] allContents];
+                    NSString *host = [[descriptionNodes[4] allContents] substringFromIndex:3];
+                    
+                    Show *currentShow = [[Show alloc] initWithTime:time title:title information:information host:host];
+                    
+                    block(currentShow);
+                    return;
+                }
+                
+                // After processing the day's schedule, remove it from the main schedule HTML
+                [homepageHTML deleteCharactersInRange:dayRange];
+                
+                // Set dayStartRange and dayEndRange to the beginning and ending positions of the next day
+                dayStartRange = [homepageHTML rangeOfString:@"<!--- Loop would begin here --->"];
+                dayEndRange = [homepageHTML rangeOfString:@"<!--- end here --->"];
+            }
+            
+            block(nil);
+        } else {
+            block(nil);
+        }
+    });
 }
 
 @end

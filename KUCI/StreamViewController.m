@@ -12,6 +12,7 @@
 @interface StreamViewController ()
 
 - (void)donateButtonPressed;
+- (void)updateCurrentShow;
 
 @property UILabel *showTitleLabel;
 @property UILabel *hostLabel;
@@ -23,83 +24,89 @@ static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_d
 
 @implementation StreamViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
-    if (self) {
-        self.playButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.playButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [self.playButton setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
-        [self.playButton setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateSelected];
-        [self.playButton addTarget:self action:@selector(playButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:self.playButton];
-        
-        UILabel *nowPlayingLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        [nowPlayingLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-        nowPlayingLabel.text = NSLocalizedString(@"NOW PLAYING", nil);
-        nowPlayingLabel.font = [UIFont applicationFontOfSize:13.0f];
-        nowPlayingLabel.textColor = [UIColor lightGrayColor];
-        [self.view addSubview:nowPlayingLabel];
-        
-        self.showTitleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        [self.showTitleLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-        self.showTitleLabel.font = [UIFont semiboldApplicationFontOfSize:15.0f];
-        self.showTitleLabel.textColor = [UIColor colorWithWhite:0.8f alpha:1.0f];
-        [self.view addSubview:self.showTitleLabel];
-        
-        self.hostLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        [self.hostLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-        self.hostLabel.font = [UIFont semiboldApplicationFontOfSize:13.0f];
-        self.hostLabel.textColor = [UIColor colorWithWhite:0.8f alpha:1.0f];
-        [self.view addSubview:self.hostLabel];
-        
-        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-8-[playButton]-8-[nowPlayingLabel]"
-                                                                          options:0
-                                                                          metrics:nil
-                                                                            views:@{@"playButton": self.playButton,
-                                                                                    @"nowPlayingLabel": nowPlayingLabel}]];
-        
-        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-4-[nowPlayingLabel][showTitleLabel][hostLabel]"
-                                                                          options:NSLayoutFormatAlignAllLeft
-                                                                          metrics:nil
-                                                                            views:@{@"nowPlayingLabel": nowPlayingLabel,
-                                                                                    @"showTitleLabel": self.showTitleLabel,
-                                                                                    @"hostLabel": self.hostLabel}]];
-        
-        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-4-[playButton]-4-|"
-                                                                          options:0
-                                                                          metrics:nil
-                                                                            views:@{@"playButton": self.playButton}]];
-        
-        
-        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.playButton
-                                                              attribute:NSLayoutAttributeWidth
-                                                              relatedBy:NSLayoutRelationEqual
-                                                                 toItem:self.playButton
-                                                              attribute:NSLayoutAttributeHeight
-                                                             multiplier:1.0f
-                                                               constant:0.0f]];
-    }
-    
-    return self;
-}
-
 - (void)loadView {
     // Make the view a UIToolbar for transparency/blur effects
     self.view = [[UIToolbar alloc] initWithFrame:CGRectZero];
+    ((UIToolbar *)self.view).barTintColor = [UIColor colorWithWhite:0.15f alpha:1.0f];
+    
+    self.playButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.playButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.playButton setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+    [self.playButton setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateSelected];
+    [self.playButton addTarget:self action:@selector(playButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.playButton];
+    
+    UILabel *nowPlayingLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    [nowPlayingLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    nowPlayingLabel.text = NSLocalizedString(@"NOW PLAYING", nil);
+    nowPlayingLabel.font = [UIFont applicationFontOfSize:13.0f];
+    nowPlayingLabel.textColor = [UIColor lightGrayColor];
+    [self.view addSubview:nowPlayingLabel];
+    
+    self.showTitleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    [self.showTitleLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    self.showTitleLabel.font = [UIFont semiboldApplicationFontOfSize:15.0f];
+    self.showTitleLabel.textColor = [UIColor colorWithWhite:0.8f alpha:1.0f];
+    [self.view addSubview:self.showTitleLabel];
+    
+    self.hostLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    [self.hostLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    self.hostLabel.font = [UIFont semiboldApplicationFontOfSize:13.0f];
+    self.hostLabel.textColor = [UIColor colorWithWhite:0.8f alpha:1.0f];
+    [self.view addSubview:self.hostLabel];
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-8-[playButton]-8-[nowPlayingLabel]"
+                                                                      options:0
+                                                                      metrics:nil
+                                                                        views:@{@"playButton": self.playButton,
+                                                                                @"nowPlayingLabel": nowPlayingLabel}]];
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[playButton]-8-[showTitleLabel]|"
+                                                                      options:0
+                                                                      metrics:nil
+                                                                        views:@{@"playButton": self.playButton,
+                                                                                @"showTitleLabel": self.showTitleLabel}]];
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[playButton]-8-[hostLabel]|"
+                                                                      options:0
+                                                                      metrics:nil
+                                                                        views:@{@"playButton": self.playButton,
+                                                                                @"hostLabel": self.hostLabel}]];
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-4-[nowPlayingLabel][showTitleLabel][hostLabel]"
+                                                                      options:0
+                                                                      metrics:nil
+                                                                        views:@{@"nowPlayingLabel": nowPlayingLabel,
+                                                                                @"showTitleLabel": self.showTitleLabel,
+                                                                                @"hostLabel": self.hostLabel}]];
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-4-[playButton]-4-|"
+                                                                      options:0
+                                                                      metrics:nil
+                                                                        views:@{@"playButton": self.playButton}]];
+    
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.playButton
+                                                          attribute:NSLayoutAttributeWidth
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.playButton
+                                                          attribute:NSLayoutAttributeHeight
+                                                         multiplier:1.0f
+                                                           constant:0.0f]];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [Show currentShowWithCompletion:^(Show *show) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.showTitleLabel.text = show.title;
-            self.hostLabel.text = [NSString stringWithFormat:NSLocalizedString(@"with %@", nil), show.host];
-        });
-    }];
+    [self updateCurrentShow];
     
-    self.view.tintColor = [UIColor colorWithWhite:0.15f alpha:1.0f];
+    // Every 30 seconds, update the current show display
+    [NSTimer scheduledTimerWithTimeInterval:30.0f
+                                     target:self
+                                   selector:@selector(updateCurrentShow)
+                                   userInfo:nil
+                                    repeats:YES];
+    
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar-logo.png"]];
     
     UIBarButtonItem *donateButton = [[UIBarButtonItem alloc] initWithTitle:@"Donate"
@@ -138,6 +145,15 @@ static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_d
     } else {
         [self.player pause];
     }
+}
+
+- (void)updateCurrentShow {
+    [Show currentShowWithCompletion:^(Show *show) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.showTitleLabel.text = show.title;
+            self.hostLabel.text = [NSString stringWithFormat:NSLocalizedString(@"with %@", nil), show.host];
+        });
+    }];
 }
 
 - (void)playButtonPressed:(id)sender {

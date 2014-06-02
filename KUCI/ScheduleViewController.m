@@ -97,9 +97,17 @@ static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_d
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+
     // Deselect selected row when detail view controller is popped from the navigation stack
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+}
+
+- (void)viewDidLayoutSubviews {
+    // Set the bottom content inset of the table view to 64 pixels so its content does not overlap with the stream controller
+    UIEdgeInsets contentInset = self.tableView.contentInset;
+    contentInset.bottom = 64.0f;
+    self.tableView.contentInset = contentInset;
+    self.tableView.scrollIndicatorInsets = contentInset;
 }
 
 - (void)scrollToCurrentDay {

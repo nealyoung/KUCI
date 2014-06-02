@@ -35,6 +35,7 @@
 		0E630094193BEFA9008B72EE /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E630093193BEFA9008B72EE /* play@2x.png */; };
 		0E63009A193C0747008B72EE /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0E630097193C0747008B72EE /* SVProgressHUD.bundle */; };
 		0E63009B193C0747008B72EE /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E630099193C0747008B72EE /* SVProgressHUD.m */; };
+		0E63009F193C29C9008B72EE /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63009E193C29C9008B72EE /* ContainerViewController.m */; };
 		0E77E1C5193BBB4700AFFC8F /* SVWebViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0E77E1A7193BBB4700AFFC8F /* SVWebViewController.strings */; };
 		0E77E1C6193BBB4700AFFC8F /* SVModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E77E1B0193BBB4700AFFC8F /* SVModalWebViewController.m */; };
 		0E77E1C7193BBB4700AFFC8F /* SVWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0E77E1B1193BBB4700AFFC8F /* SVWebViewController.bundle */; };
@@ -97,6 +98,8 @@
 		0E630097193C0747008B72EE /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		0E630098193C0747008B72EE /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		0E630099193C0747008B72EE /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		0E63009D193C29C9008B72EE /* ContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerViewController.h; sourceTree = "<group>"; };
+		0E63009E193C29C9008B72EE /* ContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerViewController.m; sourceTree = "<group>"; };
 		0E77E1A8193BBB4700AFFC8F /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
 		0E77E1A9193BBB4700AFFC8F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
 		0E77E1AA193BBB4700AFFC8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
@@ -215,6 +218,8 @@
 		085149B6167E6EEE00D1ED43 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0E63009D193C29C9008B72EE /* ContainerViewController.h */,
+				0E63009E193C29C9008B72EE /* ContainerViewController.m */,
 				0851499F167DC7D500D1ED43 /* ScheduleViewController.h */,
 				085149A0167DC7D500D1ED43 /* ScheduleViewController.m */,
 				08331ED91692738100B9796F /* ShowViewController.h */,
@@ -460,6 +465,7 @@
 			files = (
 				0E1B3854193417F7004AE4C8 /* ShowDescriptionTableViewCell.m in Sources */,
 				0851498D167DA65C00D1ED43 /* main.m in Sources */,
+				0E63009F193C29C9008B72EE /* ContainerViewController.m in Sources */,
 				0ECB814618C55DDA00B7C4B5 /* UIFont+Application.m in Sources */,
 				08514991167DA65C00D1ED43 /* AppDelegate.m in Sources */,
 				0E77E1C6193BBB4700AFFC8F /* SVModalWebViewController.m in Sources */,

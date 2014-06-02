@@ -6,11 +6,10 @@
 //  Copyright (c) 2012 Nealon Young. All rights reserved.
 //
 
-#import "AppDelegate.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
-#import "ScheduleViewController.h"
-#import "StreamViewController.h"
+#import "AppDelegate.h"
+#import "ContainerViewController.h"
 
 @implementation AppDelegate
 
@@ -37,8 +36,7 @@
                                                     NSFontAttributeName: [UIFont applicationFontOfSize:12.0f]};
     [[UITabBarItem appearance] setTitleTextAttributes:tabBarItemTitleTextAttributes forState:UIControlStateNormal];
 
-    ScheduleViewController *scheduleView = [[ScheduleViewController alloc] initWithNibName:nil bundle:nil];
-    UINavigationController *scheduleNavigationController = [[UINavigationController alloc] initWithRootViewController:scheduleView];
+    ContainerViewController *containerViewController = [[ContainerViewController alloc] initWithNibName:nil bundle:nil];
 
     // Enable background audio
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
@@ -58,7 +56,7 @@
     
 #pragma clang diagnostic pop
 
-    [self.window setRootViewController:scheduleNavigationController];
+    [self.window setRootViewController:containerViewController];
     [self.window makeKeyAndVisible];
 
     return YES;

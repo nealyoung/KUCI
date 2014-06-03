@@ -184,8 +184,12 @@ static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_d
 - (void)updateCurrentShow {
     [Show currentShowWithCompletion:^(Show *show) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.showTitleLabel.text = show.title;
-            self.hostLabel.text = [NSString stringWithFormat:NSLocalizedString(@"with %@", nil), show.host];
+            if (show) {
+                self.showTitleLabel.text = show.title;
+                self.hostLabel.text = [NSString stringWithFormat:NSLocalizedString(@"with %@", nil), show.host];
+            } else {
+                self.showTitleLabel.text = NSLocalizedString(@"No program info", nil);
+            }
         });
     }];
 }

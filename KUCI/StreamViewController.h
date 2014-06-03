@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface StreamViewController : UIViewController
 
 @property (strong, nonatomic) UIButton *playButton;
-@property (strong, nonatomic) AVPlayer *player;
+@property (strong, nonatomic) MPMoviePlayerController *player;
 
 - (void)toggleStream:(NSNotification *)notification;
 

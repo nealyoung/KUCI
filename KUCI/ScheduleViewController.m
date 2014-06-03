@@ -19,7 +19,6 @@
 - (void)donateButtonPressed;
 
 @property (strong, nonatomic) NSArray *shows;
-@property StreamViewController *streamViewController;
 
 @end
 
@@ -36,31 +35,15 @@ static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_d
     self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
     
-    self.streamViewController = [[StreamViewController alloc] initWithNibName:nil bundle:nil];
-    [self.streamViewController.view setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self addChildViewController:self.streamViewController];
-    [self.view addSubview:self.streamViewController.view];
-    [self.streamViewController didMoveToParentViewController:self];
-    
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[tableView]|"
                                                                       options:0
                                                                       metrics:nil
                                                                         views:@{@"tableView": self.tableView}]];
     
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[streamView]|"
-                                                                      options:0
-                                                                      metrics:nil
-                                                                        views:@{@"streamView": self.streamViewController.view}]];
-    
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[tableView]|"
                                                                       options:0
                                                                       metrics:nil
                                                                         views:@{@"tableView": self.tableView}]];
-    
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[streamView(64)]|"
-                                                                      options:0
-                                                                      metrics:nil
-                                                                        views:@{@"streamView": self.streamViewController.view}]];
 }
 
 - (void)viewDidLoad {

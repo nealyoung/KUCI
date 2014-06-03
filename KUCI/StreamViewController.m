@@ -11,6 +11,7 @@
 
 @interface StreamViewController ()
 
+- (void)callButtonPressed;
 - (void)donateButtonPressed;
 - (void)updateCurrentShow;
 
@@ -23,6 +24,32 @@ static NSString * const kStreamURLString = @"http://streamer.kuci.org:8000/high"
 static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_drive/index.shtml";
 
 @implementation StreamViewController
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    if (self) {
+        // Enable background audio
+        [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+        
+        NSError *sessionError = nil;
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&sessionError];
+        [[AVAudioSession sharedInstance] setActive:YES error:nil];
+        
+        UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;
+        UInt32 doChangeDefaultRoute = 1;
+        
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        
+        AudioSessionSetProperty(kAudioSessionProperty_OverrideAudioRoute, sizeof(audioRouteOverride), &audioRouteOverride);
+        AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof(doChangeDefaultRoute), &doChangeDefaultRoute);
+        
+#pragma clang diagnostic pop
+    }
+    
+    return self;
+}
 
 - (void)loadView {
     // Make the view a UIToolbar for transparency/blur effects
@@ -132,15 +159,22 @@ static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_d
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleStream:) name:@"toggleStream" object:nil];
     
     NSURL *streamURL = [NSURL URLWithString:kStreamURLString];
-    self.player = [[AVPlayer alloc] initWithURL:streamURL];
-    
-    // Start loading data for faster playback when the user first taps the button
-    [self.player play];
-    [self.player pause];
+    self.player = [[MPMoviePlayerController alloc] initWithContentURL:streamURL];
+    //[self.player prepareToPlay];
+}
+
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (BOOL)canResignFirstResponder {
+    return YES;
 }
 
 - (void)toggleStream:(NSNotification *)notification {
-    if (self.player.rate == 0.0) {
+    self.playButton.selected = !self.playButton.selected;
+
+    if (self.player.currentPlaybackRate == 0.0) {
         [self.player play];
     } else {
         [self.player pause];
@@ -157,23 +191,7 @@ static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_d
 }
 
 - (void)playButtonPressed:(id)sender {
-    self.playButton.selected = !self.playButton.selected;
     [self toggleStream:NULL];
-}
-
-- (void)remoteControlReceivedWithEvent:(UIEvent *)event {
-    [self toggleStream:NULL];
-
-    if (event.type == UIEventTypeRemoteControl) {
-    }
-}
-
-- (BOOL)canBecomeFirstResponder {
-    return YES;
-}
-
-- (BOOL)canResignFirstResponder {
-    return YES;
 }
 
 - (void)donateButtonPressed {

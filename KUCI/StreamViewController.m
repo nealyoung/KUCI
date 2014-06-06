@@ -136,21 +136,6 @@ static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_d
     
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar-logo.png"]];
     
-    UIBarButtonItem *donateButton = [[UIBarButtonItem alloc] initWithTitle:@"Donate"
-                                                                     style:UIBarButtonItemStylePlain
-                                                                    target:self
-                                                                    action:@selector(donateButtonPressed)];
-    self.navigationItem.leftBarButtonItem = donateButton;
-    
-    UIDevice *device = [UIDevice currentDevice];
-    if ([[device model] isEqualToString:@"iPhone"]) {
-        UIBarButtonItem *callButton = [[UIBarButtonItem alloc] initWithTitle:@"Call"
-                                                                       style:UIBarButtonItemStylePlain
-                                                                      target:self
-                                                                      action:@selector(callButtonPressed)];
-        self.navigationItem.rightBarButtonItem = callButton;
-    }
-    
     
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     [[AVAudioSession sharedInstance] setActive:YES error:nil];

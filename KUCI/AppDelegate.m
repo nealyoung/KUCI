@@ -49,14 +49,9 @@
     NSDictionary *barButtonItemTitleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor],
                                                        NSFontAttributeName: [UIFont applicationFontOfSize:17.0f]};
     [[UIBarButtonItem appearance] setTitleTextAttributes:barButtonItemTitleTextAttributes forState:UIControlStateNormal];
-    
-    NSDictionary *tabBarItemTitleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor],
-                                                    NSFontAttributeName: [UIFont applicationFontOfSize:12.0f]};
-    [[UITabBarItem appearance] setTitleTextAttributes:tabBarItemTitleTextAttributes forState:UIControlStateNormal];
 }
 
 - (void)remoteControlReceivedWithEvent:(UIEvent *)event {
-    NSLog(@"Got event");
     if (event.subtype == UIEventSubtypeRemoteControlTogglePlayPause ||
         event.subtype == UIEventSubtypeRemoteControlPlay ||
         event.subtype == UIEventSubtypeRemoteControlPause) {

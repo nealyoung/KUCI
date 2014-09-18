@@ -25,6 +25,7 @@
 		089C262D1680F1E70058567E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089C262C1680F1E70058567E /* AVFoundation.framework */; };
 		08CDD19116F7C9EF0061CDD1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CDD19016F7C9EF0061CDD1 /* MessageUI.framework */; };
 		08F537BC169CDBB200685480 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F537BB169CDBB200685480 /* CoreMedia.framework */; };
+		0E124C7A19CB9A8200A2579C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E124C7919CB9A8200A2579C /* LaunchScreen.xib */; };
 		0E1B385019341136004AE4C8 /* ShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B384F19341136004AE4C8 /* ShowTableViewCell.m */; };
 		0E1B3854193417F7004AE4C8 /* ShowDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B3853193417F7004AE4C8 /* ShowDescriptionTableViewCell.m */; };
 		0E2866E01702C62400816222 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E2866DF1702C62400816222 /* SystemConfiguration.framework */; };
@@ -84,6 +85,7 @@
 		089C262C1680F1E70058567E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		08CDD19016F7C9EF0061CDD1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		08F537BB169CDBB200685480 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		0E124C7919CB9A8200A2579C /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = ../LaunchScreen.xib; sourceTree = "<group>"; };
 		0E1B384E19341136004AE4C8 /* ShowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowTableViewCell.h; sourceTree = "<group>"; };
 		0E1B384F19341136004AE4C8 /* ShowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowTableViewCell.m; sourceTree = "<group>"; };
 		0E1B3852193417F7004AE4C8 /* ShowDescriptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDescriptionTableViewCell.h; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 		08514987167DA65C00D1ED43 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0E124C7919CB9A8200A2579C /* LaunchScreen.xib */,
 				088D718B16F5B68E002DF434 /* ShowData.plist */,
 				08514988167DA65C00D1ED43 /* KUCI-Info.plist */,
 				08514989167DA65C00D1ED43 /* InfoPlist.strings */,
@@ -452,6 +455,7 @@
 				0E77E1C5193BBB4700AFFC8F /* SVWebViewController.strings in Resources */,
 				0EFDDD9718C7B9CF006C1B7B /* Images.xcassets in Resources */,
 				0E630094193BEFA9008B72EE /* play@2x.png in Resources */,
+				0E124C7A19CB9A8200A2579C /* LaunchScreen.xib in Resources */,
 				0E77E1CE193BBB4700AFFC8F /* SVWebViewControllerActivitySafari-iPad@2x.png in Resources */,
 				0E77E1D0193BBB4700AFFC8F /* SVWebViewControllerActivitySafari@2x.png in Resources */,
 				0E32A52F18C56C850047E28F /* SourceSansPro-Semibold.otf in Resources */,

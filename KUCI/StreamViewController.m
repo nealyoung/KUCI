@@ -17,6 +17,7 @@
 
 @property UILabel *showTitleLabel;
 @property UILabel *hostLabel;
+@property UIImageView *spinnerImageView;
 
 @end
 
@@ -62,6 +63,11 @@ static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_d
     [self.playButton setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateSelected];
     [self.playButton addTarget:self action:@selector(playButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.playButton];
+    
+    self.spinnerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"spinner"]];
+    [self.spinnerImageView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    self.spinnerImageView.layer.opacity = 0.0f;
+    [self.view addSubview:self.spinnerImageView];
     
     UILabel *nowPlayingLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     [nowPlayingLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -120,6 +126,22 @@ static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_d
                                                           attribute:NSLayoutAttributeHeight
                                                          multiplier:1.0f
                                                            constant:0.0f]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.spinnerImageView
+                                                          attribute:NSLayoutAttributeCenterX
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.playButton
+                                                          attribute:NSLayoutAttributeCenterX
+                                                         multiplier:1.0f
+                                                           constant:0.0f]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.spinnerImageView
+                                                          attribute:NSLayoutAttributeCenterY
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.playButton
+                                                          attribute:NSLayoutAttributeCenterY
+                                                         multiplier:1.0f
+                                                           constant:0.0f]];
 }
 
 - (void)viewDidLoad {
@@ -161,8 +183,31 @@ static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_d
 
     if (self.player.currentPlaybackRate == 0.0) {
         [self.player play];
+        
+        [UIView animateWithDuration:0.25f
+                         animations:^{
+                             self.spinnerImageView.layer.opacity = 1.0f;
+                         }];
+        
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+        animation.toValue = [NSNumber numberWithFloat: 2.0 * M_PI];
+        animation.duration = 1.8f;
+        animation.repeatCount = HUGE_VALF;
+        
+        [self.spinnerImageView.layer addAnimation:animation forKey:@"rotationAnimation"];
     } else {
         [self.player pause];
+        
+        // Fade out the spinner
+        [UIView animateWithDuration:0.25f
+                         animations:^{
+                             self.spinnerImageView.layer.opacity = 0.0f;
+                         }
+                         completion:^(BOOL finished) {
+                             if (finished) {
+                                 [self.spinnerImageView.layer removeAnimationForKey:@"rotationAnimation"];
+                             }
+                         }];
     }
 }
 

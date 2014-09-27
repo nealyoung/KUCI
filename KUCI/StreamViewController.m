@@ -59,12 +59,12 @@ static NSString * const kDonationURLString = @"http://www.kuci.org/paypal/fund_d
     
     self.playButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.playButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.playButton setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
-    [self.playButton setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateSelected];
+    [self.playButton setBackgroundImage:[UIImage imageNamed:@"PlayIcon"] forState:UIControlStateNormal];
+    [self.playButton setBackgroundImage:[UIImage imageNamed:@"PauseIcon"] forState:UIControlStateSelected];
     [self.playButton addTarget:self action:@selector(playButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.playButton];
     
-    self.spinnerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"spinner"]];
+    self.spinnerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Spinner"]];
     [self.spinnerImageView setTranslatesAutoresizingMaskIntoConstraints:NO];
     self.spinnerImageView.layer.opacity = 0.0f;
     [self.view addSubview:self.spinnerImageView];

@@ -33,8 +33,6 @@
 		0E32A52D18C56C850047E28F /* SourceSansPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E32A52A18C56C850047E28F /* SourceSansPro-Bold.otf */; };
 		0E32A52E18C56C850047E28F /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E32A52B18C56C850047E28F /* SourceSansPro-Regular.otf */; };
 		0E32A52F18C56C850047E28F /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E32A52C18C56C850047E28F /* SourceSansPro-Semibold.otf */; };
-		0E630091193BEF46008B72EE /* pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E63008F193BEF46008B72EE /* pause@2x.png */; };
-		0E630094193BEFA9008B72EE /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E630093193BEFA9008B72EE /* play@2x.png */; };
 		0E63009A193C0747008B72EE /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0E630097193C0747008B72EE /* SVProgressHUD.bundle */; };
 		0E63009B193C0747008B72EE /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E630099193C0747008B72EE /* SVProgressHUD.m */; };
 		0E63009F193C29C9008B72EE /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63009E193C29C9008B72EE /* ContainerViewController.m */; };
@@ -54,7 +52,6 @@
 		0EA19FAD193D75A200486260 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA19FAC193D75A200486260 /* MediaPlayer.framework */; };
 		0ECB814618C55DDA00B7C4B5 /* UIFont+Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ECB814518C55DDA00B7C4B5 /* UIFont+Application.m */; };
 		0ED68AFB18C6D4F300370BD0 /* navbar-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ED68AFA18C6D4F300370BD0 /* navbar-logo@2x.png */; };
-		0EE7F60919D6A0470066B23E /* spinner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EE7F60819D6A0470066B23E /* spinner@2x.png */; };
 		0EFDDD9718C7B9CF006C1B7B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EFDDD9618C7B9CF006C1B7B /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -98,8 +95,6 @@
 		0E32A52A18C56C850047E28F /* SourceSansPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Bold.otf"; path = "KUCI/Fonts/SourceSansPro-Bold.otf"; sourceTree = "<group>"; };
 		0E32A52B18C56C850047E28F /* SourceSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Regular.otf"; path = "KUCI/Fonts/SourceSansPro-Regular.otf"; sourceTree = "<group>"; };
 		0E32A52C18C56C850047E28F /* SourceSansPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Semibold.otf"; path = "KUCI/Fonts/SourceSansPro-Semibold.otf"; sourceTree = "<group>"; };
-		0E63008F193BEF46008B72EE /* pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause@2x.png"; sourceTree = "<group>"; };
-		0E630093193BEFA9008B72EE /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
 		0E630096193C0747008B72EE /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
 		0E630097193C0747008B72EE /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		0E630098193C0747008B72EE /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
@@ -136,7 +131,6 @@
 		0ECB814418C55DDA00B7C4B5 /* UIFont+Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Application.h"; sourceTree = "<group>"; };
 		0ECB814518C55DDA00B7C4B5 /* UIFont+Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Application.m"; sourceTree = "<group>"; };
 		0ED68AFA18C6D4F300370BD0 /* navbar-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-logo@2x.png"; sourceTree = "<group>"; };
-		0EE7F60819D6A0470066B23E /* spinner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spinner@2x.png"; sourceTree = "<group>"; };
 		0EFDDD9618C7B9CF006C1B7B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -246,9 +240,6 @@
 		085149C3167EC3B500D1ED43 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				0E630093193BEFA9008B72EE /* play@2x.png */,
-				0E63008F193BEF46008B72EE /* pause@2x.png */,
-				0EE7F60819D6A0470066B23E /* spinner@2x.png */,
 				0ED68AFA18C6D4F300370BD0 /* navbar-logo@2x.png */,
 			);
 			name = Images;
@@ -455,14 +446,11 @@
 				0E32A52D18C56C850047E28F /* SourceSansPro-Bold.otf in Resources */,
 				0E77E1C7193BBB4700AFFC8F /* SVWebViewController.bundle in Resources */,
 				0E77E1CA193BBB4700AFFC8F /* SVWebViewControllerActivityChrome-iPad@2x.png in Resources */,
-				0EE7F60919D6A0470066B23E /* spinner@2x.png in Resources */,
-				0E630091193BEF46008B72EE /* pause@2x.png in Resources */,
 				088D718C16F5B68E002DF434 /* ShowData.plist in Resources */,
 				0E77E1CD193BBB4700AFFC8F /* SVWebViewControllerActivitySafari-iPad.png in Resources */,
 				0E32A52E18C56C850047E28F /* SourceSansPro-Regular.otf in Resources */,
 				0E77E1C5193BBB4700AFFC8F /* SVWebViewController.strings in Resources */,
 				0EFDDD9718C7B9CF006C1B7B /* Images.xcassets in Resources */,
-				0E630094193BEFA9008B72EE /* play@2x.png in Resources */,
 				0E124C7A19CB9A8200A2579C /* LaunchScreen.xib in Resources */,
 				0E77E1CE193BBB4700AFFC8F /* SVWebViewControllerActivitySafari-iPad@2x.png in Resources */,
 				0E77E1D0193BBB4700AFFC8F /* SVWebViewControllerActivitySafari@2x.png in Resources */,
